@@ -19,8 +19,14 @@ on:
     - cron: '*/30 * * * *'
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   canary:
+    # Probes production; scheduled runs belong to upstream only (forks would
+    # poll basedagents.ai on a cron). Manual dispatch still works anywhere.
+    if: github.repository == 'maxfain/basedagents' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     # Worst case adds one 60s backoff per fetch (6 fetches) on top of curl time.
     timeout-minutes: 10

@@ -10,6 +10,10 @@ on:
   # which run on main regardless of what triggered the workflow.
   workflow_dispatch:
 
+# Least privilege by default; jobs that need more ask for it (preview).
+permissions:
+  contents: read
+
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
@@ -20,9 +24,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4.4.0
         with:
           node-version: 22
           cache: npm
@@ -87,9 +90,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4.4.0
         with:
           node-version: 22
           cache: npm
@@ -107,9 +109,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065  # v5.6.0
         with:
           python-version: '3.12'
 
@@ -124,9 +125,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4.4.0
         with:
           node-version: 22
           cache: npm
@@ -157,7 +157,7 @@ jobs:
 
       - name: Upload Playwright report on failure
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # v4.6.2
         with:
           name: playwright-report
           path: |
@@ -179,9 +179,8 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4.4.0
         with:
           node-version: 22
           cache: npm
@@ -198,7 +197,7 @@ jobs:
       # ./functions from the CURRENT directory (the `/` negotiation function).
       - name: Deploy console preview to Cloudflare Pages
         id: deploy
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd  # v3.15.0
         with:
           wranglerVersion: "4.111.0"  # pin a current wrangler; the action's v3 default (3.90.0) is ~1.5y old
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -208,7 +207,7 @@ jobs:
 
       - name: Deploy site preview to Cloudflare Pages
         id: deploy-site
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd  # v3.15.0
         with:
           wranglerVersion: "4.111.0"
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -223,7 +222,7 @@ jobs:
 
       - name: Comment preview URLs on the PR
         if: always()
-        uses: actions/github-script@v7
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b  # v7.1.0
         with:
           script: |
             const url = `${{ steps.deploy.outputs.deployment-url }}`;
@@ -244,15 +243,15 @@ jobs:
   # ── main: gates green → migrations → Worker → console. Zero manual steps. ──
   deploy-production:
     name: Deploy production (API + console)
-    if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
+    # Upstream only: a fork has no Cloudflare secrets and must never try to deploy.
+    if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main' && github.repository == 'maxfain/basedagents'
     needs: [node, python, e2e]
     runs-on: ubuntu-latest
     timeout-minutes: 15
     environment: production
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4.4.0
         with:
           node-version: 22
           cache: npm
@@ -300,7 +299,7 @@ jobs:
       # wrangler tracks applied migrations in the d1_migrations table; see
       # scripts/bootstrap-deploy.md for the one-time bookkeeping check.
       - name: Apply D1 migrations
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd  # v3.15.0
         with:
           wranglerVersion: "4.111.0"  # pin a current wrangler; the action's v3 default (3.90.0) is ~1.5y old
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -309,7 +308,7 @@ jobs:
           command: d1 migrations apply agent-registry --remote
 
       - name: Deploy API Worker
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd  # v3.15.0
         with:
           wranglerVersion: "4.111.0"  # pin a current wrangler; the action's v3 default (3.90.0) is ~1.5y old
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -323,7 +322,7 @@ jobs:
       # --config so it never grabs the api Worker's name/route. It declares no
       # migrations_dir, so this deploy migrates nothing.
       - name: Deploy MCP Worker
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd  # v3.15.0
         with:
           wranglerVersion: "4.111.0"  # pin a current wrangler; the action's v3 default (3.90.0) is ~1.5y old
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -334,7 +333,7 @@ jobs:
         run: npm run build --workspace=packages/console
 
       - name: Deploy console to Cloudflare Pages (production)
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd  # v3.15.0
         with:
           wranglerVersion: "4.111.0"  # pin a current wrangler; the action's v3 default (3.90.0) is ~1.5y old
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -349,7 +348,7 @@ jobs:
         run: npm run build --workspace=packages/web
 
       - name: Deploy marketing site to Cloudflare Pages (production)
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd  # v3.15.0
         with:
           wranglerVersion: "4.111.0"
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}

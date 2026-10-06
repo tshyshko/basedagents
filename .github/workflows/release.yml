@@ -4,6 +4,19 @@
 # the file is missing, GitHub's generated notes are used. Re-pushing a tag
 # whose release exists updates the title/notes instead of failing, so the
 # workflow is safe to re-run.
+#
+# Hardening (supply-chain audit):
+#   - every action pinned to a full commit SHA (tag in the trailing comment);
+#   - least privilege: top-level permissions are empty, each job asks only for
+#     what it uses (package: read + OIDC/attestations; release: contents write);
+#   - a `package` job builds the npm + Python artifacts from the tagged commit
+#     with the lockfile (npm ci), packs them TWICE from clean builds and fails
+#     on any hash difference (reproducibility gate), runs `npm publish
+#     --dry-run` / `twine check` (never a real publish — real publishing stays
+#     in publish.yml behind trusted publishing), attests build provenance for
+#     the tarballs, and attaches them + SHA256SUMS to the GitHub Release;
+#   - pre-release tags (anything with a '-', e.g. v0.0.0-test.1) are published
+#     as GitHub pre-releases and never marked "latest".
 name: Release
 
 on:
@@ -20,14 +33,125 @@ on:
         required: true
         type: string
 
-permissions:
-  contents: write
+permissions: {}
+
+concurrency:
+  group: release-${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+  cancel-in-progress: false
 
 jobs:
-  release:
+  package:
+    name: Build, reproducibility gate, dry-run publish, attest
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      id-token: write      # OIDC for the Sigstore-backed provenance attestation
+      attestations: write  # store the attestation on this repository
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4.4.0
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065  # v5.6.0
+        with:
+          python-version: '3.12'
+      - name: Toolchain
+        run: node --version && npm --version && python3 --version
+      - name: Install (lockfile-exact)
+        run: npm ci
+      - name: Build + pack twice from clean builds (reproducibility gate)
+        run: |
+          set -euo pipefail
+          for run in 1 2; do
+            # Clean INCLUDING the composite build's tsbuildinfo: with a stale
+            # packages/sdk/tsconfig.tsbuildinfo, `tsc` treats the project as
+            # up to date, emits nothing, and npm packs a 4-file tarball with no
+            # dist/ (audit finding F1).
+            rm -rf packages/sdk/dist packages/mcp/dist packages/sdk/tsconfig.tsbuildinfo packages/mcp/tsconfig.tsbuildinfo
+            npm run build --workspace=packages/sdk
+            npm run build --workspace=packages/mcp
+            mkdir -p "dist-run$run"
+            npm pack --workspace=packages/sdk --workspace=packages/mcp --pack-destination "dist-run$run" --ignore-scripts >/dev/null
+            (cd "dist-run$run" && sha256sum -- *.tgz | sort -k2) > "run$run.sha256"
+            echo "run $run:"; cat "run$run.sha256"
+          done
+          # Content guard: the packed entry points must exist.
+          for f in dist-run1/basedagents-[0-9]*.tgz dist-run1/basedagents-mcp-[0-9]*.tgz; do
+            p=package/dist/index.js
+            [ -f "$f" ] || { echo "::error::expected tarball $f not found"; exit 1; }
+            listing=$(tar tzf "$f")  # whole listing first: `tar | grep -q` + pipefail = SIGPIPE false failure
+            grep -qx "$p" <<<"$listing" || { echo "::error::$f is missing $p"; exit 1; }
+            echo "$f contains $p ($(wc -l <<<"$listing") files)"
+          done
+          if diff -u run1.sha256 run2.sha256; then
+            echo "REPRODUCIBLE: run1 and run2 npm tarball hashes are identical"
+          else
+            echo "::error::npm tarballs differ between two clean builds"; exit 1
+          fi
+          mkdir -p release-artifacts && cp dist-run1/*.tgz release-artifacts/
+      - name: npm publish --dry-run (no registry write)
+        run: |
+          set -euo pipefail
+          for t in ./release-artifacts/*.tgz; do  # ./ prefix: a bare a/b.tgz is read as a GitHub shorthand
+            echo "::group::npm publish --dry-run $t"
+            npm publish "$t" --dry-run --ignore-scripts --access public
+            echo "::endgroup::"
+          done
+      - name: Python sdist/wheel twice + twine check (no upload)
+        env:
+          SOURCE_DATE_EPOCH: '315532800'
+        run: |
+          set -euo pipefail
+          python3 -m pip install --quiet build==1.2.2.post1 twine==6.1.0
+          for run in 1 2; do
+            rm -rf packages/python/build packages/python/*.egg-info
+            python3 -m build packages/python --outdir "py-run$run"
+            (cd "py-run$run" && sha256sum -- * | sort -k2) | tee "py-run$run.sha256"
+          done
+          if diff <(grep whl py-run1.sha256) <(grep whl py-run2.sha256); then echo "wheel: REPRODUCIBLE (byte-identical)"; else echo "::error::wheel differs between two clean builds"; exit 1; fi
+          if diff <(grep tar.gz py-run1.sha256) <(grep tar.gz py-run2.sha256); then
+            echo "sdist: byte-identical"
+          else
+            # setuptools' sdist ignores SOURCE_DATE_EPOCH for the gzip header and
+            # generated members (PKG-INFO, egg-info): compare CONTENT instead.
+            mkdir -p s1 s2 && tar xzf py-run1/*.tar.gz -C s1 && tar xzf py-run2/*.tar.gz -C s2
+            if diff -r s1 s2; then echo "sdist: NOT byte-identical (gzip/tar mtimes only) — file contents identical"; else echo "::error::sdist contents differ"; exit 1; fi
+          fi
+          python3 -m twine check py-run1/*
+          cp py-run1/* release-artifacts/
+      - name: SHA256SUMS
+        run: |
+          cd release-artifacts && sha256sum -- * | tee SHA256SUMS
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@e8998f949152b193b063cb0ec769d69d929409be  # v2.4.0
+        with:
+          subject-path: |
+            release-artifacts/*.tgz
+            release-artifacts/*.whl
+            release-artifacts/*.tar.gz
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # v4.6.2
+        with:
+          name: release-artifacts
+          path: release-artifacts/
+          if-no-files-found: error
+          retention-days: 30
+
+  release:
+    needs: package
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write  # create the tag (dispatch only) and the GitHub Release
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093  # v4.3.0
+        with:
+          name: release-artifacts
+          path: release-artifacts
       - name: Ensure the tag exists (dispatch only)
         if: github.event_name == 'workflow_dispatch'
         env:
@@ -51,14 +175,18 @@ jobs:
           set -euo pipefail
           TITLE="BasedAgents ${TAG#v}"
           NOTES="docs/releases/${TAG}.md"
+          # A '-' in the tag (v1.2.3-rc.1, v0.0.0-test.1) means pre-release:
+          # published as such and never marked latest.
+          case "$TAG" in *-*) KIND=(--prerelease --latest=false);; *) KIND=(--latest);; esac
           if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
             if [ -f "$NOTES" ]; then
-              gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --title "$TITLE" --notes-file "$NOTES" --latest
+              gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --title "$TITLE" --notes-file "$NOTES" "${KIND[@]}"
             else
-              gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --title "$TITLE" --latest
+              gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --title "$TITLE" "${KIND[@]}"
             fi
           elif [ -f "$NOTES" ]; then
-            gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --title "$TITLE" --notes-file "$NOTES" --latest --verify-tag
+            gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --title "$TITLE" --notes-file "$NOTES" "${KIND[@]}" --verify-tag
           else
-            gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --title "$TITLE" --generate-notes --latest --verify-tag
+            gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --title "$TITLE" --generate-notes "${KIND[@]}" --verify-tag
           fi
+          gh release upload "$TAG" release-artifacts/* --repo "$GITHUB_REPOSITORY" --clobber
