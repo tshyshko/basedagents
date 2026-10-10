@@ -1,0 +1,187 @@
+﻿2026-10-10T16:39:38.5385218Z Current runner version: '2.337.0'
+2026-10-10T16:39:38.5409411Z ##[group]Runner Image Provisioner
+2026-10-10T16:39:38.5410292Z Hosted Compute Agent
+2026-10-10T16:39:38.5410858Z Version: 20261002.596
+2026-10-10T16:39:38.5411491Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-10T16:39:38.5412223Z Build Date: 2026-10-02T22:28:27Z
+2026-10-10T16:39:38.5412899Z Worker ID: {85618b2c-e1f0-4464-a248-f91e3b591e3e}
+2026-10-10T16:39:38.5413588Z Region: northcentralus
+2026-10-10T16:39:38.5414139Z Cloud: Azure
+2026-10-10T16:39:38.5414671Z ##[endgroup]
+2026-10-10T16:39:38.5416449Z ##[group]Operating System
+2026-10-10T16:39:38.5417064Z Ubuntu
+2026-10-10T16:39:38.5417609Z 24.04.5
+2026-10-10T16:39:38.5418170Z LTS
+2026-10-10T16:39:38.5418675Z ##[endgroup]
+2026-10-10T16:39:38.5419250Z ##[group]Runner Image
+2026-10-10T16:39:38.5419840Z Image: ubuntu-24.04
+2026-10-10T16:39:38.5420412Z Version: 20261004.327.1
+2026-10-10T16:39:38.5421607Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-10T16:39:38.5423087Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+2026-10-10T16:39:38.5423990Z ##[endgroup]
+2026-10-10T16:39:38.5425093Z ##[group]GITHUB_TOKEN Permissions
+2026-10-10T16:39:38.5427416Z Actions: read
+2026-10-10T16:39:38.5427999Z Contents: read
+2026-10-10T16:39:38.5428544Z Metadata: read
+2026-10-10T16:39:38.5429056Z ##[endgroup]
+2026-10-10T16:39:38.5431002Z Secret source: Actions
+2026-10-10T16:39:38.5431907Z Cache mode: write
+2026-10-10T16:39:38.5432567Z Prepare workflow directory
+2026-10-10T16:39:38.5758542Z Prepare all required actions
+2026-10-10T16:39:38.5807004Z Getting action download info
+2026-10-10T16:39:38.8067148Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-10T16:39:38.9727072Z Complete job name: CI passed + what to publish
+2026-10-10T16:39:39.0401001Z ##[group]Run if [ "$FORCED" = "true" ] || [ "$ASKED" = "true" ]; then d=true; else d=false; fi
+2026-10-10T16:39:39.0402225Z [36;1mif [ "$FORCED" = "true" ] || [ "$ASKED" = "true" ]; then d=true; else d=false; fi[0m
+2026-10-10T16:39:39.0403258Z [36;1mecho "dry_run=$d (forced for non-upstream repo: $FORCED, requested: $ASKED)"[0m
+2026-10-10T16:39:39.0404132Z [36;1mecho "dry_run=$d" >> "$GITHUB_OUTPUT"[0m
+2026-10-10T16:39:39.0589835Z shell: /usr/bin/bash -e {0}
+2026-10-10T16:39:39.0590784Z env:
+2026-10-10T16:39:39.0591290Z   FORCED: true
+2026-10-10T16:39:39.0591796Z   ASKED: false
+2026-10-10T16:39:39.0592333Z ##[endgroup]
+2026-10-10T16:39:39.0739843Z dry_run=true (forced for non-upstream repo: true, requested: false)
+2026-10-10T16:39:39.0870844Z ##[group]Run echo "sha=${RUN_SHA:-$GITHUB_SHA}" >> "$GITHUB_OUTPUT"
+2026-10-10T16:39:39.0872109Z [36;1mecho "sha=${RUN_SHA:-$GITHUB_SHA}" >> "$GITHUB_OUTPUT"[0m
+2026-10-10T16:39:39.0916410Z shell: /usr/bin/bash -e {0}
+2026-10-10T16:39:39.0917019Z env:
+2026-10-10T16:39:39.0917555Z   RUN_SHA: 2350a3bd34dbb240857d8b2c0e9ce7bd7abc361c
+2026-10-10T16:39:39.0918283Z ##[endgroup]
+2026-10-10T16:39:39.1168514Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-10-10T16:39:39.1169418Z with:
+2026-10-10T16:39:39.1169983Z   ref: 2350a3bd34dbb240857d8b2c0e9ce7bd7abc361c
+2026-10-10T16:39:39.1170693Z   repository: tshyshko/basedagents
+2026-10-10T16:39:39.1174463Z   token: ***
+2026-10-10T16:39:39.1174934Z   ssh-strict: true
+2026-10-10T16:39:39.1175639Z   ssh-user: git
+2026-10-10T16:39:39.1176214Z   persist-credentials: true
+2026-10-10T16:39:39.1176761Z   clean: true
+2026-10-10T16:39:39.1177286Z   sparse-checkout-cone-mode: true
+2026-10-10T16:39:39.1177851Z   fetch-depth: 1
+2026-10-10T16:39:39.1178324Z   fetch-tags: false
+2026-10-10T16:39:39.1178850Z   show-progress: true
+2026-10-10T16:39:39.1179372Z   lfs: false
+2026-10-10T16:39:39.1179892Z   submodules: false
+2026-10-10T16:39:39.1180387Z   set-safe-directory: true
+2026-10-10T16:39:39.1180929Z   allow-unsafe-pr-checkout: false
+2026-10-10T16:39:39.1181719Z ##[endgroup]
+2026-10-10T16:39:39.2175135Z Syncing repository: tshyshko/basedagents
+2026-10-10T16:39:39.2177533Z ##[group]Getting Git version info
+2026-10-10T16:39:39.2178408Z Working directory is '/home/runner/work/basedagents/basedagents'
+2026-10-10T16:39:39.2179554Z [command]/usr/bin/git version
+2026-10-10T16:39:39.2231185Z git version 2.55.0
+2026-10-10T16:39:39.2252631Z ##[endgroup]
+2026-10-10T16:39:39.2266692Z Temporarily overriding HOME='/home/runner/work/_temp/af07d5c8-3c70-4195-9cfb-4fdd886605ce' before making global git config changes
+2026-10-10T16:39:39.2268819Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-10T16:39:39.2272834Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/basedagents/basedagents
+2026-10-10T16:39:39.2330194Z Deleting the contents of '/home/runner/work/basedagents/basedagents'
+2026-10-10T16:39:39.2336404Z ##[group]Initializing the repository
+2026-10-10T16:39:39.2341341Z [command]/usr/bin/git init /home/runner/work/basedagents/basedagents
+2026-10-10T16:39:39.2511077Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-10T16:39:39.2520068Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-10T16:39:39.2521308Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-10T16:39:39.2522266Z hint: call:
+2026-10-10T16:39:39.2522722Z hint:
+2026-10-10T16:39:39.2523380Z hint: 	git config --global init.defaultBranch <name>
+2026-10-10T16:39:39.2524023Z hint:
+2026-10-10T16:39:39.2524635Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-10T16:39:39.2525928Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-10T16:39:39.2527015Z hint:
+2026-10-10T16:39:39.2527722Z hint: 	git branch -m <name>
+2026-10-10T16:39:39.2528438Z hint:
+2026-10-10T16:39:39.2529259Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-10T16:39:39.2530790Z Initialized empty Git repository in /home/runner/work/basedagents/basedagents/.git/
+2026-10-10T16:39:39.2533601Z [command]/usr/bin/git remote add origin https://github.com/tshyshko/basedagents
+2026-10-10T16:39:39.2578501Z ##[endgroup]
+2026-10-10T16:39:39.2579904Z ##[group]Disabling automatic garbage collection
+2026-10-10T16:39:39.2581385Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-10T16:39:39.2614623Z ##[endgroup]
+2026-10-10T16:39:39.2616197Z ##[group]Setting up auth
+2026-10-10T16:39:39.2631555Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-10T16:39:39.2664098Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-10T16:39:39.2993609Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-10T16:39:39.3048639Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-10T16:39:39.3213141Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-10T16:39:39.3241583Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-10T16:39:39.3420749Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-10T16:39:39.3458836Z ##[endgroup]
+2026-10-10T16:39:39.3460332Z ##[group]Fetching the repository
+2026-10-10T16:39:39.3467768Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 2350a3bd34dbb240857d8b2c0e9ce7bd7abc361c
+2026-10-10T16:39:40.1132137Z From https://github.com/tshyshko/basedagents
+2026-10-10T16:39:40.1134357Z  * branch            2350a3bd34dbb240857d8b2c0e9ce7bd7abc361c -> FETCH_HEAD
+2026-10-10T16:39:40.1139622Z ##[endgroup]
+2026-10-10T16:39:40.1141438Z ##[group]Determining the checkout info
+2026-10-10T16:39:40.1143483Z ##[endgroup]
+2026-10-10T16:39:40.1145112Z [command]/usr/bin/git sparse-checkout disable
+2026-10-10T16:39:40.1197388Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-10T16:39:40.1381233Z ##[group]Checking out the ref
+2026-10-10T16:39:40.1384717Z [command]/usr/bin/git checkout --progress --force 2350a3bd34dbb240857d8b2c0e9ce7bd7abc361c
+2026-10-10T16:39:40.2121659Z Note: switching to '2350a3bd34dbb240857d8b2c0e9ce7bd7abc361c'.
+2026-10-10T16:39:40.2122943Z 
+2026-10-10T16:39:40.2123772Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-10T16:39:40.2127251Z changes and commit them, and you can discard any commits you make in this
+2026-10-10T16:39:40.2130429Z state without impacting any branches by switching back to a branch.
+2026-10-10T16:39:40.2132042Z 
+2026-10-10T16:39:40.2133163Z If you want to create a new branch to retain commits you create, you may
+2026-10-10T16:39:40.2136612Z do so (now or later) by using -c with the switch command. Example:
+2026-10-10T16:39:40.2138506Z 
+2026-10-10T16:39:40.2139425Z   git switch -c <new-branch-name>
+2026-10-10T16:39:40.2140778Z 
+2026-10-10T16:39:40.2141529Z Or undo this operation with:
+2026-10-10T16:39:40.2142923Z 
+2026-10-10T16:39:40.2143663Z   git switch -
+2026-10-10T16:39:40.2144892Z 
+2026-10-10T16:39:40.2146899Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-10T16:39:40.2148666Z 
+2026-10-10T16:39:40.2150734Z HEAD is now at 2350a3b ci(publish): dry-run a unique prerelease so npm 11.21.0's dry-run doesn't fail on already-published versions
+2026-10-10T16:39:40.2157840Z ##[endgroup]
+2026-10-10T16:39:40.2178094Z [command]/usr/bin/git log -1 --format=%H
+2026-10-10T16:39:40.2202162Z 2350a3bd34dbb240857d8b2c0e9ce7bd7abc361c
+2026-10-10T16:39:40.2381750Z ##[group]Run set -euo pipefail
+2026-10-10T16:39:40.2383318Z [36;1mset -euo pipefail[0m
+2026-10-10T16:39:40.2385351Z [36;1m# true when the checked-in version isn't on the registry yet (a lookup[0m
+2026-10-10T16:39:40.2388592Z [36;1m# error also says true: the job re-checks before publishing anything).[0m
+2026-10-10T16:39:40.2390553Z [36;1mnpm_unpublished() {[0m
+2026-10-10T16:39:40.2391818Z [36;1m  local name version[0m
+2026-10-10T16:39:40.2393655Z [36;1m  name=$(jq -r .name "$1/package.json"); version=$(jq -r .version "$1/package.json")[0m
+2026-10-10T16:39:40.2396744Z [36;1m  if npm view "${name}@${version}" version >/dev/null 2>&1; then echo false; else echo true; fi[0m
+2026-10-10T16:39:40.2398823Z [36;1m}[0m
+2026-10-10T16:39:40.2399906Z [36;1m{[0m
+2026-10-10T16:39:40.2401133Z [36;1m  echo "sdk=$(npm_unpublished packages/sdk)"[0m
+2026-10-10T16:39:40.2402872Z [36;1m  echo "mcp=$(npm_unpublished packages/mcp)"[0m
+2026-10-10T16:39:40.2405339Z [36;1m  name=$(jq -r .name packages/mcp/server.json); version=$(jq -r .version packages/mcp/server.json)[0m
+2026-10-10T16:39:40.2408452Z [36;1m  listed=$(curl -sS "https://registry.modelcontextprotocol.io/v0/servers?search=${name}" \[0m
+2026-10-10T16:39:40.2411749Z [36;1m    | jq -r --arg n "$name" --arg v "$version" '[.servers[] | (.server // .) | select(.name == $n and .version == $v)] | length' || echo 0)[0m
+2026-10-10T16:39:40.2414605Z [36;1m  echo "registry=$([ "$listed" = "0" ] && echo true || echo false)"[0m
+2026-10-10T16:39:40.2417812Z [36;1m  pyver=$(python3 -c "import tomllib; print(tomllib.load(open('packages/python/pyproject.toml','rb'))['project']['version'])")[0m
+2026-10-10T16:39:40.2421572Z [36;1m  echo "python=$(curl -sSf -o /dev/null "https://pypi.org/pypi/basedagents/${pyver}/json" && echo false || echo true)"[0m
+2026-10-10T16:39:40.2424019Z [36;1m} | tee -a "$GITHUB_OUTPUT"[0m
+2026-10-10T16:39:40.2467092Z shell: /usr/bin/bash -e {0}
+2026-10-10T16:39:40.2468452Z ##[endgroup]
+2026-10-10T16:39:41.0984746Z sdk=false
+2026-10-10T16:39:41.5362126Z mcp=false
+2026-10-10T16:39:47.3083943Z registry=false
+2026-10-10T16:39:47.4859904Z python=false
+2026-10-10T16:39:47.5016848Z Post job cleanup.
+2026-10-10T16:39:47.5882543Z [command]/usr/bin/git version
+2026-10-10T16:39:47.5926583Z git version 2.55.0
+2026-10-10T16:39:47.5966265Z Temporarily overriding HOME='/home/runner/work/_temp/51bda8d8-7073-427b-b337-3423fcac49c6' before making global git config changes
+2026-10-10T16:39:47.5967421Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-10T16:39:47.5972598Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/basedagents/basedagents
+2026-10-10T16:39:47.6012973Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-10T16:39:47.6045790Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-10T16:39:47.6260233Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-10T16:39:47.6288297Z http.https://github.com/.extraheader
+2026-10-10T16:39:47.6298333Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-10T16:39:47.6334366Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-10T16:39:47.6548537Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-10T16:39:47.6580354Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-10T16:39:47.6946651Z Evaluate and set job outputs
+2026-10-10T16:39:47.6956171Z Set output 'sha'
+2026-10-10T16:39:47.6958037Z Set output 'sdk'
+2026-10-10T16:39:47.6958970Z Set output 'mcp'
+2026-10-10T16:39:47.6959523Z Set output 'registry'
+2026-10-10T16:39:47.6960002Z Set output 'python'
+2026-10-10T16:39:47.6960564Z Set output 'dry_run'
+2026-10-10T16:39:47.6961397Z Cleaning up orphan processes
+2026-10-10T16:39:47.7227420Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

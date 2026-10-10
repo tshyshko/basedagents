@@ -1,0 +1,246 @@
+﻿2026-10-10T16:33:59.2687857Z Current runner version: '2.337.0'
+2026-10-10T16:33:59.2712684Z ##[group]Runner Image Provisioner
+2026-10-10T16:33:59.2713602Z Hosted Compute Agent
+2026-10-10T16:33:59.2714231Z Version: 20261002.596
+2026-10-10T16:33:59.2714871Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-10T16:33:59.2716164Z Build Date: 2026-10-02T22:28:27Z
+2026-10-10T16:33:59.2716958Z Worker ID: {a72a3768-21be-4790-a245-7aa16173c6a4}
+2026-10-10T16:33:59.2717705Z Region: eastus
+2026-10-10T16:33:59.2718267Z Cloud: Azure
+2026-10-10T16:33:59.2718808Z ##[endgroup]
+2026-10-10T16:33:59.2720398Z ##[group]Operating System
+2026-10-10T16:33:59.2721088Z Ubuntu
+2026-10-10T16:33:59.2721660Z 24.04.5
+2026-10-10T16:33:59.2722196Z LTS
+2026-10-10T16:33:59.2722756Z ##[endgroup]
+2026-10-10T16:33:59.2723370Z ##[group]Runner Image
+2026-10-10T16:33:59.2724045Z Image: ubuntu-24.04
+2026-10-10T16:33:59.2725225Z Version: 20261004.327.1
+2026-10-10T16:33:59.2726641Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-10T16:33:59.2728336Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+2026-10-10T16:33:59.2729334Z ##[endgroup]
+2026-10-10T16:33:59.2730469Z ##[group]GITHUB_TOKEN Permissions
+2026-10-10T16:33:59.2732632Z Contents: read
+2026-10-10T16:33:59.2733410Z Metadata: read
+2026-10-10T16:33:59.2734020Z ##[endgroup]
+2026-10-10T16:33:59.2736482Z Secret source: Actions
+2026-10-10T16:33:59.2737601Z Cache mode: write
+2026-10-10T16:33:59.2738523Z Prepare workflow directory
+2026-10-10T16:33:59.3072643Z Prepare all required actions
+2026-10-10T16:33:59.3120412Z Getting action download info
+2026-10-10T16:33:59.5141116Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-10T16:33:59.6224817Z Download action repository 'actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-10-10T16:33:59.8186368Z Complete job name: dryrun (packages/mcp)
+2026-10-10T16:33:59.8957554Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-10-10T16:33:59.8958610Z with:
+2026-10-10T16:33:59.8959068Z   repository: tshyshko/basedagents
+2026-10-10T16:33:59.8962818Z   token: ***
+2026-10-10T16:33:59.8963246Z   ssh-strict: true
+2026-10-10T16:33:59.8963678Z   ssh-user: git
+2026-10-10T16:33:59.8964115Z   persist-credentials: true
+2026-10-10T16:33:59.8964605Z   clean: true
+2026-10-10T16:33:59.8965237Z   sparse-checkout-cone-mode: true
+2026-10-10T16:33:59.8965764Z   fetch-depth: 1
+2026-10-10T16:33:59.8966187Z   fetch-tags: false
+2026-10-10T16:33:59.8966626Z   show-progress: true
+2026-10-10T16:33:59.8967073Z   lfs: false
+2026-10-10T16:33:59.8967484Z   submodules: false
+2026-10-10T16:33:59.8967934Z   set-safe-directory: true
+2026-10-10T16:33:59.8968448Z   allow-unsafe-pr-checkout: false
+2026-10-10T16:33:59.8969256Z ##[endgroup]
+2026-10-10T16:33:59.9964181Z Syncing repository: tshyshko/basedagents
+2026-10-10T16:33:59.9967147Z ##[group]Getting Git version info
+2026-10-10T16:33:59.9967986Z Working directory is '/home/runner/work/basedagents/basedagents'
+2026-10-10T16:33:59.9969786Z [command]/usr/bin/git version
+2026-10-10T16:34:00.0049180Z git version 2.55.0
+2026-10-10T16:34:00.0073382Z ##[endgroup]
+2026-10-10T16:34:00.0090963Z Temporarily overriding HOME='/home/runner/work/_temp/ef8608a9-b42a-44ed-ba72-2a77ad215669' before making global git config changes
+2026-10-10T16:34:00.0093576Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-10T16:34:00.0097145Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/basedagents/basedagents
+2026-10-10T16:34:00.0167763Z Deleting the contents of '/home/runner/work/basedagents/basedagents'
+2026-10-10T16:34:00.0178293Z ##[group]Initializing the repository
+2026-10-10T16:34:00.0186206Z [command]/usr/bin/git init /home/runner/work/basedagents/basedagents
+2026-10-10T16:34:00.0306555Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-10T16:34:00.0308208Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-10T16:34:00.0310037Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-10T16:34:00.0311499Z hint: call:
+2026-10-10T16:34:00.0312310Z hint:
+2026-10-10T16:34:00.0313416Z hint: 	git config --global init.defaultBranch <name>
+2026-10-10T16:34:00.0314654Z hint:
+2026-10-10T16:34:00.0316105Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-10T16:34:00.0317873Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-10T16:34:00.0319504Z hint:
+2026-10-10T16:34:00.0320370Z hint: 	git branch -m <name>
+2026-10-10T16:34:00.0321337Z hint:
+2026-10-10T16:34:00.0322494Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-10T16:34:00.0324611Z Initialized empty Git repository in /home/runner/work/basedagents/basedagents/.git/
+2026-10-10T16:34:00.0327964Z [command]/usr/bin/git remote add origin https://github.com/tshyshko/basedagents
+2026-10-10T16:34:00.0378311Z ##[endgroup]
+2026-10-10T16:34:00.0379626Z ##[group]Disabling automatic garbage collection
+2026-10-10T16:34:00.0383672Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-10T16:34:00.0418278Z ##[endgroup]
+2026-10-10T16:34:00.0419604Z ##[group]Setting up auth
+2026-10-10T16:34:00.0426013Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-10T16:34:00.0462194Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-10T16:34:00.0901240Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-10T16:34:00.0940776Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-10T16:34:00.1167707Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-10T16:34:00.1207594Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-10T16:34:00.1433663Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-10T16:34:00.1473130Z ##[endgroup]
+2026-10-10T16:34:00.1473908Z ##[group]Fetching the repository
+2026-10-10T16:34:00.1483269Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +2350a3bd34dbb240857d8b2c0e9ce7bd7abc361c:refs/remotes/origin/verify/f4-npm-pin
+2026-10-10T16:34:00.6960690Z From https://github.com/tshyshko/basedagents
+2026-10-10T16:34:00.6962059Z  * [new ref]         2350a3bd34dbb240857d8b2c0e9ce7bd7abc361c -> origin/verify/f4-npm-pin
+2026-10-10T16:34:00.6979987Z ##[endgroup]
+2026-10-10T16:34:00.6992493Z ##[group]Determining the checkout info
+2026-10-10T16:34:00.6993849Z ##[endgroup]
+2026-10-10T16:34:00.6994678Z [command]/usr/bin/git sparse-checkout disable
+2026-10-10T16:34:00.7045649Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-10T16:34:00.7084787Z ##[group]Checking out the ref
+2026-10-10T16:34:00.7091408Z [command]/usr/bin/git checkout --progress --force -B verify/f4-npm-pin refs/remotes/origin/verify/f4-npm-pin
+2026-10-10T16:34:00.7870066Z Switched to a new branch 'verify/f4-npm-pin'
+2026-10-10T16:34:00.7877272Z branch 'verify/f4-npm-pin' set up to track 'origin/verify/f4-npm-pin'.
+2026-10-10T16:34:00.7883908Z ##[endgroup]
+2026-10-10T16:34:00.7931172Z [command]/usr/bin/git log -1 --format=%H
+2026-10-10T16:34:00.7960280Z 2350a3bd34dbb240857d8b2c0e9ce7bd7abc361c
+2026-10-10T16:34:00.8359438Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+2026-10-10T16:34:00.8361266Z with:
+2026-10-10T16:34:00.8362239Z   node-version: 22
+2026-10-10T16:34:00.8363494Z   cache: npm
+2026-10-10T16:34:00.8364509Z   always-auth: false
+2026-10-10T16:34:00.8365775Z   check-latest: false
+2026-10-10T16:34:00.8375764Z   token: ***
+2026-10-10T16:34:00.8376735Z ##[endgroup]
+2026-10-10T16:34:00.9857865Z Found in cache @ /opt/hostedtoolcache/node/22.23.3/x64
+2026-10-10T16:34:00.9862292Z (node:2302) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-10T16:34:00.9865830Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-10T16:34:00.9868411Z ##[group]Environment details
+2026-10-10T16:34:01.3954797Z node: v22.23.3
+2026-10-10T16:34:01.3956077Z npm: 10.9.9
+2026-10-10T16:34:01.3956867Z yarn: 1.22.22
+2026-10-10T16:34:01.3958395Z ##[endgroup]
+2026-10-10T16:34:01.3978075Z [command]/opt/hostedtoolcache/node/22.23.3/x64/bin/npm config get cache
+2026-10-10T16:34:01.5165935Z /home/runner/.npm
+2026-10-10T16:34:01.5887704Z Cache hit for: node-cache-Linux-x64-npm-f0dfbeccf4cf03614a1c70e0a334c7d6dee17688428dbfb743ab1fccbde237df
+2026-10-10T16:34:01.6026660Z (node:2302) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-10T16:34:02.0097017Z Received 44414368 of 44414368 (100.0%), 115.7 MBs/sec
+2026-10-10T16:34:02.0098977Z Cache Size: ~42 MB (44414368 B)
+2026-10-10T16:34:02.0125279Z [command]/usr/bin/tar -xf /home/runner/work/_temp/dd7d7e07-6858-4d25-b4df-1157f6babad1/cache.tzst -P -C /home/runner/work/basedagents/basedagents --use-compress-program unzstd
+2026-10-10T16:34:02.1717448Z Cache restored successfully
+2026-10-10T16:34:02.1740861Z Cache restored from key: node-cache-Linux-x64-npm-f0dfbeccf4cf03614a1c70e0a334c7d6dee17688428dbfb743ab1fccbde237df
+2026-10-10T16:34:02.1949773Z ##[group]Run npm install -g npm@11.21.0 && npm --version
+2026-10-10T16:34:02.1950308Z [36;1mnpm install -g npm@11.21.0 && npm --version[0m
+2026-10-10T16:34:02.2228250Z shell: /usr/bin/bash -e {0}
+2026-10-10T16:34:02.2228650Z ##[endgroup]
+2026-10-10T16:34:06.4320282Z 
+2026-10-10T16:34:06.4328690Z removed 57 packages, and changed 94 packages in 4s
+2026-10-10T16:34:06.4329303Z 
+2026-10-10T16:34:06.4329664Z 15 packages are looking for funding
+2026-10-10T16:34:06.4330139Z   run `npm fund` for details
+2026-10-10T16:34:06.5639318Z 11.21.0
+2026-10-10T16:34:06.5749467Z ##[group]Run test "$(npm --version)" = "11.21.0"
+2026-10-10T16:34:06.5749897Z [36;1mtest "$(npm --version)" = "11.21.0"[0m
+2026-10-10T16:34:06.5817382Z shell: /usr/bin/bash -e {0}
+2026-10-10T16:34:06.5817688Z ##[endgroup]
+2026-10-10T16:34:06.6723449Z ##[group]Run npm ci
+2026-10-10T16:34:06.6723749Z [36;1mnpm ci[0m
+2026-10-10T16:34:06.6789514Z shell: /usr/bin/bash -e {0}
+2026-10-10T16:34:06.6789802Z ##[endgroup]
+2026-10-10T16:34:09.2489777Z npm warn deprecated prebuild-install@7.1.3: No longer maintained. Please contact the author of the relevant native addon; alternatives are available.
+2026-10-10T16:34:12.5340746Z 
+2026-10-10T16:34:12.5341884Z added 488 packages, and audited 495 packages in 6s
+2026-10-10T16:34:12.5342432Z 
+2026-10-10T16:34:12.5343039Z 186 packages are looking for funding
+2026-10-10T16:34:12.5343970Z   run `npm fund` for details
+2026-10-10T16:34:12.5385073Z 
+2026-10-10T16:34:12.5386108Z 4 vulnerabilities (1 low, 2 high, 1 critical)
+2026-10-10T16:34:12.5386728Z 
+2026-10-10T16:34:12.5387240Z To address issues that do not require attention, run:
+2026-10-10T16:34:12.5387857Z   npm audit fix
+2026-10-10T16:34:12.5388051Z 
+2026-10-10T16:34:12.5388384Z To address all issues (including breaking changes), run:
+2026-10-10T16:34:12.5388942Z   npm audit fix --force
+2026-10-10T16:34:12.5389189Z 
+2026-10-10T16:34:12.5389382Z Run `npm audit` for details.
+2026-10-10T16:34:12.5399530Z npm warn install-scripts 4 packages have install scripts not yet covered by allowScripts:
+2026-10-10T16:34:12.5401460Z npm warn install-scripts   better-sqlite3@11.10.0 (install: prebuild-install || node-gyp rebuild --release)
+2026-10-10T16:34:12.5403629Z npm warn install-scripts   esbuild@0.27.7 (postinstall: node install.js)
+2026-10-10T16:34:12.5405314Z npm warn install-scripts   esbuild@0.25.12 (postinstall: node install.js)
+2026-10-10T16:34:12.5406718Z npm warn install-scripts   esbuild@0.25.12 (postinstall: node install.js)
+2026-10-10T16:34:12.5407731Z npm warn install-scripts
+2026-10-10T16:34:12.5409002Z npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+2026-10-10T16:34:12.6002467Z ##[group]Run v=$(jq -r .version "$PKG/package.json")-dryrun.${GITHUB_RUN_ID}.${GITHUB_RUN_ATTEMPT}
+2026-10-10T16:34:12.6003210Z [36;1mv=$(jq -r .version "$PKG/package.json")-dryrun.${GITHUB_RUN_ID}.${GITHUB_RUN_ATTEMPT}[0m
+2026-10-10T16:34:12.6003756Z [36;1mnpm version --no-git-tag-version --workspace="$PKG" "$v"[0m
+2026-10-10T16:34:12.6004209Z [36;1mnpm publish --dry-run --tag dryrun --workspace="$PKG"[0m
+2026-10-10T16:34:12.6067847Z shell: /usr/bin/bash -e {0}
+2026-10-10T16:34:12.6068121Z env:
+2026-10-10T16:34:12.6068321Z   PKG: packages/mcp
+2026-10-10T16:34:12.6068560Z ##[endgroup]
+2026-10-10T16:34:12.8823781Z @basedagents/mcp
+2026-10-10T16:34:12.8866192Z v0.7.2-dryrun.38068178940.1
+2026-10-10T16:34:13.4204326Z 
+2026-10-10T16:34:13.4205261Z up to date in 753ms
+2026-10-10T16:34:13.4205650Z 
+2026-10-10T16:34:13.4206012Z 186 packages are looking for funding
+2026-10-10T16:34:13.4206928Z   run `npm fund` for details
+2026-10-10T16:34:13.4221570Z npm warn install-scripts 4 packages have install scripts not yet covered by allowScripts:
+2026-10-10T16:34:13.4222395Z npm warn install-scripts   better-sqlite3@11.10.0 (install: node-gyp rebuild)
+2026-10-10T16:34:13.4223034Z npm warn install-scripts   esbuild@0.27.7 (postinstall: node install.js)
+2026-10-10T16:34:13.4223638Z npm warn install-scripts   esbuild@0.25.12 (postinstall: node install.js)
+2026-10-10T16:34:13.4224231Z npm warn install-scripts   esbuild@0.25.12 (postinstall: node install.js)
+2026-10-10T16:34:13.4224671Z npm warn install-scripts
+2026-10-10T16:34:13.4225509Z npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+2026-10-10T16:34:13.7116150Z 
+2026-10-10T16:34:13.7117153Z > @basedagents/mcp@0.7.2-dryrun.38068178940.1 prepublishOnly
+2026-10-10T16:34:13.7117675Z > npm run build
+2026-10-10T16:34:13.7117833Z 
+2026-10-10T16:34:13.8424404Z 
+2026-10-10T16:34:13.8425318Z > @basedagents/mcp@0.7.2-dryrun.38068178940.1 build
+2026-10-10T16:34:13.8426005Z > tsc
+2026-10-10T16:34:13.8426269Z 
+2026-10-10T16:34:22.2084863Z npm notice
+2026-10-10T16:34:22.2088397Z npm notice 📦  @basedagents/mcp@0.7.2-dryrun.38068178940.1
+2026-10-10T16:34:22.2089160Z npm notice Tarball Contents
+2026-10-10T16:34:22.2094506Z npm notice 10.8kB LICENSE
+2026-10-10T16:34:22.2095631Z npm notice 19.0kB README.md
+2026-10-10T16:34:22.2096119Z npm notice 47B bin/basedagents-mcp.mjs
+2026-10-10T16:34:22.2096744Z npm notice 3.6kB dist/attribution.d.ts
+2026-10-10T16:34:22.2097163Z npm notice 15.5kB dist/attribution.js
+2026-10-10T16:34:22.2097589Z npm notice 2.6kB dist/index.d.ts
+2026-10-10T16:34:22.2097960Z npm notice 90.7kB dist/index.js
+2026-10-10T16:34:22.2098298Z npm notice 1.4kB package.json
+2026-10-10T16:34:22.2098637Z npm notice Tarball Details
+2026-10-10T16:34:22.2099234Z npm notice name: @basedagents/mcp
+2026-10-10T16:34:22.2099972Z npm notice version: 0.7.2-dryrun.38068178940.1
+2026-10-10T16:34:22.2100689Z npm notice filename: basedagents-mcp-0.7.2-dryrun.38068178940.1.tgz
+2026-10-10T16:34:22.2102471Z npm notice package size: 40.8 kB
+2026-10-10T16:34:22.2103908Z npm notice unpacked size: 143.7 kB
+2026-10-10T16:34:22.2104839Z npm notice shasum: 7814ab720bf20b42c9f47b22db6b4ed19af94142
+2026-10-10T16:34:22.2106279Z npm notice integrity: sha512-JqcUbM+SXgaSF[...]9mFKgVGBss2cg==
+2026-10-10T16:34:22.2108046Z npm notice total files: 8
+2026-10-10T16:34:22.2108535Z npm notice
+2026-10-10T16:34:22.2138875Z npm warn publish This command requires you to be logged in to https://registry.npmjs.org/ (dry-run)
+2026-10-10T16:34:22.4029898Z npm notice Publishing to https://registry.npmjs.org/ with tag dryrun and public access (dry-run)
+2026-10-10T16:34:22.4030666Z + @basedagents/mcp@0.7.2-dryrun.38068178940.1
+2026-10-10T16:34:22.4229659Z Post job cleanup.
+2026-10-10T16:34:22.5475694Z (node:2522) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-10T16:34:22.5476674Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-10T16:34:22.5480214Z Cache hit occurred on the primary key node-cache-Linux-x64-npm-f0dfbeccf4cf03614a1c70e0a334c7d6dee17688428dbfb743ab1fccbde237df, not saving cache.
+2026-10-10T16:34:22.5630609Z Post job cleanup.
+2026-10-10T16:34:22.6505527Z [command]/usr/bin/git version
+2026-10-10T16:34:22.6552445Z git version 2.55.0
+2026-10-10T16:34:22.6596367Z Temporarily overriding HOME='/home/runner/work/_temp/5e539880-cf41-4cbf-bc83-5f1791c2e58f' before making global git config changes
+2026-10-10T16:34:22.6598127Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-10T16:34:22.6603511Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/basedagents/basedagents
+2026-10-10T16:34:22.6642405Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-10T16:34:22.6679493Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-10T16:34:22.6960735Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-10T16:34:22.6988895Z http.https://github.com/.extraheader
+2026-10-10T16:34:22.7001168Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-10T16:34:22.7039844Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-10T16:34:22.7295698Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-10T16:34:22.7352192Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-10T16:34:22.7753347Z Cleaning up orphan processes
+2026-10-10T16:34:22.8049057Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

@@ -1,0 +1,182 @@
+﻿2026-10-06T02:13:41.9335703Z Current runner version: '2.337.0'
+2026-10-06T02:13:41.9358061Z ##[group]Runner Image Provisioner
+2026-10-06T02:13:41.9358765Z Hosted Compute Agent
+2026-10-06T02:13:41.9359246Z Version: 20260901.588
+2026-10-06T02:13:41.9359808Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+2026-10-06T02:13:41.9360425Z Build Date: 2026-09-01T19:56:44Z
+2026-10-06T02:13:41.9361131Z Worker ID: {aaa29977-0eec-4eab-96e0-2a5174debcd9}
+2026-10-06T02:13:41.9361770Z Azure Region: eastus
+2026-10-06T02:13:41.9362243Z ##[endgroup]
+2026-10-06T02:13:41.9363453Z ##[group]Operating System
+2026-10-06T02:13:41.9363958Z Ubuntu
+2026-10-06T02:13:41.9364463Z 24.04.5
+2026-10-06T02:13:41.9364903Z LTS
+2026-10-06T02:13:41.9365334Z ##[endgroup]
+2026-10-06T02:13:41.9365825Z ##[group]Runner Image
+2026-10-06T02:13:41.9366313Z Image: ubuntu-24.04
+2026-10-06T02:13:41.9366825Z Version: 20260927.320.1
+2026-10-06T02:13:41.9367866Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260927.320/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-06T02:13:41.9369137Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260927.320
+2026-10-06T02:13:41.9369921Z ##[endgroup]
+2026-10-06T02:13:41.9370904Z ##[group]GITHUB_TOKEN Permissions
+2026-10-06T02:13:41.9372929Z Contents: write
+2026-10-06T02:13:41.9373789Z Metadata: read
+2026-10-06T02:13:41.9374248Z ##[endgroup]
+2026-10-06T02:13:41.9376073Z Secret source: Actions
+2026-10-06T02:13:41.9376811Z Cache mode: write
+2026-10-06T02:13:41.9377590Z Prepare workflow directory
+2026-10-06T02:13:41.9643555Z Prepare all required actions
+2026-10-06T02:13:41.9683354Z Getting action download info
+2026-10-06T02:13:42.1177512Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-06T02:13:42.9237659Z Download action repository 'actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093' (SHA:d3f86a106a0bac45b974a628896c90dbdf5c8093)
+2026-10-06T02:13:43.6275490Z Complete job name: release
+2026-10-06T02:13:43.6866320Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-10-06T02:13:43.6866903Z with:
+2026-10-06T02:13:43.6867145Z   repository: tshyshko/basedagents
+2026-10-06T02:13:43.6869532Z   token: ***
+2026-10-06T02:13:43.6869759Z   ssh-strict: true
+2026-10-06T02:13:43.6869991Z   ssh-user: git
+2026-10-06T02:13:43.6870215Z   persist-credentials: true
+2026-10-06T02:13:43.6870456Z   clean: true
+2026-10-06T02:13:43.6870684Z   sparse-checkout-cone-mode: true
+2026-10-06T02:13:43.6870942Z   fetch-depth: 1
+2026-10-06T02:13:43.6871426Z   fetch-tags: false
+2026-10-06T02:13:43.6871656Z   show-progress: true
+2026-10-06T02:13:43.6871884Z   lfs: false
+2026-10-06T02:13:43.6872098Z   submodules: false
+2026-10-06T02:13:43.6872324Z   set-safe-directory: true
+2026-10-06T02:13:43.6872578Z   allow-unsafe-pr-checkout: false
+2026-10-06T02:13:43.6873032Z ##[endgroup]
+2026-10-06T02:13:43.7709825Z Syncing repository: tshyshko/basedagents
+2026-10-06T02:13:43.7711524Z ##[group]Getting Git version info
+2026-10-06T02:13:43.7711952Z Working directory is '/home/runner/work/basedagents/basedagents'
+2026-10-06T02:13:43.7712521Z [command]/usr/bin/git version
+2026-10-06T02:13:43.7823589Z git version 2.55.0
+2026-10-06T02:13:43.7843302Z ##[endgroup]
+2026-10-06T02:13:43.7863520Z Temporarily overriding HOME='/home/runner/work/_temp/93a82bc7-f7fc-46d9-87a3-760cadcb9acb' before making global git config changes
+2026-10-06T02:13:43.7864590Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-06T02:13:43.7868419Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/basedagents/basedagents
+2026-10-06T02:13:43.8051719Z Deleting the contents of '/home/runner/work/basedagents/basedagents'
+2026-10-06T02:13:43.8053445Z ##[group]Initializing the repository
+2026-10-06T02:13:43.8054978Z [command]/usr/bin/git init /home/runner/work/basedagents/basedagents
+2026-10-06T02:13:43.8262787Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-06T02:13:43.8264330Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-06T02:13:43.8265311Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-06T02:13:43.8266064Z hint: call:
+2026-10-06T02:13:43.8266938Z hint:
+2026-10-06T02:13:43.8267563Z hint: 	git config --global init.defaultBranch <name>
+2026-10-06T02:13:43.8268185Z hint:
+2026-10-06T02:13:43.8268797Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-06T02:13:43.8269764Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-06T02:13:43.8270571Z hint:
+2026-10-06T02:13:43.8271276Z hint: 	git branch -m <name>
+2026-10-06T02:13:43.8271816Z hint:
+2026-10-06T02:13:43.8272438Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-06T02:13:43.8273600Z Initialized empty Git repository in /home/runner/work/basedagents/basedagents/.git/
+2026-10-06T02:13:43.8275775Z [command]/usr/bin/git remote add origin https://github.com/tshyshko/basedagents
+2026-10-06T02:13:43.8341283Z ##[endgroup]
+2026-10-06T02:13:43.8342171Z ##[group]Disabling automatic garbage collection
+2026-10-06T02:13:43.8344307Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-06T02:13:43.8439919Z ##[endgroup]
+2026-10-06T02:13:43.8440381Z ##[group]Setting up auth
+2026-10-06T02:13:43.8440849Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-06T02:13:43.8475354Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-06T02:13:43.9668718Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-06T02:13:43.9706026Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-06T02:13:43.9925063Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-06T02:13:43.9957052Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-06T02:13:44.0167233Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-06T02:13:44.1427769Z ##[endgroup]
+2026-10-06T02:13:44.1429025Z ##[group]Fetching the repository
+2026-10-06T02:13:44.1438662Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +ef1cb5dabeaa85627dc0768828a04351b073415d:refs/tags/v0.0.0-test.1
+2026-10-06T02:13:45.1623204Z From https://github.com/tshyshko/basedagents
+2026-10-06T02:13:45.1623803Z  * [new ref]         ef1cb5dabeaa85627dc0768828a04351b073415d -> v0.0.0-test.1
+2026-10-06T02:13:45.1627916Z ##[endgroup]
+2026-10-06T02:13:45.1628271Z ##[group]Determining the checkout info
+2026-10-06T02:13:45.1630909Z ##[endgroup]
+2026-10-06T02:13:45.1637002Z [command]/usr/bin/git sparse-checkout disable
+2026-10-06T02:13:45.2531859Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-06T02:13:45.2658448Z ##[group]Checking out the ref
+2026-10-06T02:13:45.2659095Z [command]/usr/bin/git checkout --progress --force refs/tags/v0.0.0-test.1
+2026-10-06T02:13:45.3884634Z Note: switching to 'refs/tags/v0.0.0-test.1'.
+2026-10-06T02:13:45.3884943Z 
+2026-10-06T02:13:45.3885160Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-06T02:13:45.3885713Z changes and commit them, and you can discard any commits you make in this
+2026-10-06T02:13:45.3886111Z state without impacting any branches by switching back to a branch.
+2026-10-06T02:13:45.3886366Z 
+2026-10-06T02:13:45.3886564Z If you want to create a new branch to retain commits you create, you may
+2026-10-06T02:13:45.3886942Z do so (now or later) by using -c with the switch command. Example:
+2026-10-06T02:13:45.3887480Z 
+2026-10-06T02:13:45.3887584Z   git switch -c <new-branch-name>
+2026-10-06T02:13:45.3887726Z 
+2026-10-06T02:13:45.3887821Z Or undo this operation with:
+2026-10-06T02:13:45.3887950Z 
+2026-10-06T02:13:45.3888031Z   git switch -
+2026-10-06T02:13:45.3888155Z 
+2026-10-06T02:13:45.3888338Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-06T02:13:45.3888582Z 
+2026-10-06T02:13:45.3888755Z HEAD is now at ef1cb5d ci(release): harden release/publish pipeline (fork audit)
+2026-10-06T02:13:45.4039194Z ##[endgroup]
+2026-10-06T02:13:45.4082449Z [command]/usr/bin/git log -1 --format=%H
+2026-10-06T02:13:45.4106372Z ef1cb5dabeaa85627dc0768828a04351b073415d
+2026-10-06T02:13:45.4316103Z ##[group]Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+2026-10-06T02:13:45.4316459Z with:
+2026-10-06T02:13:45.4316636Z   name: release-artifacts
+2026-10-06T02:13:45.4316856Z   path: release-artifacts
+2026-10-06T02:13:45.4317061Z   merge-multiple: false
+2026-10-06T02:13:45.4317290Z   repository: tshyshko/basedagents
+2026-10-06T02:13:45.4317503Z   run-id: 37402878934
+2026-10-06T02:13:45.4317712Z ##[endgroup]
+2026-10-06T02:13:45.5568323Z Downloading single artifact
+2026-10-06T02:13:45.5688247Z (node:2081) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-06T02:13:45.5688984Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-06T02:13:45.6400482Z Preparing to download the following artifacts:
+2026-10-06T02:13:45.6401547Z - release-artifacts (ID: 11386246436, Size: 283957, Expected Digest: sha256:6989cc05657762754ab758aacf3b35007f691322bf7dbf8897b05bba1f6be3d8)
+2026-10-06T02:13:45.7485270Z Redirecting to blob download url: https://productionresultssa6.blob.core.windows.net/actions-results/033ae527-8284-8891-b8e9-94ceb14ba298/workflow-job-run-2bd0d88c-4bf9-558d-90a0-0f181b9d7d6c/artifacts/704e5c9bef6a57d5412048e4090077b7b8791b120883653580d766eb68bf253f.zip
+2026-10-06T02:13:45.7487121Z Starting download of artifact to: /home/runner/work/basedagents/basedagents/release-artifacts
+2026-10-06T02:13:45.8160817Z (node:2081) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-10-06T02:13:45.8381197Z SHA256 digest of downloaded artifact is 6989cc05657762754ab758aacf3b35007f691322bf7dbf8897b05bba1f6be3d8
+2026-10-06T02:13:45.8381930Z Artifact download completed successfully.
+2026-10-06T02:13:45.8382266Z Total of 1 artifact(s) downloaded
+2026-10-06T02:13:45.8385654Z Download artifact has finished successfully
+2026-10-06T02:13:45.8530828Z ##[group]Run set -euo pipefail
+2026-10-06T02:13:45.8531417Z [36;1mset -euo pipefail[0m
+2026-10-06T02:13:45.8531642Z [36;1mTITLE="BasedAgents ${TAG#v}"[0m
+2026-10-06T02:13:45.8531878Z [36;1mNOTES="docs/releases/${TAG}.md"[0m
+2026-10-06T02:13:45.8532190Z [36;1m# A '-' in the tag (v1.2.3-rc.1, v0.0.0-test.1) means pre-release:[0m
+2026-10-06T02:13:45.8590357Z [36;1m# published as such and never marked latest.[0m
+2026-10-06T02:13:45.8590844Z [36;1mcase "$TAG" in *-*) KIND=(--prerelease --latest=false);; *) KIND=(--latest);; esac[0m
+2026-10-06T02:13:45.8591434Z [36;1mif gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then[0m
+2026-10-06T02:13:45.8591817Z [36;1m  if [ -f "$NOTES" ]; then[0m
+2026-10-06T02:13:45.8592255Z [36;1m    gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --title "$TITLE" --notes-file "$NOTES" "${KIND[@]}"[0m
+2026-10-06T02:13:45.8592678Z [36;1m  else[0m
+2026-10-06T02:13:45.8593028Z [36;1m    gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --title "$TITLE" "${KIND[@]}"[0m
+2026-10-06T02:13:45.8593358Z [36;1m  fi[0m
+2026-10-06T02:13:45.8593537Z [36;1melif [ -f "$NOTES" ]; then[0m
+2026-10-06T02:13:45.8593955Z [36;1m  gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --title "$TITLE" --notes-file "$NOTES" "${KIND[@]}" --verify-tag[0m
+2026-10-06T02:13:45.8594350Z [36;1melse[0m
+2026-10-06T02:13:45.8594978Z [36;1m  gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --title "$TITLE" --generate-notes "${KIND[@]}" --verify-tag[0m
+2026-10-06T02:13:45.8595380Z [36;1mfi[0m
+2026-10-06T02:13:45.8595675Z [36;1mgh release upload "$TAG" release-artifacts/* --repo "$GITHUB_REPOSITORY" --clobber[0m
+2026-10-06T02:13:46.4579927Z shell: /usr/bin/bash -e {0}
+2026-10-06T02:13:46.4580186Z env:
+2026-10-06T02:13:46.4582864Z   GH_TOKEN: ***
+2026-10-06T02:13:46.4583056Z   TAG: v0.0.0-test.1
+2026-10-06T02:13:46.4583242Z ##[endgroup]
+2026-10-06T02:13:47.9212468Z https://github.com/tshyshko/basedagents/releases/tag/v0.0.0-test.1
+2026-10-06T02:13:49.2848066Z Post job cleanup.
+2026-10-06T02:13:49.3546379Z [command]/usr/bin/git version
+2026-10-06T02:13:49.3583660Z git version 2.55.0
+2026-10-06T02:13:49.3614826Z Temporarily overriding HOME='/home/runner/work/_temp/cf565300-89d7-43ef-bb29-2f8dc84a84c5' before making global git config changes
+2026-10-06T02:13:49.3615915Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-06T02:13:49.3619720Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/basedagents/basedagents
+2026-10-06T02:13:49.3656382Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-06T02:13:49.3689271Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-06T02:13:49.3911991Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-06T02:13:49.3940911Z http.https://github.com/.extraheader
+2026-10-06T02:13:49.3958206Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-06T02:13:49.3990855Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-06T02:13:49.4224760Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-06T02:13:49.4258339Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-06T02:13:49.4591889Z Cleaning up orphan processes
+2026-10-06T02:13:49.4829649Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

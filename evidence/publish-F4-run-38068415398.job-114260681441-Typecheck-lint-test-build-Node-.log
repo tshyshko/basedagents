@@ -1,0 +1,1538 @@
+﻿2026-10-10T16:37:28.7107546Z Current runner version: '2.337.0'
+2026-10-10T16:37:28.7132933Z ##[group]Runner Image Provisioner
+2026-10-10T16:37:28.7133907Z Hosted Compute Agent
+2026-10-10T16:37:28.7134533Z Version: 20261002.596
+2026-10-10T16:37:28.7135278Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-10T16:37:28.7136597Z Build Date: 2026-10-02T22:28:27Z
+2026-10-10T16:37:28.7137321Z Worker ID: {3dc57620-8253-45c3-9ee9-09e88904b4c7}
+2026-10-10T16:37:28.7138039Z Region: westus2
+2026-10-10T16:37:28.7138689Z Cloud: Azure
+2026-10-10T16:37:28.7139270Z ##[endgroup]
+2026-10-10T16:37:28.7141047Z ##[group]Operating System
+2026-10-10T16:37:28.7141759Z Ubuntu
+2026-10-10T16:37:28.7142549Z 24.04.5
+2026-10-10T16:37:28.7143185Z LTS
+2026-10-10T16:37:28.7143707Z ##[endgroup]
+2026-10-10T16:37:28.7144646Z ##[group]Runner Image
+2026-10-10T16:37:28.7145313Z Image: ubuntu-24.04
+2026-10-10T16:37:28.7145891Z Version: 20261004.327.1
+2026-10-10T16:37:28.7147234Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-10T16:37:28.7148820Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+2026-10-10T16:37:28.7149820Z ##[endgroup]
+2026-10-10T16:37:28.7150966Z ##[group]GITHUB_TOKEN Permissions
+2026-10-10T16:37:28.7153508Z Contents: read
+2026-10-10T16:37:28.7154136Z Metadata: read
+2026-10-10T16:37:28.7154789Z ##[endgroup]
+2026-10-10T16:37:28.7156962Z Secret source: Actions
+2026-10-10T16:37:28.7158029Z Cache mode: write
+2026-10-10T16:37:28.7158953Z Prepare workflow directory
+2026-10-10T16:37:28.7517110Z Prepare all required actions
+2026-10-10T16:37:28.7588127Z Getting action download info
+2026-10-10T16:37:29.1119005Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-10T16:37:29.2025692Z Download action repository 'actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-10-10T16:37:29.3920101Z Complete job name: Typecheck, lint, test, build (Node)
+2026-10-10T16:37:29.4752631Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-10-10T16:37:29.4753793Z with:
+2026-10-10T16:37:29.4754233Z   repository: tshyshko/basedagents
+2026-10-10T16:37:29.4757971Z   token: ***
+2026-10-10T16:37:29.4758397Z   ssh-strict: true
+2026-10-10T16:37:29.4758824Z   ssh-user: git
+2026-10-10T16:37:29.4759260Z   persist-credentials: true
+2026-10-10T16:37:29.4759744Z   clean: true
+2026-10-10T16:37:29.4760185Z   sparse-checkout-cone-mode: true
+2026-10-10T16:37:29.4760702Z   fetch-depth: 1
+2026-10-10T16:37:29.4761123Z   fetch-tags: false
+2026-10-10T16:37:29.4761592Z   show-progress: true
+2026-10-10T16:37:29.4762233Z   lfs: false
+2026-10-10T16:37:29.4762699Z   submodules: false
+2026-10-10T16:37:29.4763138Z   set-safe-directory: true
+2026-10-10T16:37:29.4763636Z   allow-unsafe-pr-checkout: false
+2026-10-10T16:37:29.4764557Z ##[endgroup]
+2026-10-10T16:37:29.5803396Z Syncing repository: tshyshko/basedagents
+2026-10-10T16:37:29.5806311Z ##[group]Getting Git version info
+2026-10-10T16:37:29.5807509Z Working directory is '/home/runner/work/basedagents/basedagents'
+2026-10-10T16:37:29.5809185Z [command]/usr/bin/git version
+2026-10-10T16:37:29.5921556Z git version 2.55.0
+2026-10-10T16:37:29.5945604Z ##[endgroup]
+2026-10-10T16:37:29.5961479Z Temporarily overriding HOME='/home/runner/work/_temp/3a09f2fd-1305-45b7-8089-2be579fe0f67' before making global git config changes
+2026-10-10T16:37:29.5964281Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-10T16:37:29.5968612Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/basedagents/basedagents
+2026-10-10T16:37:29.6023553Z Deleting the contents of '/home/runner/work/basedagents/basedagents'
+2026-10-10T16:37:29.6029203Z ##[group]Initializing the repository
+2026-10-10T16:37:29.6034507Z [command]/usr/bin/git init /home/runner/work/basedagents/basedagents
+2026-10-10T16:37:29.6138235Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-10T16:37:29.6140908Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-10T16:37:29.6143114Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-10T16:37:29.6144280Z hint: call:
+2026-10-10T16:37:29.6144726Z hint:
+2026-10-10T16:37:29.6145281Z hint: 	git config --global init.defaultBranch <name>
+2026-10-10T16:37:29.6146245Z hint:
+2026-10-10T16:37:29.6147224Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-10T16:37:29.6148169Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-10T16:37:29.6148892Z hint:
+2026-10-10T16:37:29.6149304Z hint: 	git branch -m <name>
+2026-10-10T16:37:29.6149775Z hint:
+2026-10-10T16:37:29.6150395Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-10T16:37:29.6151407Z Initialized empty Git repository in /home/runner/work/basedagents/basedagents/.git/
+2026-10-10T16:37:29.6155486Z [command]/usr/bin/git remote add origin https://github.com/tshyshko/basedagents
+2026-10-10T16:37:29.6206046Z ##[endgroup]
+2026-10-10T16:37:29.6207129Z ##[group]Disabling automatic garbage collection
+2026-10-10T16:37:29.6210051Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-10T16:37:29.6248435Z ##[endgroup]
+2026-10-10T16:37:29.6249185Z ##[group]Setting up auth
+2026-10-10T16:37:29.6257253Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-10T16:37:29.6296867Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-10T16:37:29.6659310Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-10T16:37:29.6701188Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-10T16:37:29.6940729Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-10T16:37:29.6979786Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-10T16:37:29.7211564Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-10T16:37:29.7253535Z ##[endgroup]
+2026-10-10T16:37:29.7254410Z ##[group]Fetching the repository
+2026-10-10T16:37:29.7264059Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +2350a3bd34dbb240857d8b2c0e9ce7bd7abc361c:refs/remotes/origin/main
+2026-10-10T16:37:30.4455015Z From https://github.com/tshyshko/basedagents
+2026-10-10T16:37:30.4456917Z  * [new ref]         2350a3bd34dbb240857d8b2c0e9ce7bd7abc361c -> origin/main
+2026-10-10T16:37:30.4473829Z ##[endgroup]
+2026-10-10T16:37:30.4474783Z ##[group]Determining the checkout info
+2026-10-10T16:37:30.4475707Z ##[endgroup]
+2026-10-10T16:37:30.4476263Z [command]/usr/bin/git sparse-checkout disable
+2026-10-10T16:37:30.4532009Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-10T16:37:30.4571306Z ##[group]Checking out the ref
+2026-10-10T16:37:30.4587365Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-10-10T16:37:30.5363421Z Switched to a new branch 'main'
+2026-10-10T16:37:30.5367406Z branch 'main' set up to track 'origin/main'.
+2026-10-10T16:37:30.5377596Z ##[endgroup]
+2026-10-10T16:37:30.5423270Z [command]/usr/bin/git log -1 --format=%H
+2026-10-10T16:37:30.5452153Z 2350a3bd34dbb240857d8b2c0e9ce7bd7abc361c
+2026-10-10T16:37:30.5837289Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+2026-10-10T16:37:30.5838955Z with:
+2026-10-10T16:37:30.5839896Z   node-version: 22
+2026-10-10T16:37:30.5840887Z   cache: npm
+2026-10-10T16:37:30.5841839Z   always-auth: false
+2026-10-10T16:37:30.5843410Z   check-latest: false
+2026-10-10T16:37:30.5852391Z   token: ***
+2026-10-10T16:37:30.5853362Z ##[endgroup]
+2026-10-10T16:37:30.7350701Z (node:2308) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-10T16:37:30.7354724Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-10T16:37:30.7356607Z Found in cache @ /opt/hostedtoolcache/node/22.23.3/x64
+2026-10-10T16:37:30.7360428Z ##[group]Environment details
+2026-10-10T16:37:31.1431253Z node: v22.23.3
+2026-10-10T16:37:31.1432290Z npm: 10.9.9
+2026-10-10T16:37:31.1432900Z yarn: 1.22.22
+2026-10-10T16:37:31.1434474Z ##[endgroup]
+2026-10-10T16:37:31.1454723Z [command]/opt/hostedtoolcache/node/22.23.3/x64/bin/npm config get cache
+2026-10-10T16:37:31.2576561Z /home/runner/.npm
+2026-10-10T16:37:31.5207096Z Cache hit for: node-cache-Linux-x64-npm-f0dfbeccf4cf03614a1c70e0a334c7d6dee17688428dbfb743ab1fccbde237df
+2026-10-10T16:37:31.5325864Z (node:2308) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-10T16:37:32.8192535Z Received 4194304 of 44414368 (9.4%), 4.0 MBs/sec
+2026-10-10T16:37:33.2236755Z Received 44414368 of 44414368 (100.0%), 30.1 MBs/sec
+2026-10-10T16:37:33.2237671Z Cache Size: ~42 MB (44414368 B)
+2026-10-10T16:37:33.2270266Z [command]/usr/bin/tar -xf /home/runner/work/_temp/24ba5d3d-2c12-4e17-af65-1116ea62359c/cache.tzst -P -C /home/runner/work/basedagents/basedagents --use-compress-program unzstd
+2026-10-10T16:37:33.3949129Z Cache restored successfully
+2026-10-10T16:37:33.3972442Z Cache restored from key: node-cache-Linux-x64-npm-f0dfbeccf4cf03614a1c70e0a334c7d6dee17688428dbfb743ab1fccbde237df
+2026-10-10T16:37:33.4138283Z ##[group]Run npm ci
+2026-10-10T16:37:33.4138631Z [36;1mnpm ci[0m
+2026-10-10T16:37:33.4418094Z shell: /usr/bin/bash -e {0}
+2026-10-10T16:37:33.4418481Z ##[endgroup]
+2026-10-10T16:37:35.9092679Z npm warn deprecated prebuild-install@7.1.3: No longer maintained. Please contact the author of the relevant native addon; alternatives are available.
+2026-10-10T16:37:39.3243240Z 
+2026-10-10T16:37:39.3244157Z added 488 packages, and audited 495 packages in 6s
+2026-10-10T16:37:39.3244777Z 
+2026-10-10T16:37:39.3245560Z 186 packages are looking for funding
+2026-10-10T16:37:39.3246100Z   run `npm fund` for details
+2026-10-10T16:37:39.3314089Z 
+2026-10-10T16:37:39.3342854Z 4 vulnerabilities (1 low, 2 high, 1 critical)
+2026-10-10T16:37:39.3343288Z 
+2026-10-10T16:37:39.3343679Z To address issues that do not require attention, run:
+2026-10-10T16:37:39.3344269Z   npm audit fix
+2026-10-10T16:37:39.3344488Z 
+2026-10-10T16:37:39.3345002Z To address all issues (including breaking changes), run:
+2026-10-10T16:37:39.3372933Z   npm audit fix --force
+2026-10-10T16:37:39.3373639Z 
+2026-10-10T16:37:39.3374146Z Run `npm audit` for details.
+2026-10-10T16:37:39.4045026Z ##[group]Run npm run typecheck
+2026-10-10T16:37:39.4045556Z [36;1mnpm run typecheck[0m
+2026-10-10T16:37:39.4132589Z shell: /usr/bin/bash -e {0}
+2026-10-10T16:37:39.4133078Z ##[endgroup]
+2026-10-10T16:37:39.5213288Z 
+2026-10-10T16:37:39.5213914Z > typecheck
+2026-10-10T16:37:39.5214687Z > tsc --build
+2026-10-10T16:37:39.5214955Z 
+2026-10-10T16:37:57.3180149Z ##[group]Run npm run lint
+2026-10-10T16:37:57.3180467Z [36;1mnpm run lint[0m
+2026-10-10T16:37:57.3245395Z shell: /usr/bin/bash -e {0}
+2026-10-10T16:37:57.3245673Z ##[endgroup]
+2026-10-10T16:37:57.4488752Z 
+2026-10-10T16:37:57.4489232Z > lint
+2026-10-10T16:37:57.4489755Z > eslint . && node scripts/lint-ui-words.mjs
+2026-10-10T16:37:57.4490058Z 
+2026-10-10T16:38:03.1107973Z 
+2026-10-10T16:38:03.1109122Z /home/runner/work/basedagents/basedagents/packages/api/src/routes/probe.ts
+2026-10-10T16:38:03.1143438Z ##[warning]  137:42  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+2026-10-10T16:38:03.1154046Z 
+2026-10-10T16:38:03.1154682Z ✖ 1 problem (0 errors, 1 warning)
+2026-10-10T16:38:03.1155300Z 
+2026-10-10T16:38:03.7226293Z lint-ui-words: 13 surfaces clean.
+2026-10-10T16:38:03.7466828Z ##[group]Run npm test
+2026-10-10T16:38:03.7467110Z [36;1mnpm test[0m
+2026-10-10T16:38:03.7530886Z shell: /usr/bin/bash -e {0}
+2026-10-10T16:38:03.7531151Z ##[endgroup]
+2026-10-10T16:38:03.8560187Z 
+2026-10-10T16:38:03.8560469Z > test
+2026-10-10T16:38:03.8561030Z > npm run test --workspaces --if-present
+2026-10-10T16:38:03.8561334Z 
+2026-10-10T16:38:03.9762485Z 
+2026-10-10T16:38:03.9762914Z > @basedagents/api@0.1.0 test
+2026-10-10T16:38:03.9763481Z > vitest run
+2026-10-10T16:38:03.9763725Z 
+2026-10-10T16:38:04.2598900Z 
+2026-10-10T16:38:04.2624959Z [1m[30m[46m RUN [49m[39m[22m [36mv4.1.11 [39m[90m/home/runner/work/basedagents/basedagents/packages/api[39m
+2026-10-10T16:38:04.2625803Z 
+2026-10-10T16:38:05.5554308Z [90mstderr[2m | src/routes/tasks.test.ts[2m > [22m[2mTask Marketplace[2m > [22m[2mclaim-delivery timer (claim_expires_at)[2m > [22m[2marms on claim, clears on deliver, re-arms on a revision request; exposed on public reads
+2026-10-10T16:38:05.5559607Z [22m[39m[posthog] POSTHOG_PROJECT_TOKEN is not set — product analytics and error tracking are OFF. Set it (and optionally POSTHOG_HOST) in .env / the Worker vars for this environment.
+2026-10-10T16:38:05.5561240Z 
+2026-10-10T16:38:05.9558821Z [90mstderr[2m | src/payments/payments.test.ts[2m > [22m[2mx402 Payment Integration (sign-at-accept)[2m > [22m[2mPayments disabled (production default)[2m > [22m[2ma free task still works and reports payment_status none
+2026-10-10T16:38:05.9562659Z [22m[39m[posthog] POSTHOG_PROJECT_TOKEN is not set — product analytics and error tracking are OFF. Set it (and optionally POSTHOG_HOST) in .env / the Worker vars for this environment.
+2026-10-10T16:38:05.9564503Z 
+2026-10-10T16:38:06.1937790Z [90mstderr[2m | src/payments/payments.test.ts[2m > [22m[2mx402 Payment Integration (sign-at-accept)[2m > [22m[2mDeclaring a bounty (payments enabled)[2m > [22m[2malso rejects the legacy X-PAYMENT-SIGNATURE header at creation
+2026-10-10T16:38:06.1940349Z [22m[39m[payments] X-PAYMENT-SIGNATURE is deprecated; send PAYMENT-SIGNATURE
+2026-10-10T16:38:06.1940956Z 
+2026-10-10T16:38:06.2443925Z [90mstderr[2m | src/control/tasks.test.ts[2m > [22m[2mOwner task routes[2m > [22m[2mcomposes an unpaid task as the owner; public reads show a human creator and no owner id
+2026-10-10T16:38:06.2474569Z [22m[39m[posthog] POSTHOG_PROJECT_TOKEN is not set — product analytics and error tracking are OFF. Set it (and optionally POSTHOG_HOST) in .env / the Worker vars for this environment.
+2026-10-10T16:38:06.2475868Z 
+2026-10-10T16:38:06.7007334Z [90mstderr[2m | src/control/tasks.test.ts[2m > [22m[2mOwner task routes[2m > [22m[2mescrow: deposit at post, release on accept, refund on cancel[2m > [22m[2mfunds an unfunded task again via POST /v1/owner/tasks/:id/fund
+2026-10-10T16:38:06.7009722Z [22m[39m[payments] task_62drWCrFNyQJOtVj0I5CF: invalid_exact_evm_payload_signature
+2026-10-10T16:38:06.7028254Z 
+2026-10-10T16:38:06.8845742Z [90mstderr[2m | src/payments/payments.test.ts[2m > [22m[2mx402 Payment Integration (sign-at-accept)[2m > [22m[2mAccepting a paid deliverable[2m > [22m[2maccepts the deprecated X-PAYMENT-SIGNATURE header name
+2026-10-10T16:38:06.8848319Z [22m[39m[payments] X-PAYMENT-SIGNATURE is deprecated; send PAYMENT-SIGNATURE
+2026-10-10T16:38:06.8849207Z 
+2026-10-10T16:38:06.9055055Z [90mstderr[2m | src/routes/tasks.test.ts[2m > [22m[2mTask Marketplace[2m > [22m[2moptional ratings (D11)[2m > [22m[2man accept whose rating cannot be saved still succeeds, and says the rating was not saved
+2026-10-10T16:38:06.9057869Z [22m[39m[tasks] rating write failed for task_VpzEWLd1HcA6MYzv2ERgn after the accept: Error: D1 unavailable
+2026-10-10T16:38:06.9088575Z     at SQLiteAdapter.<anonymous> [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/routes/tasks.test.ts:564:58[90m)[39m
+2026-10-10T16:38:06.9113905Z     at SQLiteAdapter.run (file:///home/runner/work/basedagents/basedagents/node_modules/[4m@vitest/spy[24m/dist/index.js:332:34)
+2026-10-10T16:38:06.9143568Z     at settleRatingAfterAccept [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/tasks/service.ts:644:26[90m)[39m
+2026-10-10T16:38:06.9161057Z     at handleAccept [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/routes/tasks.ts:910:25[90m)[39m
+2026-10-10T16:38:06.9203577Z     at dispatch (file:///home/runner/work/basedagents/basedagents/node_modules/[4mhono[24m/dist/compose.js:22:17)
+2026-10-10T16:38:06.9205648Z     at [90m/home/runner/work/basedagents/basedagents/packages/api/[39msrc/middleware/auth.ts:140:3
+2026-10-10T16:38:06.9229636Z     at dispatch (file:///home/runner/work/basedagents/basedagents/node_modules/[4mhono[24m/dist/compose.js:22:17)
+2026-10-10T16:38:06.9231755Z     at acquisitionCapture [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/acquisition/capture.ts:373:3[90m)[39m
+2026-10-10T16:38:06.9243792Z     at dispatch (file:///home/runner/work/basedagents/basedagents/node_modules/[4mhono[24m/dist/compose.js:22:17)
+2026-10-10T16:38:06.9245611Z     at [90m/home/runner/work/basedagents/basedagents/packages/api/[39msrc/test-helpers.ts:347:5
+2026-10-10T16:38:06.9246647Z 
+2026-10-10T16:38:06.9597639Z [90mstderr[2m | src/routes/tasks.test.ts[2m > [22m[2mTask Marketplace[2m > [22m[2moptional ratings (D11)[2m > [22m[2man accept that cannot remove a dispute-time rating says so; accepting again removes it
+2026-10-10T16:38:06.9600729Z [22m[39m[tasks] rating write failed for task_Jgim6Kwy8YvtRKSzvugF4 after the accept: Error: D1 unavailable
+2026-10-10T16:38:06.9603288Z     at SQLiteAdapter.<anonymous> [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/routes/tasks.test.ts:586:88[90m)[39m
+2026-10-10T16:38:06.9605689Z     at SQLiteAdapter.run (file:///home/runner/work/basedagents/basedagents/node_modules/[4m@vitest/spy[24m/dist/index.js:332:34)
+2026-10-10T16:38:06.9608002Z     at settleRatingAfterAccept [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/tasks/service.ts:637:16[90m)[39m
+2026-10-10T16:38:06.9610143Z     at handleAccept [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/routes/tasks.ts:910:25[90m)[39m
+2026-10-10T16:38:06.9612389Z     at dispatch (file:///home/runner/work/basedagents/basedagents/node_modules/[4mhono[24m/dist/compose.js:22:17)
+2026-10-10T16:38:06.9614177Z     at [90m/home/runner/work/basedagents/basedagents/packages/api/[39msrc/middleware/auth.ts:140:3
+2026-10-10T16:38:06.9616124Z     at dispatch (file:///home/runner/work/basedagents/basedagents/node_modules/[4mhono[24m/dist/compose.js:22:17)
+2026-10-10T16:38:06.9618362Z     at acquisitionCapture [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/acquisition/capture.ts:373:3[90m)[39m
+2026-10-10T16:38:06.9620390Z     at dispatch (file:///home/runner/work/basedagents/basedagents/node_modules/[4mhono[24m/dist/compose.js:22:17)
+2026-10-10T16:38:06.9622408Z     at [90m/home/runner/work/basedagents/basedagents/packages/api/[39msrc/test-helpers.ts:347:5
+2026-10-10T16:38:06.9623310Z 
+2026-10-10T16:38:07.1010293Z [90mstdout[2m | src/control/tasks.test.ts[2m > [22m[2mOwner task routes[2m > [22m[2mdispute freezes auto-accept; cancel needs a dispute first; dispute→cancel counts against the deliverer
+2026-10-10T16:38:07.1017047Z [22m[39m[payments] disabled: TASK_PAYMENTS_ENABLED is not '1'
+2026-10-10T16:38:07.1017756Z 
+2026-10-10T16:38:07.1485715Z [90mstderr[2m | src/payments/payments.test.ts[2m > [22m[2mx402 Payment Integration (sign-at-accept)[2m > [22m[2mSettlement outcomes after acceptance[2m > [22m[2mterminal settle failure → payment failed with no retry; the buyer may re-sign
+2026-10-10T16:38:07.1493031Z [22m[39m[payments] task_TL2p1dbX7pypLA9eLuKYO: invalid_exact_evm_payload_signature
+2026-10-10T16:38:07.1493908Z 
+2026-10-10T16:38:07.3208871Z [90mstderr[2m | src/payments/payments.test.ts[2m > [22m[2mx402 Payment Integration (sign-at-accept)[2m > [22m[2mSettlement outcomes after acceptance[2m > [22m[2man unreadable stored payload after our broadcast is handed to a human, not re-signed
+2026-10-10T16:38:07.3218616Z [22m[39m[payments] task_CzMstJaiA50raOmBW8LoO: stored payload unreadable after broadcast — manual reconciliation required
+2026-10-10T16:38:07.3219993Z 
+2026-10-10T16:38:07.3956036Z  [32m✓[39m src/control/tasks.test.ts [2m([22m[2m28 tests[22m[2m)[22m[33m 1328[2mms[22m[39m
+2026-10-10T16:38:08.0054020Z  [32m✓[39m src/payments/payments.test.ts [2m([22m[2m54 tests[22m[2m)[22m[33m 2582[2mms[22m[39m
+2026-10-10T16:38:08.5376011Z  [32m✓[39m src/control/routes.test.ts [2m([22m[2m23 tests[22m[2m)[22m[33m 606[2mms[22m[39m
+2026-10-10T16:38:08.7323039Z [90mstderr[2m | src/payments/settle.test.ts[2m > [22m[2mpayments/settle.ts[2m > [22m[2moutcome table[2m > [22m[2mrejected duplicate_settlement → settled (inferred) with the reported tx
+2026-10-10T16:38:08.7340082Z [22m[39m[payments] task_JhTMExFyTbnxTYxvpY4G5: settlement inferred from duplicate_settlement (tx 0xabababababababababababababababababababababababababababababababab) — reconcile on-chain
+2026-10-10T16:38:08.7341581Z 
+2026-10-10T16:38:08.7704122Z [90mstderr[2m | src/payments/settle.test.ts[2m > [22m[2mpayments/settle.ts[2m > [22m[2moutcome table[2m > [22m[2mrejected duplicate_settlement without a tx keeps the tx recorded by an earlier pending answer
+2026-10-10T16:38:08.7707927Z [22m[39m[payments] task_2XYXkbLNyA7m674ytXMZY: settlement inferred from duplicate_settlement (tx 0xcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd) — reconcile on-chain
+2026-10-10T16:38:08.7709632Z 
+2026-10-10T16:38:08.8017305Z [90mstderr[2m | src/payments/settle.test.ts[2m > [22m[2mpayments/settle.ts[2m > [22m[2moutcome table[2m > [22m[2mrejected nonce_already_used on the FIRST attempt → terminal nonce_conflict (no retry, buyer notified)
+2026-10-10T16:38:08.8033523Z [22m[39m[payments] task_gZWIE4eCOFFwnD23Xx1Iy: nonce_conflict
+2026-10-10T16:38:08.8052981Z 
+2026-10-10T16:38:08.8324842Z [90mstderr[2m | src/payments/settle.test.ts[2m > [22m[2mpayments/settle.ts[2m > [22m[2moutcome table[2m > [22m[2mrejected nonce_already_used on a SECOND attempt → settled (inferred nonce_used): it was our own landing
+2026-10-10T16:38:08.8334081Z [22m[39m[payments] task_RWUjpJstv2h776gWvbVx1: settlement inferred from nonce_used (tx unknown) — reconcile on-chain
+2026-10-10T16:38:08.8335243Z 
+2026-10-10T16:38:09.0143973Z [90mstderr[2m | src/payments/settle.test.ts[2m > [22m[2mpayments/settle.ts[2m > [22m[2moutcome table[2m > [22m[2mrejected …recipient_mismatch → terminal: failed with no retry, buyer notified
+2026-10-10T16:38:09.0146270Z [22m[39m[payments] task_namh07IUJmeZNOd2h126E: invalid_exact_evm_payload_recipient_mismatch
+2026-10-10T16:38:09.0146971Z 
+2026-10-10T16:38:09.0371295Z [90mstderr[2m | src/payments/settle.test.ts[2m > [22m[2mpayments/settle.ts[2m > [22m[2moutcome table[2m > [22m[2munavailable billing → failed with last_settle_error=facilitator_billing and retry in 3600000ms
+2026-10-10T16:38:09.0373420Z [22m[39m[payments] task_haYRumiOUPVFxO5t6ldDQ: facilitator_billing
+2026-10-10T16:38:09.0373934Z 
+2026-10-10T16:38:09.0544823Z [90mstderr[2m | src/payments/settle.test.ts[2m > [22m[2mpayments/settle.ts[2m > [22m[2moutcome table[2m > [22m[2munavailable auth → failed with last_settle_error=facilitator_auth and retry in 3600000ms
+2026-10-10T16:38:09.0546421Z [22m[39m[payments] task_mWSP7eIj5Hvno9PVNn51a: facilitator_auth
+2026-10-10T16:38:09.0547051Z 
+2026-10-10T16:38:09.5310072Z  [32m✓[39m src/routes/tasks.test.ts [2m([22m[2m90 tests[22m[2m)[22m[33m 4108[2mms[22m[39m
+2026-10-10T16:38:09.6400309Z  [32m✓[39m src/payments/settle.test.ts [2m([22m[2m49 tests[22m[2m)[22m[33m 1135[2mms[22m[39m
+2026-10-10T16:38:09.7011040Z [90mstderr[2m | src/cron/tasks.test.ts[2m > [22m[2mcron/tasks.ts runTaskCron[2m > [22m[2m5. unknown-outcome cap[2m > [22m[2ma broadcast failed row still retrying 24 h after its authorization expired is handed to a human
+2026-10-10T16:38:09.7014603Z [22m[39m[payments] task_Tt38kspQsMob9CEziwbFn: settlement outcome unknown 24h after expiry — manual reconciliation required
+2026-10-10T16:38:09.7015512Z 
+2026-10-10T16:38:09.7257757Z [90mstderr[2m | src/cron/tasks.test.ts[2m > [22m[2mcron/tasks.ts runTaskCron[2m > [22m[2m5. unknown-outcome cap[2m > [22m[2mthe cap fires exactly at the 24 h mark and not before
+2026-10-10T16:38:09.7259294Z [22m[39m[payments] task_LZMqare9aH7lqlieHGYbe: settlement outcome unknown 24h after expiry — manual reconciliation required
+2026-10-10T16:38:09.7260088Z 
+2026-10-10T16:38:09.8053543Z [90mstderr[2m | src/cron/tasks.test.ts[2m > [22m[2mcron/tasks.ts runTaskCron[2m > [22m[2m6. per-row isolation[2m > [22m[2ma DB error on one auto-accept row does not stop the loop: the other due row is still accepted
+2026-10-10T16:38:09.8064073Z [22m[39m[cron] auto-accept failed for task_XLhct3b15VmbeDpKMmyDP: Error: simulated D1 failure
+2026-10-10T16:38:09.8066637Z     at SQLiteAdapter.<anonymous> [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/cron/tasks.test.ts:661:82[90m)[39m
+2026-10-10T16:38:09.8069050Z     at SQLiteAdapter.run (file:///home/runner/work/basedagents/basedagents/node_modules/[4m@vitest/spy[24m/dist/index.js:332:34)
+2026-10-10T16:38:09.8071368Z     at autoAcceptGate [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/tasks/service.ts:569:24[90m)[39m
+2026-10-10T16:38:09.8073919Z     at Module.runTaskCron [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/cron/tasks.ts:76:19[90m)[39m
+2026-10-10T16:38:09.8075840Z     at [90m/home/runner/work/basedagents/basedagents/packages/api/[39msrc/cron/tasks.test.ts:665:23
+2026-10-10T16:38:09.8077767Z     at file:///home/runner/work/basedagents/basedagents/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:1903:20
+2026-10-10T16:38:09.8078940Z 
+2026-10-10T16:38:09.8340690Z [90mstderr[2m | src/cron/tasks.test.ts[2m > [22m[2mcron/tasks.ts runTaskCron[2m > [22m[2m6. per-row isolation[2m > [22m[2ma task whose deliverer row vanished is still auto-accepted (chain entry is best-effort) alongside a healthy one
+2026-10-10T16:38:09.8348655Z [22m[39m[tasks] chain entry failed for task_UeNm9LtfToPGCRwue1gvq: Error: chain: agent ag_87qULbT86tKhNcQctzf6ySoMCT4BBepooJW7MnADrFxk not found
+2026-10-10T16:38:09.8351216Z     at taskChainEntry [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/tasks/service.ts:282:21[90m)[39m
+2026-10-10T16:38:09.8353912Z     at afterAccept [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/tasks/service.ts:785:15[90m)[39m
+2026-10-10T16:38:09.8356123Z     at Module.runTaskCron [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/cron/tasks.ts:80:7[90m)[39m
+2026-10-10T16:38:09.8358201Z     at [90m/home/runner/work/basedagents/basedagents/packages/api/[39msrc/cron/tasks.test.ts:681:23
+2026-10-10T16:38:09.8360350Z     at file:///home/runner/work/basedagents/basedagents/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:1903:20
+2026-10-10T16:38:09.8361583Z 
+2026-10-10T16:38:09.8364353Z [90mstderr[2m | src/cron/tasks.test.ts[2m > [22m[2mcron/tasks.ts runTaskCron[2m > [22m[2m6. per-row isolation[2m > [22m[2ma task whose deliverer row vanished is still auto-accepted (chain entry is best-effort) alongside a healthy one
+2026-10-10T16:38:09.8367566Z [22m[39m[events] persist failed (task.verified -> ag_87qULbT86tKhNcQctzf6ySoMCT4BBepooJW7MnADrFxk): SqliteError: FOREIGN KEY constraint failed
+2026-10-10T16:38:09.8370060Z     at SQLiteAdapter.run [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/db/sqlite-adapter.ts:21:41[90m)[39m
+2026-10-10T16:38:09.8372628Z     at recordEvent [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/events/service.ts:72:14[90m)[39m
+2026-10-10T16:38:09.8374797Z     at afterAccept [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/tasks/service.ts:790:11[90m)[39m
+2026-10-10T16:38:09.8377621Z     at Module.runTaskCron [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/cron/tasks.ts:80:7[90m)[39m
+2026-10-10T16:38:09.8379726Z     at [90m/home/runner/work/basedagents/basedagents/packages/api/[39msrc/cron/tasks.test.ts:681:23
+2026-10-10T16:38:09.8381843Z     at file:///home/runner/work/basedagents/basedagents/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:1903:20 {
+2026-10-10T16:38:09.8383704Z   code: [32m'SQLITE_CONSTRAINT_FOREIGNKEY'[39m
+2026-10-10T16:38:09.8384564Z }
+2026-10-10T16:38:09.8385018Z 
+2026-10-10T16:38:09.8542555Z [90mstderr[2m | src/cron/tasks.test.ts[2m > [22m[2mcron/tasks.ts runTaskCron[2m > [22m[2m6. per-row isolation[2m > [22m[2ma DB error inside one settle attempt does not stop the settle pass
+2026-10-10T16:38:09.8563908Z [22m[39m[cron] settle failed for task_77h3KZFZXNNyCBPx1Eglw: Error: simulated D1 failure
+2026-10-10T16:38:09.8566059Z     at SQLiteAdapter.<anonymous> [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/cron/tasks.test.ts:699:106[90m)[39m
+2026-10-10T16:38:09.8568504Z     at SQLiteAdapter.run (file:///home/runner/work/basedagents/basedagents/node_modules/[4m@vitest/spy[24m/dist/index.js:332:34)
+2026-10-10T16:38:09.8575119Z     at settleTask [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/payments/settle.ts:173:25[90m)[39m
+2026-10-10T16:38:09.8577332Z     at Module.runTaskCron [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/cron/tasks.ts:208:25[90m)[39m
+2026-10-10T16:38:09.8579923Z     at [90m/home/runner/work/basedagents/basedagents/packages/api/[39msrc/cron/tasks.test.ts:703:23
+2026-10-10T16:38:09.8582188Z     at file:///home/runner/work/basedagents/basedagents/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:1903:20
+2026-10-10T16:38:09.8583483Z 
+2026-10-10T16:38:09.8945320Z [90mstderr[2m | src/cron/tasks.test.ts[2m > [22m[2mcron/tasks.ts runTaskCron[2m > [22m[2m6. per-row isolation[2m > [22m[2mall five passes run in one tick and the summary reflects each
+2026-10-10T16:38:09.8948225Z [22m[39m[payments] task_okh5oQXVF2YoVkImFLjeS: settlement outcome unknown 24h after expiry — manual reconciliation required
+2026-10-10T16:38:09.8949437Z 
+2026-10-10T16:38:09.9193635Z  [32m✓[39m src/cron/tasks.test.ts [2m([22m[2m31 tests[22m[2m)[22m[33m 871[2mms[22m[39m
+2026-10-10T16:38:10.3102839Z  [32m✓[39m src/mcp/oauth.test.ts [2m([22m[2m32 tests[22m[2m)[22m[33m 398[2mms[22m[39m
+2026-10-10T16:38:10.3889158Z [90mstderr[2m | src/payments/escrow.test.ts[2m > [22m[2mEscrow (Tasks P1)[2m > [22m[2mPOST /v1/tasks with a bounty[2m > [22m[2mwith the signed deposit: verifies, creates the task, settles the deposit into escrow, funded + claimable
+2026-10-10T16:38:10.3914076Z [22m[39m[posthog] POSTHOG_PROJECT_TOKEN is not set — product analytics and error tracking are OFF. Set it (and optionally POSTHOG_HOST) in .env / the Worker vars for this environment.
+2026-10-10T16:38:10.3915374Z 
+2026-10-10T16:38:10.6972868Z [90mstderr[2m | src/payments/escrow.test.ts[2m > [22m[2mEscrow (Tasks P1)[2m > [22m[2mPOST /v1/tasks with a bounty[2m > [22m[2ma deposit the chain rejects for good → unfunded; the buyer can cancel, or fund again via POST /fund
+2026-10-10T16:38:10.7019020Z [22m[39m[payments] task_YqMU4xzUUmLkZUhUkBRns: invalid_exact_evm_payload_signature
+2026-10-10T16:38:10.7042785Z 
+2026-10-10T16:38:10.7856514Z [90mstderr[2m | src/payments/escrow.test.ts[2m > [22m[2mEscrow (Tasks P1)[2m > [22m[2mPOST /v1/tasks with a bounty[2m > [22m[2mcancelling an unfunded escrow task voids it with nothing to refund
+2026-10-10T16:38:10.7883462Z [22m[39m[payments] task_9uEETjmgj1FqMB310S6fM: invalid_exact_evm_payload_signature
+2026-10-10T16:38:10.7884782Z 
+2026-10-10T16:38:11.0904427Z [90mstderr[2m | src/payments/escrow.test.ts[2m > [22m[2mEscrow (Tasks P1)[2m > [22m[2maccepting a delivered escrow task[2m > [22m[2ma release the facilitator cannot settle right now stays releasing and is retried by the cron with the SAME authorization
+2026-10-10T16:38:11.0914021Z [22m[39m[escrow] task_TsAFn4GxUyZm9SzCnE9f7: release leg transient (facilitator_server: 502) — attempt 1
+2026-10-10T16:38:11.0915126Z 
+2026-10-10T16:38:11.1365375Z [90mstderr[2m | src/payments/escrow.test.ts[2m > [22m[2mEscrow (Tasks P1)[2m > [22m[2maccepting a delivered escrow task[2m > [22m[2ma release the chain rejects for good drops back to funded and the cron re-signs a fresh authorization
+2026-10-10T16:38:11.1368004Z [22m[39m[payments] task_oLSEcKBaiUmaZEamyHKMu: invalid_exact_evm_token_name_mismatch
+2026-10-10T16:38:11.1370519Z [escrow] task_oLSEcKBaiUmaZEamyHKMu: release leg terminal (invalid_exact_evm_token_name_mismatch) — attempt 1; back to funded, the cron re-signs
+2026-10-10T16:38:11.1371846Z 
+2026-10-10T16:38:11.1879244Z [90mstderr[2m | src/payments/escrow.test.ts[2m > [22m[2mEscrow (Tasks P1)[2m > [22m[2maccepting a delivered escrow task[2m > [22m[2mgives up after the attempt cap and reports it for a human
+2026-10-10T16:38:11.1881756Z [22m[39m[payments] task_VpKqN0xvBKjYAEDSjRDmf: invalid_exact_evm_token_name_mismatch
+2026-10-10T16:38:11.1884567Z [escrow] task_VpKqN0xvBKjYAEDSjRDmf: release leg terminal (invalid_exact_evm_token_name_mismatch) — attempt 1; back to funded, the cron re-signs
+2026-10-10T16:38:11.1885977Z 
+2026-10-10T16:38:11.1944486Z [90mstderr[2m | src/payments/escrow.test.ts[2m > [22m[2mEscrow (Tasks P1)[2m > [22m[2maccepting a delivered escrow task[2m > [22m[2mgives up after the attempt cap and reports it for a human
+2026-10-10T16:38:11.1946932Z [22m[39m[payments] task_VpKqN0xvBKjYAEDSjRDmf: invalid_exact_evm_token_name_mismatch
+2026-10-10T16:38:11.1949254Z [escrow] task_VpKqN0xvBKjYAEDSjRDmf: release leg terminal (invalid_exact_evm_token_name_mismatch) — attempt 2; back to funded, the cron re-signs
+2026-10-10T16:38:11.1950570Z 
+2026-10-10T16:38:11.1992976Z [90mstderr[2m | src/payments/escrow.test.ts[2m > [22m[2mEscrow (Tasks P1)[2m > [22m[2maccepting a delivered escrow task[2m > [22m[2mgives up after the attempt cap and reports it for a human
+2026-10-10T16:38:11.2013444Z [22m[39m[payments] task_VpKqN0xvBKjYAEDSjRDmf: invalid_exact_evm_token_name_mismatch
+2026-10-10T16:38:11.2043679Z [escrow] task_VpKqN0xvBKjYAEDSjRDmf: release leg terminal (invalid_exact_evm_token_name_mismatch) — attempt 3; back to funded, the cron re-signs
+2026-10-10T16:38:11.2045079Z 
+2026-10-10T16:38:11.2074297Z [90mstderr[2m | src/payments/escrow.test.ts[2m > [22m[2mEscrow (Tasks P1)[2m > [22m[2maccepting a delivered escrow task[2m > [22m[2mgives up after the attempt cap and reports it for a human
+2026-10-10T16:38:11.2103241Z [22m[39m[payments] task_VpKqN0xvBKjYAEDSjRDmf: invalid_exact_evm_token_name_mismatch
+2026-10-10T16:38:11.2114342Z [escrow] task_VpKqN0xvBKjYAEDSjRDmf: release leg terminal (invalid_exact_evm_token_name_mismatch) — attempt 4; back to funded, the cron re-signs
+2026-10-10T16:38:11.2115769Z 
+2026-10-10T16:38:11.2117874Z [90mstderr[2m | src/payments/escrow.test.ts[2m > [22m[2mEscrow (Tasks P1)[2m > [22m[2maccepting a delivered escrow task[2m > [22m[2mgives up after the attempt cap and reports it for a human
+2026-10-10T16:38:11.2120326Z [22m[39m[payments] task_VpKqN0xvBKjYAEDSjRDmf: invalid_exact_evm_token_name_mismatch
+2026-10-10T16:38:11.2123106Z [escrow] task_VpKqN0xvBKjYAEDSjRDmf: release leg terminal (invalid_exact_evm_token_name_mismatch) — attempt 5; back to funded, the cron re-signs
+2026-10-10T16:38:11.2124552Z 
+2026-10-10T16:38:11.2126564Z [90mstderr[2m | src/payments/escrow.test.ts[2m > [22m[2mEscrow (Tasks P1)[2m > [22m[2maccepting a delivered escrow task[2m > [22m[2mgives up after the attempt cap and reports it for a human
+2026-10-10T16:38:11.2129153Z [22m[39m[escrow] task_VpKqN0xvBKjYAEDSjRDmf: release gave up after 5 attempts — manual reconciliation required
+2026-10-10T16:38:11.2130640Z 
+2026-10-10T16:38:11.3345950Z [90mstderr[2m | src/payments/escrow.test.ts[2m > [22m[2mEscrow (Tasks P1)[2m > [22m[2maccepting a delivered escrow task[2m > [22m[2man accept whose signing is impossible (house key gone) still records acceptance; the sweep releases later
+2026-10-10T16:38:11.3364592Z [22m[39m[escrow] task_SPvXGW3WdLw8WslhSVx4E: cannot release — house wallet/payments not configured; the cron retries
+2026-10-10T16:38:11.3392278Z 
+2026-10-10T16:38:11.3946391Z [90mstderr[2m | src/payments/escrow.test.ts[2m > [22m[2mEscrow (Tasks P1)[2m > [22m[2maccepting a delivered escrow task[2m > [22m[2ma rotated house key cannot move an older deposit: the leg is refused and reported
+2026-10-10T16:38:11.3974550Z [22m[39m[escrow] task_dIX8UVBrqbnAixOjxAxgL: deposit is held by 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 but the configured house wallet is 0x70997970C51812dc3A010C7d01b50e0d17dc79C8 — manual release required
+2026-10-10T16:38:11.3982621Z 
+2026-10-10T16:38:11.5821658Z [90mstderr[2m | src/payments/escrow.test.ts[2m > [22m[2mEscrow (Tasks P1)[2m > [22m[2mcancelling a funded escrow task[2m > [22m[2ma refund that fails transiently is retried by the cron; accepted work cannot be cancelled
+2026-10-10T16:38:11.5833006Z [22m[39m[escrow] task_x8uQGUuqJ8weqSvPNqcRc: refund leg transient (facilitator_network: x) — attempt 1
+2026-10-10T16:38:11.5834289Z 
+2026-10-10T16:38:11.6994272Z  [32m✓[39m src/payments/escrow.test.ts [2m([22m[2m26 tests[22m[2m)[22m[33m 1499[2mms[22m[39m
+2026-10-10T16:38:11.9444554Z  [32m✓[39m src/routes/messages.test.ts [2m([22m[2m33 tests[22m[2m)[22m[33m 1431[2mms[22m[39m
+2026-10-10T16:38:12.3113949Z  [32m✓[39m src/mcp/handler.test.ts [2m([22m[2m24 tests[22m[2m)[22m[32m 238[2mms[22m[39m
+2026-10-10T16:38:12.7193860Z [90mstderr[2m | src/control/agent-testing/fulfillment.test.ts[2m > [22m[2mclaims, allowlist and briefs (spec §10.4, §7.3, §11)[2m > [22m[2monly approved workers can claim; the brief is claimant-only and revoked on cancel
+2026-10-10T16:38:12.7206819Z [22m[39m[posthog] POSTHOG_PROJECT_TOKEN is not set — product analytics and error tracking are OFF. Set it (and optionally POSTHOG_HOST) in .env / the Worker vars for this environment.
+2026-10-10T16:38:12.7219606Z 
+2026-10-10T16:38:13.7852186Z  [32m✓[39m src/routes/board.test.ts [2m([22m[2m29 tests[22m[2m)[22m[33m 982[2mms[22m[39m
+2026-10-10T16:38:14.4844267Z  [32m✓[39m src/control/agent-testing/fulfillment.test.ts [2m([22m[2m17 tests[22m[2m)[22m[33m 2864[2mms[22m[39m
+2026-10-10T16:38:14.4870317Z      [33m[2m✓[22m[39m operator-approved publication creates one funded escrow task per run, restricted to the approved pool [33m 315[2mms[22m[39m
+2026-10-10T16:38:15.2160327Z  [32m✓[39m src/control/agent-testing/lifecycle.test.ts [2m([22m[2m18 tests[22m[2m)[22m[33m 2311[2mms[22m[39m
+2026-10-10T16:38:15.6338066Z [90mstdout[2m | src/acquisition/report.test.ts[2m > [22m[2mconsole admin route (/v1/owner/admin/acquisition)[2m > [22m[2mserves the report and CSV to an admin, 404 to other owners, 401 without a session
+2026-10-10T16:38:15.6373228Z [22m[39m<-- GET /v1/owner/admin/acquisition?view=cohort
+2026-10-10T16:38:15.6373939Z 
+2026-10-10T16:38:15.6404409Z [90mstdout[2m | src/acquisition/report.test.ts[2m > [22m[2mconsole admin route (/v1/owner/admin/acquisition)[2m > [22m[2mserves the report and CSV to an admin, 404 to other owners, 401 without a session
+2026-10-10T16:38:15.6406786Z [22m[39m--> GET /v1/owner/admin/acquisition?view=cohort [32m200[0m 7ms
+2026-10-10T16:38:15.6435128Z 
+2026-10-10T16:38:15.6437564Z [90mstdout[2m | src/acquisition/report.test.ts[2m > [22m[2mconsole admin route (/v1/owner/admin/acquisition)[2m > [22m[2mserves the report and CSV to an admin, 404 to other owners, 401 without a session
+2026-10-10T16:38:15.6439873Z [22m[39m<-- GET /v1/owner/admin/acquisition?view=activity&format=csv
+2026-10-10T16:38:15.6440684Z 
+2026-10-10T16:38:15.6443514Z [90mstdout[2m | src/acquisition/report.test.ts[2m > [22m[2mconsole admin route (/v1/owner/admin/acquisition)[2m > [22m[2mserves the report and CSV to an admin, 404 to other owners, 401 without a session
+2026-10-10T16:38:15.6446214Z [22m[39m--> GET /v1/owner/admin/acquisition?view=activity&format=csv [32m200[0m 1ms
+2026-10-10T16:38:15.6447070Z 
+2026-10-10T16:38:15.6491085Z [90mstdout[2m | src/acquisition/report.test.ts[2m > [22m[2mconsole admin route (/v1/owner/admin/acquisition)[2m > [22m[2mserves the report and CSV to an admin, 404 to other owners, 401 without a session
+2026-10-10T16:38:15.6493336Z [22m[39m<-- GET /v1/owner/admin/acquisition
+2026-10-10T16:38:15.6493890Z 
+2026-10-10T16:38:15.6496059Z [90mstdout[2m | src/acquisition/report.test.ts[2m > [22m[2mconsole admin route (/v1/owner/admin/acquisition)[2m > [22m[2mserves the report and CSV to an admin, 404 to other owners, 401 without a session
+2026-10-10T16:38:15.6498225Z [22m[39m--> GET /v1/owner/admin/acquisition [33m404[0m 1ms
+2026-10-10T16:38:15.6498950Z 
+2026-10-10T16:38:15.6500983Z [90mstdout[2m | src/acquisition/report.test.ts[2m > [22m[2mconsole admin route (/v1/owner/admin/acquisition)[2m > [22m[2mserves the report and CSV to an admin, 404 to other owners, 401 without a session
+2026-10-10T16:38:15.6503335Z [22m[39m<-- GET /v1/owner/admin/acquisition
+2026-10-10T16:38:15.6503945Z 
+2026-10-10T16:38:15.6505979Z [90mstdout[2m | src/acquisition/report.test.ts[2m > [22m[2mconsole admin route (/v1/owner/admin/acquisition)[2m > [22m[2mserves the report and CSV to an admin, 404 to other owners, 401 without a session
+2026-10-10T16:38:15.6508055Z [22m[39m--> GET /v1/owner/admin/acquisition [33m401[0m 2ms
+2026-10-10T16:38:15.6508686Z 
+2026-10-10T16:38:15.6509976Z  [32m✓[39m src/acquisition/report.test.ts [2m([22m[2m20 tests[22m[2m)[22m[33m 624[2mms[22m[39m
+2026-10-10T16:38:15.7908510Z  [32m✓[39m src/routes/verify.test.ts [2m([22m[2m20 tests[22m[2m)[22m[33m 810[2mms[22m[39m
+2026-10-10T16:38:16.7909498Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2maccepts an anonymous report, stores it, and notifies email + Slack
+2026-10-10T16:38:16.7920777Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:16.7932319Z 
+2026-10-10T16:38:16.8040624Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2maccepts an anonymous report, stores it, and notifies email + Slack
+2026-10-10T16:38:16.8072731Z [22m[39m--> POST /v1/feedback [32m201[0m 13ms
+2026-10-10T16:38:16.8102284Z 
+2026-10-10T16:38:16.8467998Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mrecords the signing agent
+2026-10-10T16:38:16.8492643Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:16.8512450Z 
+2026-10-10T16:38:16.8653933Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mrecords the signing agent
+2026-10-10T16:38:16.8668509Z [22m[39m--> POST /v1/feedback [32m201[0m 18ms
+2026-10-10T16:38:16.8697651Z 
+2026-10-10T16:38:16.9004563Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mrejects a bad signature instead of silently going anonymous
+2026-10-10T16:38:16.9033135Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:16.9062688Z 
+2026-10-10T16:38:16.9093650Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mrejects a bad signature instead of silently going anonymous
+2026-10-10T16:38:16.9114364Z [22m[39m--> POST /v1/feedback [33m401[0m 2ms
+2026-10-10T16:38:16.9154278Z 
+2026-10-10T16:38:16.9424053Z  [32m✓[39m src/routes/agents.test.ts [2m([22m[2m32 tests[22m[2m)[22m[33m 1223[2mms[22m[39m
+2026-10-10T16:38:16.9554347Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mvalidates the body: task scope needs taskId, unknown fields are refused
+2026-10-10T16:38:16.9582933Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:16.9642577Z 
+2026-10-10T16:38:16.9644849Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mvalidates the body: task scope needs taskId, unknown fields are refused
+2026-10-10T16:38:16.9646516Z [22m[39m--> POST /v1/feedback [33m400[0m 3ms
+2026-10-10T16:38:16.9646891Z 
+2026-10-10T16:38:16.9648244Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mvalidates the body: task scope needs taskId, unknown fields are refused
+2026-10-10T16:38:16.9649551Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:16.9649838Z 
+2026-10-10T16:38:16.9651191Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mvalidates the body: task scope needs taskId, unknown fields are refused
+2026-10-10T16:38:16.9655696Z [22m[39m--> POST /v1/feedback [33m400[0m 2ms
+2026-10-10T16:38:16.9656078Z 
+2026-10-10T16:38:16.9657526Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mvalidates the body: task scope needs taskId, unknown fields are refused
+2026-10-10T16:38:16.9663200Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:16.9663756Z 
+2026-10-10T16:38:16.9665383Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mvalidates the body: task scope needs taskId, unknown fields are refused
+2026-10-10T16:38:16.9666984Z [22m[39m--> POST /v1/feedback [33m400[0m 2ms
+2026-10-10T16:38:16.9667537Z 
+2026-10-10T16:38:17.0014459Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mredacts secrets before storing
+2026-10-10T16:38:17.0016084Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.0016831Z 
+2026-10-10T16:38:17.0033652Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mredacts secrets before storing
+2026-10-10T16:38:17.0035194Z [22m[39m--> POST /v1/feedback [32m201[0m 1ms
+2026-10-10T16:38:17.0036095Z 
+2026-10-10T16:38:17.0375310Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mlimits anonymous reports to 5 an hour per IP, with Retry-After
+2026-10-10T16:38:17.0390751Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.0417922Z 
+2026-10-10T16:38:17.0419772Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mlimits anonymous reports to 5 an hour per IP, with Retry-After
+2026-10-10T16:38:17.0421635Z [22m[39m--> POST /v1/feedback [32m201[0m 1ms
+2026-10-10T16:38:17.0422591Z 
+2026-10-10T16:38:17.0424192Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mlimits anonymous reports to 5 an hour per IP, with Retry-After
+2026-10-10T16:38:17.0425916Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.0426459Z 
+2026-10-10T16:38:17.0428049Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mlimits anonymous reports to 5 an hour per IP, with Retry-After
+2026-10-10T16:38:17.0429837Z [22m[39m--> POST /v1/feedback [32m201[0m 2ms
+2026-10-10T16:38:17.0430495Z 
+2026-10-10T16:38:17.0432453Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mlimits anonymous reports to 5 an hour per IP, with Retry-After
+2026-10-10T16:38:17.0434170Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.0434723Z 
+2026-10-10T16:38:17.0439434Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mlimits anonymous reports to 5 an hour per IP, with Retry-After
+2026-10-10T16:38:17.0441223Z [22m[39m--> POST /v1/feedback [32m201[0m 1ms
+2026-10-10T16:38:17.0442184Z 
+2026-10-10T16:38:17.0443917Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mlimits anonymous reports to 5 an hour per IP, with Retry-After
+2026-10-10T16:38:17.0445672Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.0446288Z 
+2026-10-10T16:38:17.0458459Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mlimits anonymous reports to 5 an hour per IP, with Retry-After
+2026-10-10T16:38:17.0461123Z [22m[39m--> POST /v1/feedback [32m201[0m 1ms
+2026-10-10T16:38:17.0462288Z 
+2026-10-10T16:38:17.0464296Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mlimits anonymous reports to 5 an hour per IP, with Retry-After
+2026-10-10T16:38:17.0466064Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.0466634Z 
+2026-10-10T16:38:17.0481569Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mlimits anonymous reports to 5 an hour per IP, with Retry-After
+2026-10-10T16:38:17.0485894Z [22m[39m--> POST /v1/feedback [32m201[0m 1ms
+2026-10-10T16:38:17.0486664Z 
+2026-10-10T16:38:17.0488289Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mlimits anonymous reports to 5 an hour per IP, with Retry-After
+2026-10-10T16:38:17.0490083Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.0490698Z 
+2026-10-10T16:38:17.0494576Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mlimits anonymous reports to 5 an hour per IP, with Retry-After
+2026-10-10T16:38:17.0496477Z [22m[39m--> POST /v1/feedback [33m429[0m 1ms
+2026-10-10T16:38:17.0497150Z 
+2026-10-10T16:38:17.0516446Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mlimits anonymous reports to 5 an hour per IP, with Retry-After
+2026-10-10T16:38:17.0524978Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.0525645Z 
+2026-10-10T16:38:17.0526655Z  [32m✓[39m src/security-fixes.test.ts [2m([22m[2m35 tests[22m[2m)[22m[33m 749[2mms[22m[39m
+2026-10-10T16:38:17.0580143Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mlimits anonymous reports to 5 an hour per IP, with Retry-After
+2026-10-10T16:38:17.0612840Z [22m[39m--> POST /v1/feedback [32m201[0m 6ms
+2026-10-10T16:38:17.0622860Z 
+2026-10-10T16:38:17.0956584Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mIdempotency-Key: a retry returns the first response; a different body is 422
+2026-10-10T16:38:17.0976738Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.0982698Z 
+2026-10-10T16:38:17.0984604Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mIdempotency-Key: a retry returns the first response; a different body is 422
+2026-10-10T16:38:17.0986510Z [22m[39m--> POST /v1/feedback [32m201[0m 2ms
+2026-10-10T16:38:17.0987179Z 
+2026-10-10T16:38:17.0988887Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mIdempotency-Key: a retry returns the first response; a different body is 422
+2026-10-10T16:38:17.0990592Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.0991138Z 
+2026-10-10T16:38:17.0993103Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mIdempotency-Key: a retry returns the first response; a different body is 422
+2026-10-10T16:38:17.0994907Z [22m[39m--> POST /v1/feedback [32m201[0m 1ms
+2026-10-10T16:38:17.0999443Z 
+2026-10-10T16:38:17.1001281Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mIdempotency-Key: a retry returns the first response; a different body is 422
+2026-10-10T16:38:17.1003250Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.1003820Z 
+2026-10-10T16:38:17.1005600Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mIdempotency-Key: a retry returns the first response; a different body is 422
+2026-10-10T16:38:17.1007409Z [22m[39m--> POST /v1/feedback [33m422[0m 1ms
+2026-10-10T16:38:17.1008021Z 
+2026-10-10T16:38:17.1009695Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mIdempotency-Key: a retry returns the first response; a different body is 422
+2026-10-10T16:38:17.1011408Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.1012176Z 
+2026-10-10T16:38:17.1014262Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mIdempotency-Key: a retry returns the first response; a different body is 422
+2026-10-10T16:38:17.1016352Z [22m[39m--> POST /v1/feedback [33m400[0m 0ms
+2026-10-10T16:38:17.1016936Z 
+2026-10-10T16:38:17.1482963Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2ma replay is served even after the limit is reached, and costs nothing
+2026-10-10T16:38:17.1503216Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.1503790Z 
+2026-10-10T16:38:17.1523924Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2ma replay is served even after the limit is reached, and costs nothing
+2026-10-10T16:38:17.1525694Z [22m[39m--> POST /v1/feedback [32m201[0m 2ms
+2026-10-10T16:38:17.1526405Z 
+2026-10-10T16:38:17.1528140Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2ma replay is served even after the limit is reached, and costs nothing
+2026-10-10T16:38:17.1529612Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.1529941Z 
+2026-10-10T16:38:17.1531368Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2ma replay is served even after the limit is reached, and costs nothing
+2026-10-10T16:38:17.1533073Z [22m[39m--> POST /v1/feedback [32m201[0m 1ms
+2026-10-10T16:38:17.1533448Z 
+2026-10-10T16:38:17.1534851Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2ma replay is served even after the limit is reached, and costs nothing
+2026-10-10T16:38:17.1536142Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.1536425Z 
+2026-10-10T16:38:17.1537688Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2ma replay is served even after the limit is reached, and costs nothing
+2026-10-10T16:38:17.1539056Z [22m[39m--> POST /v1/feedback [32m201[0m 1ms
+2026-10-10T16:38:17.1539418Z 
+2026-10-10T16:38:17.1544016Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2ma replay is served even after the limit is reached, and costs nothing
+2026-10-10T16:38:17.1559419Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.1559750Z 
+2026-10-10T16:38:17.1561163Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2ma replay is served even after the limit is reached, and costs nothing
+2026-10-10T16:38:17.1562888Z [22m[39m--> POST /v1/feedback [32m201[0m 1ms
+2026-10-10T16:38:17.1563230Z 
+2026-10-10T16:38:17.1564497Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2ma replay is served even after the limit is reached, and costs nothing
+2026-10-10T16:38:17.1565893Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.1566522Z 
+2026-10-10T16:38:17.1567892Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2ma replay is served even after the limit is reached, and costs nothing
+2026-10-10T16:38:17.1569369Z [22m[39m--> POST /v1/feedback [32m201[0m 1ms
+2026-10-10T16:38:17.1569755Z 
+2026-10-10T16:38:17.1571162Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2ma replay is served even after the limit is reached, and costs nothing
+2026-10-10T16:38:17.1572804Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.1573117Z 
+2026-10-10T16:38:17.1574509Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2ma replay is served even after the limit is reached, and costs nothing
+2026-10-10T16:38:17.1575933Z [22m[39m--> POST /v1/feedback [33m429[0m 0ms
+2026-10-10T16:38:17.1576324Z 
+2026-10-10T16:38:17.1577712Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2ma replay is served even after the limit is reached, and costs nothing
+2026-10-10T16:38:17.1579047Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.1579350Z 
+2026-10-10T16:38:17.1584909Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2ma replay is served even after the limit is reached, and costs nothing
+2026-10-10T16:38:17.1586707Z [22m[39m--> POST /v1/feedback [32m201[0m 0ms
+2026-10-10T16:38:17.1587102Z 
+2026-10-10T16:38:17.1760673Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mconcurrent requests with one key reserve it once: the second waits (409), then replays
+2026-10-10T16:38:17.1769841Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.1770848Z <-- POST /v1/feedback
+2026-10-10T16:38:17.1771322Z 
+2026-10-10T16:38:17.1794172Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mconcurrent requests with one key reserve it once: the second waits (409), then replays
+2026-10-10T16:38:17.1795765Z [22m[39m--> POST /v1/feedback [33m409[0m 3ms
+2026-10-10T16:38:17.1796158Z 
+2026-10-10T16:38:17.1797705Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mconcurrent requests with one key reserve it once: the second waits (409), then replays
+2026-10-10T16:38:17.1799319Z [22m[39m--> POST /v1/feedback [32m201[0m 3ms
+2026-10-10T16:38:17.1799713Z 
+2026-10-10T16:38:17.2084544Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2ma write that fails releases the key, so the retry files the report
+2026-10-10T16:38:17.2086670Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.2112594Z 
+2026-10-10T16:38:17.2148445Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2ma write that fails releases the key, so the retry files the report
+2026-10-10T16:38:17.2161403Z [22m[39m--> POST /v1/feedback [31m500[0m 2ms
+2026-10-10T16:38:17.2162276Z 
+2026-10-10T16:38:17.2193961Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2ma write that fails releases the key, so the retry files the report
+2026-10-10T16:38:17.2202863Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.2228498Z 
+2026-10-10T16:38:17.2246497Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2ma write that fails releases the key, so the retry files the report
+2026-10-10T16:38:17.2248308Z [22m[39m--> POST /v1/feedback [32m201[0m 2ms
+2026-10-10T16:38:17.2248852Z 
+2026-10-10T16:38:17.2250363Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2ma write that fails releases the key, so the retry files the report
+2026-10-10T16:38:17.2252375Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.2252928Z 
+2026-10-10T16:38:17.2254527Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2ma write that fails releases the key, so the retry files the report
+2026-10-10T16:38:17.2256290Z [22m[39m--> POST /v1/feedback [32m201[0m 1ms
+2026-10-10T16:38:17.2256928Z 
+2026-10-10T16:38:17.2403466Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2midentifier fields must be identifiers (they are relayed as-is)
+2026-10-10T16:38:17.2422979Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.2444102Z 
+2026-10-10T16:38:17.2445740Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2midentifier fields must be identifiers (they are relayed as-is)
+2026-10-10T16:38:17.2447354Z [22m[39m--> POST /v1/feedback [33m400[0m 2ms
+2026-10-10T16:38:17.2447914Z 
+2026-10-10T16:38:17.2483033Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2midentifier fields must be identifiers (they are relayed as-is)
+2026-10-10T16:38:17.2484657Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.2485174Z 
+2026-10-10T16:38:17.2486704Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2midentifier fields must be identifiers (they are relayed as-is)
+2026-10-10T16:38:17.2488370Z [22m[39m--> POST /v1/feedback [33m400[0m 1ms
+2026-10-10T16:38:17.2489436Z 
+2026-10-10T16:38:17.2491164Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2midentifier fields must be identifiers (they are relayed as-is)
+2026-10-10T16:38:17.2493049Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.2493595Z 
+2026-10-10T16:38:17.2495085Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2midentifier fields must be identifiers (they are relayed as-is)
+2026-10-10T16:38:17.2496934Z [22m[39m--> POST /v1/feedback [33m400[0m 1ms
+2026-10-10T16:38:17.2497520Z 
+2026-10-10T16:38:17.2730725Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2ma channel that failed is retried alone; the one that worked is not re-sent
+2026-10-10T16:38:17.2780456Z [90mstderr[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2ma channel that failed is retried alone; the one that worked is not re-sent
+2026-10-10T16:38:17.2781851Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.2793284Z [22m[39m[feedback] slack notify failed: HTTP 500
+2026-10-10T16:38:17.2793739Z 
+2026-10-10T16:38:17.2822496Z 
+2026-10-10T16:38:17.2824084Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2ma channel that failed is retried alone; the one that worked is not re-sent
+2026-10-10T16:38:17.2853025Z [22m[39m--> POST /v1/feedback [32m201[0m 2ms
+2026-10-10T16:38:17.2882406Z 
+2026-10-10T16:38:17.3118949Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mstores silently when no notification channel is configured
+2026-10-10T16:38:17.3120807Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.3121452Z 
+2026-10-10T16:38:17.3131155Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mstores silently when no notification channel is configured
+2026-10-10T16:38:17.3133039Z [22m[39m--> POST /v1/feedback [32m201[0m 1ms
+2026-10-10T16:38:17.3133696Z 
+2026-10-10T16:38:17.3470924Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mthe cron retries a notification that failed
+2026-10-10T16:38:17.3472891Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.3473507Z 
+2026-10-10T16:38:17.3481232Z [90mstderr[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mthe cron retries a notification that failed
+2026-10-10T16:38:17.3483371Z [22m[39m[feedback] slack notify failed: HTTP 500
+2026-10-10T16:38:17.3484018Z 
+2026-10-10T16:38:17.3485767Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mPOST /v1/feedback[2m > [22m[2mthe cron retries a notification that failed
+2026-10-10T16:38:17.3487357Z [22m[39m--> POST /v1/feedback [32m201[0m 2ms
+2026-10-10T16:38:17.3488000Z 
+2026-10-10T16:38:17.3836404Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mrequest ids + telemetry[2m > [22m[2mevery response carries X-Request-Id; signed traffic and errors are counted per day
+2026-10-10T16:38:17.3840073Z [22m[39m<-- GET /v1/health
+2026-10-10T16:38:17.3840857Z 
+2026-10-10T16:38:17.3937259Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mrequest ids + telemetry[2m > [22m[2mevery response carries X-Request-Id; signed traffic and errors are counted per day
+2026-10-10T16:38:17.3939000Z [22m[39m--> GET /v1/health [32m200[0m 8ms
+2026-10-10T16:38:17.3953038Z 
+2026-10-10T16:38:17.3954886Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mrequest ids + telemetry[2m > [22m[2mevery response carries X-Request-Id; signed traffic and errors are counted per day
+2026-10-10T16:38:17.3956822Z [22m[39m<-- GET /v1/tasks/task_missing
+2026-10-10T16:38:17.3957479Z 
+2026-10-10T16:38:17.3959325Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mrequest ids + telemetry[2m > [22m[2mevery response carries X-Request-Id; signed traffic and errors are counted per day
+2026-10-10T16:38:17.3961272Z [22m[39m--> GET /v1/tasks/task_missing [33m404[0m 2ms
+2026-10-10T16:38:17.3962676Z 
+2026-10-10T16:38:17.3976542Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mrequest ids + telemetry[2m > [22m[2mevery response carries X-Request-Id; signed traffic and errors are counted per day
+2026-10-10T16:38:17.3978775Z [22m[39m<-- GET /v1/agents/ag_9XzmAF7VbRwSVTFC1fS35qMoyQC7MpMwZnAF21oCVFvS/events
+2026-10-10T16:38:17.3979694Z 
+2026-10-10T16:38:17.4038636Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2mrequest ids + telemetry[2m > [22m[2mevery response carries X-Request-Id; signed traffic and errors are counted per day
+2026-10-10T16:38:17.4041006Z [22m[39m--> GET /v1/agents/ag_9XzmAF7VbRwSVTFC1fS35qMoyQC7MpMwZnAF21oCVFvS/events [32m200[0m 6ms
+2026-10-10T16:38:17.4042492Z 
+2026-10-10T16:38:17.4872727Z [90mstderr[2m | src/routes/claim-governance.test.ts[2m > [22m[2mclaim governance[2m > [22m[2mbounds concurrent claims by the global budget, and human acceptance raises it while auto-acceptance does not
+2026-10-10T16:38:17.4889180Z [22m[39m[posthog] POSTHOG_PROJECT_TOKEN is not set — product analytics and error tracking are OFF. Set it (and optionally POSTHOG_HOST) in .env / the Worker vars for this environment.
+2026-10-10T16:38:17.4890934Z 
+2026-10-10T16:38:17.5547148Z [90mstderr[2m | src/routes/feedback.test.ts[2m > [22m[2mdaily digest[2m > [22m[2ma digest that failed is retried every 30 minutes, then given up
+2026-10-10T16:38:17.5573078Z [22m[39m[feedback] email notify failed: resend down
+2026-10-10T16:38:17.5602504Z 
+2026-10-10T16:38:17.5633794Z [90mstderr[2m | src/routes/feedback.test.ts[2m > [22m[2mdaily digest[2m > [22m[2ma digest that failed is retried every 30 minutes, then given up
+2026-10-10T16:38:17.5635342Z [22m[39m[feedback] email notify failed: down
+2026-10-10T16:38:17.5662707Z 
+2026-10-10T16:38:17.5693898Z [90mstderr[2m | src/routes/feedback.test.ts[2m > [22m[2mdaily digest[2m > [22m[2ma digest that failed is retried every 30 minutes, then given up
+2026-10-10T16:38:17.5722835Z [22m[39m[feedback] email notify failed: down
+2026-10-10T16:38:17.5752241Z 
+2026-10-10T16:38:17.5753824Z [90mstderr[2m | src/routes/feedback.test.ts[2m > [22m[2mdaily digest[2m > [22m[2ma digest that failed is retried every 30 minutes, then given up
+2026-10-10T16:38:17.5782910Z [22m[39m[feedback] email notify failed: down
+2026-10-10T16:38:17.5792637Z 
+2026-10-10T16:38:17.5794333Z [90mstderr[2m | src/routes/feedback.test.ts[2m > [22m[2mdaily digest[2m > [22m[2ma digest that failed is retried every 30 minutes, then given up
+2026-10-10T16:38:17.5796072Z [22m[39m[feedback] email notify failed: down
+2026-10-10T16:38:17.5796765Z 
+2026-10-10T16:38:17.5798267Z [90mstderr[2m | src/routes/feedback.test.ts[2m > [22m[2mdaily digest[2m > [22m[2ma digest that failed is retried every 30 minutes, then given up
+2026-10-10T16:38:17.5799937Z [22m[39m[feedback] email notify failed: down
+2026-10-10T16:38:17.5800538Z 
+2026-10-10T16:38:17.5903809Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2moperator triage (/v1/owner/admin/feedback)[2m > [22m[2mlists and updates feedback for an admin; 404 for anyone else; /me says who is admin
+2026-10-10T16:38:17.5912780Z [22m[39m<-- POST /v1/feedback
+2026-10-10T16:38:17.5962392Z 
+2026-10-10T16:38:17.5985145Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2moperator triage (/v1/owner/admin/feedback)[2m > [22m[2mlists and updates feedback for an admin; 404 for anyone else; /me says who is admin
+2026-10-10T16:38:17.5986767Z [22m[39m--> POST /v1/feedback [32m201[0m 1ms
+2026-10-10T16:38:17.5986996Z 
+2026-10-10T16:38:17.5987952Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2moperator triage (/v1/owner/admin/feedback)[2m > [22m[2mlists and updates feedback for an admin; 404 for anyone else; /me says who is admin
+2026-10-10T16:38:17.5988889Z [22m[39m<-- GET /v1/owner/admin/feedback?status=open
+2026-10-10T16:38:17.5989117Z 
+2026-10-10T16:38:17.5990348Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2moperator triage (/v1/owner/admin/feedback)[2m > [22m[2mlists and updates feedback for an admin; 404 for anyone else; /me says who is admin
+2026-10-10T16:38:17.5991583Z [22m[39m--> GET /v1/owner/admin/feedback?status=open [32m200[0m 2ms
+2026-10-10T16:38:17.5992073Z 
+2026-10-10T16:38:17.5993677Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2moperator triage (/v1/owner/admin/feedback)[2m > [22m[2mlists and updates feedback for an admin; 404 for anyone else; /me says who is admin
+2026-10-10T16:38:17.5994874Z [22m[39m<-- GET /v1/owner/admin/feedback
+2026-10-10T16:38:17.5995085Z 
+2026-10-10T16:38:17.5996170Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2moperator triage (/v1/owner/admin/feedback)[2m > [22m[2mlists and updates feedback for an admin; 404 for anyone else; /me says who is admin
+2026-10-10T16:38:17.5997248Z [22m[39m--> GET /v1/owner/admin/feedback [33m404[0m 1ms
+2026-10-10T16:38:17.5997515Z 
+2026-10-10T16:38:17.5998690Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2moperator triage (/v1/owner/admin/feedback)[2m > [22m[2mlists and updates feedback for an admin; 404 for anyone else; /me says who is admin
+2026-10-10T16:38:17.6000258Z [22m[39m<-- GET /v1/owner/admin/feedback
+2026-10-10T16:38:17.6000583Z 
+2026-10-10T16:38:17.6002409Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2moperator triage (/v1/owner/admin/feedback)[2m > [22m[2mlists and updates feedback for an admin; 404 for anyone else; /me says who is admin
+2026-10-10T16:38:17.6004050Z [22m[39m--> GET /v1/owner/admin/feedback [33m401[0m 1ms
+2026-10-10T16:38:17.6004447Z 
+2026-10-10T16:38:17.6006131Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2moperator triage (/v1/owner/admin/feedback)[2m > [22m[2mlists and updates feedback for an admin; 404 for anyone else; /me says who is admin
+2026-10-10T16:38:17.6007860Z [22m[39m<-- POST /v1/owner/admin/feedback/fb_sal2eESPVVRr9AuxtIOaD
+2026-10-10T16:38:17.6008336Z 
+2026-10-10T16:38:17.6010040Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2moperator triage (/v1/owner/admin/feedback)[2m > [22m[2mlists and updates feedback for an admin; 404 for anyone else; /me says who is admin
+2026-10-10T16:38:17.6012150Z [22m[39m--> POST /v1/owner/admin/feedback/fb_sal2eESPVVRr9AuxtIOaD [32m200[0m 1ms
+2026-10-10T16:38:17.6012750Z 
+2026-10-10T16:38:17.6014502Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2moperator triage (/v1/owner/admin/feedback)[2m > [22m[2mlists and updates feedback for an admin; 404 for anyone else; /me says who is admin
+2026-10-10T16:38:17.6016189Z [22m[39m<-- POST /v1/owner/admin/feedback/fb_nope
+2026-10-10T16:38:17.6016536Z 
+2026-10-10T16:38:17.6018136Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2moperator triage (/v1/owner/admin/feedback)[2m > [22m[2mlists and updates feedback for an admin; 404 for anyone else; /me says who is admin
+2026-10-10T16:38:17.6021036Z [22m[39m--> POST /v1/owner/admin/feedback/fb_nope [33m404[0m 0ms
+2026-10-10T16:38:17.6082629Z 
+2026-10-10T16:38:17.6104579Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2moperator triage (/v1/owner/admin/feedback)[2m > [22m[2mlists and updates feedback for an admin; 404 for anyone else; /me says who is admin
+2026-10-10T16:38:17.6120433Z [22m[39m<-- GET /v1/owner/admin/feedback?status=wont_fix&limit=2
+2026-10-10T16:38:17.6182612Z 
+2026-10-10T16:38:17.6214567Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2moperator triage (/v1/owner/admin/feedback)[2m > [22m[2mlists and updates feedback for an admin; 404 for anyone else; /me says who is admin
+2026-10-10T16:38:17.6216721Z [22m[39m--> GET /v1/owner/admin/feedback?status=wont_fix&limit=2 [32m200[0m 2ms
+2026-10-10T16:38:17.6220287Z 
+2026-10-10T16:38:17.6222452Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2moperator triage (/v1/owner/admin/feedback)[2m > [22m[2mlists and updates feedback for an admin; 404 for anyone else; /me says who is admin
+2026-10-10T16:38:17.6224816Z [22m[39m<-- GET /v1/owner/admin/feedback?status=wont_fix&limit=2&before=2026-09-20T00%3A00%3A00.000Z%7Cfb_t2
+2026-10-10T16:38:17.6226164Z 
+2026-10-10T16:38:17.6228315Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2moperator triage (/v1/owner/admin/feedback)[2m > [22m[2mlists and updates feedback for an admin; 404 for anyone else; /me says who is admin
+2026-10-10T16:38:17.6230767Z [22m[39m--> GET /v1/owner/admin/feedback?status=wont_fix&limit=2&before=2026-09-20T00%3A00%3A00.000Z%7Cfb_t2 [32m200[0m 1ms
+2026-10-10T16:38:17.6231787Z 
+2026-10-10T16:38:17.6233869Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2moperator triage (/v1/owner/admin/feedback)[2m > [22m[2mlists and updates feedback for an admin; 404 for anyone else; /me says who is admin
+2026-10-10T16:38:17.6235739Z [22m[39m<-- GET /v1/owner/me
+2026-10-10T16:38:17.6236240Z 
+2026-10-10T16:38:17.6238197Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2moperator triage (/v1/owner/admin/feedback)[2m > [22m[2mlists and updates feedback for an admin; 404 for anyone else; /me says who is admin
+2026-10-10T16:38:17.6240094Z [22m[39m--> GET /v1/owner/me [32m200[0m 2ms
+2026-10-10T16:38:17.6240678Z 
+2026-10-10T16:38:17.6242844Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2moperator triage (/v1/owner/admin/feedback)[2m > [22m[2mlists and updates feedback for an admin; 404 for anyone else; /me says who is admin
+2026-10-10T16:38:17.6244575Z [22m[39m<-- GET /v1/owner/me
+2026-10-10T16:38:17.6245059Z 
+2026-10-10T16:38:17.6246974Z [90mstdout[2m | src/routes/feedback.test.ts[2m > [22m[2moperator triage (/v1/owner/admin/feedback)[2m > [22m[2mlists and updates feedback for an admin; 404 for anyone else; /me says who is admin
+2026-10-10T16:38:17.6248843Z [22m[39m--> GET /v1/owner/me [32m200[0m 2ms
+2026-10-10T16:38:17.6249438Z 
+2026-10-10T16:38:17.6250588Z  [32m✓[39m src/routes/feedback.test.ts [2m([22m[2m20 tests[22m[2m)[22m[33m 920[2mms[22m[39m
+2026-10-10T16:38:17.8337796Z [90mstdout[2m | src/routes/claim-governance.test.ts[2m > [22m[2mclaim governance[2m > [22m[2mbond slots raise the budget; an expired claim slashes the bond
+2026-10-10T16:38:17.8363566Z [22m[39m[payments] disabled: TASK_PAYMENTS_ENABLED is not '1'
+2026-10-10T16:38:17.8364452Z 
+2026-10-10T16:38:18.2097434Z  [32m✓[39m src/routes/claim-governance.test.ts [2m([22m[2m10 tests[22m[2m)[22m[33m 818[2mms[22m[39m
+2026-10-10T16:38:18.2227352Z [90mstderr[2m | src/routes/board-moderation.test.ts[2m > [22m[2mBoard moderation + delivery[2m > [22m[2mboard.reply webhook[2m > [22m[2munsafe webhook URL is skipped at fire time (SSRF re-check)
+2026-10-10T16:38:18.2233318Z [22m[39m[webhook] blocked delivery to unsafe URL (event: board.reply)
+2026-10-10T16:38:18.2234205Z 
+2026-10-10T16:38:18.3303402Z  [32m✓[39m src/routes/board-moderation.test.ts [2m([22m[2m17 tests[22m[2m)[22m[33m 824[2mms[22m[39m
+2026-10-10T16:38:18.5844209Z  [32m✓[39m src/payments/x402.test.ts [2m([22m[2m33 tests[22m[2m)[22m[32m 40[2mms[22m[39m
+2026-10-10T16:38:18.7831835Z  [32m✓[39m src/control/store.test.ts [2m([22m[2m19 tests[22m[2m)[22m[33m 309[2mms[22m[39m
+2026-10-10T16:38:18.8050137Z  [32m✓[39m src/tasks-schema.test.ts [2m([22m[2m15 tests[22m[2m)[22m[33m 711[2mms[22m[39m
+2026-10-10T16:38:19.2929125Z  [32m✓[39m src/wallets/bind.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 191[2mms[22m[39m
+2026-10-10T16:38:19.4514527Z [90mstderr[2m | src/e2e/smoke.test.ts[2m > [22m[2mE2E Smoke — Full Agent Lifecycle[2m > [22m[2mcomplete agent lifecycle: create task → claim → deliver → verify → reputation
+2026-10-10T16:38:19.4544130Z [22m[39m[posthog] POSTHOG_PROJECT_TOKEN is not set — product analytics and error tracking are OFF. Set it (and optionally POSTHOG_HOST) in .env / the Worker vars for this environment.
+2026-10-10T16:38:19.4572286Z 
+2026-10-10T16:38:19.5033772Z  [32m✓[39m src/control/recovery.test.ts [2m([22m[2m8 tests[22m[2m)[22m[33m 370[2mms[22m[39m
+2026-10-10T16:38:19.9120814Z  [32m✓[39m src/e2e/smoke.test.ts [2m([22m[2m5 tests[22m[2m)[22m[33m 597[2mms[22m[39m
+2026-10-10T16:38:19.9904653Z  [32m✓[39m src/payments/cdp-facilitator.test.ts [2m([22m[2m39 tests[22m[2m)[22m[33m 331[2mms[22m[39m
+2026-10-10T16:38:20.8398552Z [90mstderr[2m | src/control/agent-testing/demo.e2e.test.ts[2m > [22m[2mfull journey: buyer → paid order → 3 fixture submissions (one product failure) → reviewed → published report → export → retest → repeat
+2026-10-10T16:38:20.8414519Z [22m[39m[posthog] POSTHOG_PROJECT_TOKEN is not set — product analytics and error tracking are OFF. Set it (and optionally POSTHOG_HOST) in .env / the Worker vars for this environment.
+2026-10-10T16:38:20.8432992Z 
+2026-10-10T16:38:21.0550639Z  [32m✓[39m src/routes/tasks-settled.test.ts [2m([22m[2m16 tests[22m[2m)[22m[33m 631[2mms[22m[39m
+2026-10-10T16:38:21.1026715Z  [32m✓[39m src/routes/register.test.ts [2m([22m[2m16 tests[22m[2m)[22m[33m 637[2mms[22m[39m
+2026-10-10T16:38:21.1654280Z  [32m✓[39m src/control/agent-testing/demo.e2e.test.ts [2m([22m[2m2 tests[22m[2m)[22m[33m 765[2mms[22m[39m
+2026-10-10T16:38:21.1656901Z    [33m[2m✓[22m[39m full journey: buyer → paid order → 3 fixture submissions (one product failure) → reviewed → published report → export → retest → repeat [33m 632[2mms[22m[39m
+2026-10-10T16:38:21.6374927Z [90mstderr[2m | src/routes/tasks-expiry.test.ts[2m > [22m[2mopen-task expiry (0047)[2m > [22m[2mstamps the default 7-day window at post and returns it
+2026-10-10T16:38:21.6395109Z [22m[39m[posthog] POSTHOG_PROJECT_TOKEN is not set — product analytics and error tracking are OFF. Set it (and optionally POSTHOG_HOST) in .env / the Worker vars for this environment.
+2026-10-10T16:38:21.6396617Z 
+2026-10-10T16:38:21.7843960Z  [32m✓[39m src/control/webauthn.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 50[2mms[22m[39m
+2026-10-10T16:38:21.8164973Z [90mstdout[2m | src/routes/tasks-expiry.test.ts[2m > [22m[2mopen-task expiry (0047)[2m > [22m[2mthe cron sweeps a lapsed open task to expired, tells the creator, and it is terminal
+2026-10-10T16:38:21.8193357Z [22m[39m[payments] disabled: TASK_PAYMENTS_ENABLED is not '1'
+2026-10-10T16:38:21.8206546Z 
+2026-10-10T16:38:22.0041038Z [90mstderr[2m | src/routes/tasks-expiry.test.ts[2m > [22m[2mopen-task expiry (0047)[2m > [22m[2mvoids a declared bounty and starts (or defers) an escrow refund on expiry
+2026-10-10T16:38:22.0083569Z [22m[39m[escrow] task_expiry_escrow: cannot refund — house wallet/payments not configured; the cron retries
+2026-10-10T16:38:22.0112461Z 
+2026-10-10T16:38:22.1898950Z  [32m✓[39m src/routes/tasks-expiry.test.ts [2m([22m[2m10 tests[22m[2m)[22m[33m 669[2mms[22m[39m
+2026-10-10T16:38:22.2648399Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET / content negotiation[2m > [22m[2mAccept: text/markdown returns the skill, with Vary and an ETag
+2026-10-10T16:38:22.2673391Z [22m[39m<-- GET /
+2026-10-10T16:38:22.2673636Z 
+2026-10-10T16:38:22.2786197Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET / content negotiation[2m > [22m[2mAccept: text/markdown returns the skill, with Vary and an ETag
+2026-10-10T16:38:22.2800727Z [22m[39m--> GET / [32m200[0m 13ms
+2026-10-10T16:38:22.2801401Z 
+2026-10-10T16:38:22.2810463Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET / content negotiation[2m > [22m[2mIf-None-Match round-trip returns 304 with no body
+2026-10-10T16:38:22.2812173Z [22m[39m<-- GET /
+2026-10-10T16:38:22.2812634Z 
+2026-10-10T16:38:22.2838655Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET / content negotiation[2m > [22m[2mIf-None-Match round-trip returns 304 with no body
+2026-10-10T16:38:22.2840320Z [22m[39m--> GET / [32m200[0m 3ms
+2026-10-10T16:38:22.2840892Z 
+2026-10-10T16:38:22.2842734Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET / content negotiation[2m > [22m[2mIf-None-Match round-trip returns 304 with no body
+2026-10-10T16:38:22.2844294Z [22m[39m<-- GET /
+2026-10-10T16:38:22.2845247Z 
+2026-10-10T16:38:22.2877617Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET / content negotiation[2m > [22m[2mIf-None-Match round-trip returns 304 with no body
+2026-10-10T16:38:22.2879338Z [22m[39m--> GET / [36m304[0m 3ms
+2026-10-10T16:38:22.2879922Z 
+2026-10-10T16:38:22.2889037Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET / content negotiation[2m > [22m[2mAccept: application/json returns the service descriptor
+2026-10-10T16:38:22.2890610Z [22m[39m<-- GET /
+2026-10-10T16:38:22.2891104Z 
+2026-10-10T16:38:22.2933822Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET / content negotiation[2m > [22m[2mAccept: application/json returns the service descriptor
+2026-10-10T16:38:22.2936231Z [22m[39m--> GET / [32m200[0m 3ms
+2026-10-10T16:38:22.2936797Z 
+2026-10-10T16:38:22.2943713Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET / content negotiation[2m > [22m[2ma browser (text/html) still gets the redirect to the site
+2026-10-10T16:38:22.2963141Z [22m[39m<-- GET /
+2026-10-10T16:38:22.2968465Z 
+2026-10-10T16:38:22.2970118Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET / content negotiation[2m > [22m[2ma browser (text/html) still gets the redirect to the site
+2026-10-10T16:38:22.2971753Z [22m[39m--> GET / [36m301[0m 0ms
+2026-10-10T16:38:22.2972613Z 
+2026-10-10T16:38:22.2974219Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET / content negotiation[2m > [22m[2m*/* (curl default) keeps the legacy API root document
+2026-10-10T16:38:22.2975746Z [22m[39m<-- GET /
+2026-10-10T16:38:22.2976216Z 
+2026-10-10T16:38:22.2977816Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET / content negotiation[2m > [22m[2m*/* (curl default) keeps the legacy API root document
+2026-10-10T16:38:22.2979437Z [22m[39m--> GET / [32m200[0m 1ms
+2026-10-10T16:38:22.2979992Z 
+2026-10-10T16:38:22.2995804Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mdescriptor[2m > [22m[2mGET /.well-known/basedagents.json equals the static copies on the site and console
+2026-10-10T16:38:22.2997605Z [22m[39m<-- GET /.well-known/basedagents.json
+2026-10-10T16:38:22.2998303Z 
+2026-10-10T16:38:22.3010299Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mdescriptor[2m > [22m[2mGET /.well-known/basedagents.json equals the static copies on the site and console
+2026-10-10T16:38:22.3012556Z [22m[39m--> GET /.well-known/basedagents.json [32m200[0m 1ms
+2026-10-10T16:38:22.3013336Z 
+2026-10-10T16:38:22.3041028Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2m/v1 aliases and headers[2m > [22m[2mGET /v1/health
+2026-10-10T16:38:22.3042442Z [22m[39m<-- GET /v1/health
+2026-10-10T16:38:22.3042941Z 
+2026-10-10T16:38:22.3048051Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2m/v1 aliases and headers[2m > [22m[2mGET /v1/health
+2026-10-10T16:38:22.3049496Z [22m[39m--> GET /v1/health [32m200[0m 1ms
+2026-10-10T16:38:22.3050097Z 
+2026-10-10T16:38:22.3059324Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2m/v1 aliases and headers[2m > [22m[2mGET /v1/openapi.json is the OpenAPI document
+2026-10-10T16:38:22.3060841Z [22m[39m<-- GET /v1/openapi.json
+2026-10-10T16:38:22.3061364Z 
+2026-10-10T16:38:22.3104857Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2m/v1 aliases and headers[2m > [22m[2mGET /v1/openapi.json is the OpenAPI document
+2026-10-10T16:38:22.3106596Z [22m[39m--> GET /v1/openapi.json [32m200[0m 3ms
+2026-10-10T16:38:22.3107244Z 
+2026-10-10T16:38:22.3112772Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2m/v1 aliases and headers[2m > [22m[2mevery response names the latest skill version, rate-limited ones included
+2026-10-10T16:38:22.3114422Z [22m[39m<-- GET /v1/health
+2026-10-10T16:38:22.3114942Z 
+2026-10-10T16:38:22.3129072Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2m/v1 aliases and headers[2m > [22m[2mevery response names the latest skill version, rate-limited ones included
+2026-10-10T16:38:22.3131436Z [22m[39m--> GET /v1/health [32m200[0m 1ms
+2026-10-10T16:38:22.3132370Z 
+2026-10-10T16:38:22.3134624Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2m/v1 aliases and headers[2m > [22m[2mevery response names the latest skill version, rate-limited ones included
+2026-10-10T16:38:22.3136334Z [22m[39m<-- POST /v1/register/init
+2026-10-10T16:38:22.3136891Z 
+2026-10-10T16:38:22.3177428Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2m/v1 aliases and headers[2m > [22m[2mevery response names the latest skill version, rate-limited ones included
+2026-10-10T16:38:22.3179326Z [22m[39m--> POST /v1/register/init [33m400[0m 4ms
+2026-10-10T16:38:22.3179942Z 
+2026-10-10T16:38:22.3182504Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2m/v1 aliases and headers[2m > [22m[2mevery response names the latest skill version, rate-limited ones included
+2026-10-10T16:38:22.3184155Z [22m[39m<-- POST /v1/register/init
+2026-10-10T16:38:22.3184677Z 
+2026-10-10T16:38:22.3195151Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2m/v1 aliases and headers[2m > [22m[2mevery response names the latest skill version, rate-limited ones included
+2026-10-10T16:38:22.3197083Z [22m[39m--> POST /v1/register/init [33m400[0m 0ms
+2026-10-10T16:38:22.3197715Z 
+2026-10-10T16:38:22.3199511Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2m/v1 aliases and headers[2m > [22m[2mevery response names the latest skill version, rate-limited ones included
+2026-10-10T16:38:22.3201301Z [22m[39m<-- POST /v1/register/init
+2026-10-10T16:38:22.3201849Z 
+2026-10-10T16:38:22.3209193Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2m/v1 aliases and headers[2m > [22m[2mevery response names the latest skill version, rate-limited ones included
+2026-10-10T16:38:22.3211107Z [22m[39m--> POST /v1/register/init [33m400[0m 1ms
+2026-10-10T16:38:22.3211778Z 
+2026-10-10T16:38:22.3213873Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2m/v1 aliases and headers[2m > [22m[2mevery response names the latest skill version, rate-limited ones included
+2026-10-10T16:38:22.3215676Z [22m[39m<-- POST /v1/register/init
+2026-10-10T16:38:22.3216270Z 
+2026-10-10T16:38:22.3223217Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2m/v1 aliases and headers[2m > [22m[2mevery response names the latest skill version, rate-limited ones included
+2026-10-10T16:38:22.3225076Z [22m[39m--> POST /v1/register/init [33m400[0m 0ms
+2026-10-10T16:38:22.3225716Z 
+2026-10-10T16:38:22.3227492Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2m/v1 aliases and headers[2m > [22m[2mevery response names the latest skill version, rate-limited ones included
+2026-10-10T16:38:22.3229297Z [22m[39m<-- POST /v1/register/init
+2026-10-10T16:38:22.3229905Z 
+2026-10-10T16:38:22.3240952Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2m/v1 aliases and headers[2m > [22m[2mevery response names the latest skill version, rate-limited ones included
+2026-10-10T16:38:22.3243015Z [22m[39m--> POST /v1/register/init [33m400[0m 1ms
+2026-10-10T16:38:22.3243660Z 
+2026-10-10T16:38:22.3245504Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2m/v1 aliases and headers[2m > [22m[2mevery response names the latest skill version, rate-limited ones included
+2026-10-10T16:38:22.3247299Z [22m[39m<-- POST /v1/register/init
+2026-10-10T16:38:22.3247865Z 
+2026-10-10T16:38:22.3255201Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2m/v1 aliases and headers[2m > [22m[2mevery response names the latest skill version, rate-limited ones included
+2026-10-10T16:38:22.3256940Z [22m[39m--> POST /v1/register/init [33m429[0m 0ms
+2026-10-10T16:38:22.3257500Z 
+2026-10-10T16:38:22.3261397Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2m/v1 aliases and headers[2m > [22m[2ma public GET without its own Cache-Control gets a revalidate default and an ETag
+2026-10-10T16:38:22.3263437Z [22m[39m<-- GET /v1/tasks
+2026-10-10T16:38:22.3263949Z 
+2026-10-10T16:38:22.3349119Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2m/v1 aliases and headers[2m > [22m[2ma public GET without its own Cache-Control gets a revalidate default and an ETag
+2026-10-10T16:38:22.3351029Z [22m[39m--> GET /v1/tasks [32m200[0m 8ms
+2026-10-10T16:38:22.3351623Z 
+2026-10-10T16:38:22.3353734Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2m/v1 aliases and headers[2m > [22m[2ma public GET without its own Cache-Control gets a revalidate default and an ETag
+2026-10-10T16:38:22.3355448Z [22m[39m<-- GET /v1/tasks
+2026-10-10T16:38:22.3355975Z 
+2026-10-10T16:38:22.3377015Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2m/v1 aliases and headers[2m > [22m[2ma public GET without its own Cache-Control gets a revalidate default and an ETag
+2026-10-10T16:38:22.3378773Z [22m[39m--> GET /v1/tasks [36m304[0m 3ms
+2026-10-10T16:38:22.3379289Z 
+2026-10-10T16:38:22.3381674Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2m/v1 aliases and headers[2m > [22m[2ma credentialed GET is private
+2026-10-10T16:38:22.3383225Z [22m[39m<-- GET /v1/tasks
+2026-10-10T16:38:22.3383721Z 
+2026-10-10T16:38:22.3413590Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2m/v1 aliases and headers[2m > [22m[2ma credentialed GET is private
+2026-10-10T16:38:22.3472947Z [22m[39m--> GET /v1/tasks [32m200[0m 2ms
+2026-10-10T16:38:22.3502358Z 
+2026-10-10T16:38:22.3504261Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /v1/tasks?min_usdc[2m > [22m[2mfilters by bounty floor in atomic units, legacy decimal rows included; free tasks drop out
+2026-10-10T16:38:22.3523146Z [22m[39m<-- GET /v1/tasks?status=open
+2026-10-10T16:38:22.3523854Z 
+2026-10-10T16:38:22.3525734Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /v1/tasks?min_usdc[2m > [22m[2mfilters by bounty floor in atomic units, legacy decimal rows included; free tasks drop out
+2026-10-10T16:38:22.3527827Z [22m[39m--> GET /v1/tasks?status=open [32m200[0m 3ms
+2026-10-10T16:38:22.3528557Z 
+2026-10-10T16:38:22.3530426Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /v1/tasks?min_usdc[2m > [22m[2mfilters by bounty floor in atomic units, legacy decimal rows included; free tasks drop out
+2026-10-10T16:38:22.3532733Z [22m[39m<-- GET /v1/tasks?status=open&min_usdc=0.5
+2026-10-10T16:38:22.3533453Z 
+2026-10-10T16:38:22.3535337Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /v1/tasks?min_usdc[2m > [22m[2mfilters by bounty floor in atomic units, legacy decimal rows included; free tasks drop out
+2026-10-10T16:38:22.3537439Z [22m[39m--> GET /v1/tasks?status=open&min_usdc=0.5 [32m200[0m 2ms
+2026-10-10T16:38:22.3538242Z 
+2026-10-10T16:38:22.3540114Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /v1/tasks?min_usdc[2m > [22m[2mfilters by bounty floor in atomic units, legacy decimal rows included; free tasks drop out
+2026-10-10T16:38:22.3542419Z [22m[39m<-- GET /v1/tasks?status=open&min_usdc=1.00
+2026-10-10T16:38:22.3543157Z 
+2026-10-10T16:38:22.3545049Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /v1/tasks?min_usdc[2m > [22m[2mfilters by bounty floor in atomic units, legacy decimal rows included; free tasks drop out
+2026-10-10T16:38:22.3547107Z [22m[39m--> GET /v1/tasks?status=open&min_usdc=1.00 [32m200[0m 1ms
+2026-10-10T16:38:22.3547819Z 
+2026-10-10T16:38:22.3549624Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /v1/tasks?min_usdc[2m > [22m[2mfilters by bounty floor in atomic units, legacy decimal rows included; free tasks drop out
+2026-10-10T16:38:22.3551635Z [22m[39m<-- GET /v1/tasks?status=open&min_usdc=5
+2026-10-10T16:38:22.3552624Z 
+2026-10-10T16:38:22.3554510Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /v1/tasks?min_usdc[2m > [22m[2mfilters by bounty floor in atomic units, legacy decimal rows included; free tasks drop out
+2026-10-10T16:38:22.3557072Z [22m[39m--> GET /v1/tasks?status=open&min_usdc=5 [32m200[0m 1ms
+2026-10-10T16:38:22.3558118Z 
+2026-10-10T16:38:22.3560001Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /v1/tasks?min_usdc[2m > [22m[2mfilters by bounty floor in atomic units, legacy decimal rows included; free tasks drop out
+2026-10-10T16:38:22.3562331Z [22m[39m<-- GET /v1/tasks?status=open&min_usdc=5.000001
+2026-10-10T16:38:22.3563044Z 
+2026-10-10T16:38:22.3564870Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /v1/tasks?min_usdc[2m > [22m[2mfilters by bounty floor in atomic units, legacy decimal rows included; free tasks drop out
+2026-10-10T16:38:22.3567027Z [22m[39m--> GET /v1/tasks?status=open&min_usdc=5.000001 [32m200[0m 1ms
+2026-10-10T16:38:22.3567865Z 
+2026-10-10T16:38:22.3569128Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /v1/tasks?min_usdc[2m > [22m[2ma malformed or empty value is a 400, not a silently ignored filter
+2026-10-10T16:38:22.3570176Z [22m[39m<-- GET /v1/tasks?min_usdc=1.2345678
+2026-10-10T16:38:22.3570703Z 
+2026-10-10T16:38:22.3572584Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /v1/tasks?min_usdc[2m > [22m[2ma malformed or empty value is a 400, not a silently ignored filter
+2026-10-10T16:38:22.3574541Z [22m[39m--> GET /v1/tasks?min_usdc=1.2345678 [33m400[0m 1ms
+2026-10-10T16:38:22.3575291Z 
+2026-10-10T16:38:22.3576922Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /v1/tasks?min_usdc[2m > [22m[2ma malformed or empty value is a 400, not a silently ignored filter
+2026-10-10T16:38:22.3578661Z [22m[39m<-- GET /v1/tasks?min_usdc=
+2026-10-10T16:38:22.3579237Z 
+2026-10-10T16:38:22.3580878Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /v1/tasks?min_usdc[2m > [22m[2ma malformed or empty value is a 400, not a silently ignored filter
+2026-10-10T16:38:22.3583028Z [22m[39m--> GET /v1/tasks?min_usdc= [33m400[0m 0ms
+2026-10-10T16:38:22.3583726Z 
+2026-10-10T16:38:22.3585372Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /v1/tasks?min_usdc[2m > [22m[2ma malformed or empty value is a 400, not a silently ignored filter
+2026-10-10T16:38:22.3587147Z [22m[39m<-- GET /v1/tasks?min_usdc=abc
+2026-10-10T16:38:22.3587749Z 
+2026-10-10T16:38:22.3589386Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /v1/tasks?min_usdc[2m > [22m[2ma malformed or empty value is a 400, not a silently ignored filter
+2026-10-10T16:38:22.3591258Z [22m[39m--> GET /v1/tasks?min_usdc=abc [33m400[0m 0ms
+2026-10-10T16:38:22.3592274Z 
+2026-10-10T16:38:22.3702788Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /.well-known/x402 networks[2m > [22m[2mproduction advertises only Base mainnet, matching the manifest
+2026-10-10T16:38:22.3705496Z [22m[39m<-- GET /.well-known/x402
+2026-10-10T16:38:22.3706144Z 
+2026-10-10T16:38:22.3710447Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /.well-known/x402 networks[2m > [22m[2mproduction advertises only Base mainnet, matching the manifest
+2026-10-10T16:38:22.3712677Z [22m[39m[payments] disabled: TASK_PAYMENTS_ENABLED is not '1'
+2026-10-10T16:38:22.3713576Z 
+2026-10-10T16:38:22.3718690Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /.well-known/x402 networks[2m > [22m[2mproduction advertises only Base mainnet, matching the manifest
+2026-10-10T16:38:22.3720649Z [22m[39m--> GET /.well-known/x402 [32m200[0m 2ms
+2026-10-10T16:38:22.3721626Z 
+2026-10-10T16:38:22.3727414Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /.well-known/x402 networks[2m > [22m[2madvertises the live minimum bounty for agent and console posters
+2026-10-10T16:38:22.3729220Z [22m[39m<-- GET /.well-known/x402
+2026-10-10T16:38:22.3729834Z 
+2026-10-10T16:38:22.3735840Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /.well-known/x402 networks[2m > [22m[2madvertises the live minimum bounty for agent and console posters
+2026-10-10T16:38:22.3738062Z [22m[39m--> GET /.well-known/x402 [32m200[0m 1ms
+2026-10-10T16:38:22.3738751Z 
+2026-10-10T16:38:22.3740737Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /.well-known/x402 networks[2m > [22m[2madvertises the live minimum bounty for agent and console posters
+2026-10-10T16:38:22.3742797Z [22m[39m<-- GET /.well-known/x402
+2026-10-10T16:38:22.3743405Z 
+2026-10-10T16:38:22.3745990Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /.well-known/x402 networks[2m > [22m[2madvertises the live minimum bounty for agent and console posters
+2026-10-10T16:38:22.3747832Z [22m[39m--> GET /.well-known/x402 [32m200[0m 1ms
+2026-10-10T16:38:22.3748547Z 
+2026-10-10T16:38:22.3750482Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /.well-known/x402 networks[2m > [22m[2mother environments also advertise Base Sepolia for testing
+2026-10-10T16:38:22.3752425Z [22m[39m<-- GET /.well-known/x402
+2026-10-10T16:38:22.3753050Z 
+2026-10-10T16:38:22.3757702Z [90mstdout[2m | src/routes/front-door.test.ts[2m > [22m[2mGET /.well-known/x402 networks[2m > [22m[2mother environments also advertise Base Sepolia for testing
+2026-10-10T16:38:22.3759317Z [22m[39m--> GET /.well-known/x402 [32m200[0m 1ms
+2026-10-10T16:38:22.3759971Z 
+2026-10-10T16:38:22.3783491Z  [32m✓[39m src/routes/front-door.test.ts [2m([22m[2m28 tests[22m[2m)[22m[32m 208[2mms[22m[39m
+2026-10-10T16:38:22.5736196Z  [32m✓[39m src/mcp/oauth-store.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 107[2mms[22m[39m
+2026-10-10T16:38:22.6553952Z  [32m✓[39m src/control/certification.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 43[2mms[22m[39m
+2026-10-10T16:38:22.8442325Z [90mstderr[2m | src/acquisition/capture.test.ts[2m > [22m[2macquisition capture[2m > [22m[2msurvives an analytics storage failure without failing the business request
+2026-10-10T16:38:22.8455073Z [22m[39m[acquisition] capture failed: SqliteError: no such table: mcp_installations
+2026-10-10T16:38:22.8503404Z     at Database.prepare (/home/runner/work/basedagents/basedagents/node_modules/[4mbetter-sqlite3[24m/lib/methods/wrappers.js:5:21)
+2026-10-10T16:38:22.8504939Z  [32m✓[39m src/acquisition/capture.test.ts [2m([22m[2m16 tests[22m[2m)[22m[33m 552[2mms[22m[39m
+2026-10-10T16:38:22.8530258Z     at SQLiteAdapter.run [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/db/sqlite-adapter.ts:21:28[90m)[39m
+2026-10-10T16:38:22.8563581Z     at recordAttribution [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/acquisition/capture.ts:142:14[90m)[39m
+2026-10-10T16:38:22.8592983Z     at acquisitionCapture [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/acquisition/capture.ts:390:53[90m)[39m
+2026-10-10T16:38:22.8623697Z     at dispatch (file:///home/runner/work/basedagents/basedagents/node_modules/[4mhono[24m/dist/compose.js:22:17)
+2026-10-10T16:38:22.8653473Z     at [90m/home/runner/work/basedagents/basedagents/packages/api/[39msrc/test-helpers.ts:347:5
+2026-10-10T16:38:22.8695549Z     at dispatch (file:///home/runner/work/basedagents/basedagents/node_modules/[4mhono[24m/dist/compose.js:22:17)
+2026-10-10T16:38:22.8703877Z     at file:///home/runner/work/basedagents/basedagents/node_modules/[4mhono[24m/dist/hono-base.js:308:25
+2026-10-10T16:38:22.8705928Z     at [90m/home/runner/work/basedagents/basedagents/packages/api/[39msrc/acquisition/capture.test.ts:252:17
+2026-10-10T16:38:22.8708236Z     at file:///home/runner/work/basedagents/basedagents/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:1903:20 {
+2026-10-10T16:38:22.8709954Z   code: [32m'SQLITE_ERROR'[39m
+2026-10-10T16:38:22.8710681Z }
+2026-10-10T16:38:22.8711203Z 
+2026-10-10T16:38:23.2517676Z  [32m✓[39m src/crypto/index.test.ts [2m([22m[2m37 tests[22m[2m)[22m[32m 125[2mms[22m[39m
+2026-10-10T16:38:23.4465655Z  [32m✓[39m src/reputation/calculator.test.ts [2m([22m[2m12 tests[22m[2m)[22m[33m 302[2mms[22m[39m
+2026-10-10T16:38:24.2448209Z [90mstderr[2m | src/acquisition/registration.test.ts[2m > [22m[2magent acquisition at registration[2m > [22m[2msurvives a broken analytics table without failing registration
+2026-10-10T16:38:24.2471010Z  [32m✓[39m src/acquisition/registration.test.ts [2m([22m[2m11 tests[22m[2m)[22m[33m 536[2mms[22m[39m
+2026-10-10T16:38:24.2501609Z [22m[39m[acquisition] registration attribution failed: SqliteError: no such table: agent_acquisition
+2026-10-10T16:38:24.2503915Z     at Database.prepare (/home/runner/work/basedagents/basedagents/node_modules/[4mbetter-sqlite3[24m/lib/methods/wrappers.js:5:21)
+2026-10-10T16:38:24.2533739Z     at SQLiteAdapter.run [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/db/sqlite-adapter.ts:21:28[90m)[39m
+2026-10-10T16:38:24.2540608Z     at recordAgentAcquisition [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/acquisition/capture.ts:266:12[90m)[39m
+2026-10-10T16:38:24.2542845Z     at [90m/home/runner/work/basedagents/basedagents/packages/api/[39msrc/routes/register.ts:339:7
+2026-10-10T16:38:24.2544916Z     at dispatch (file:///home/runner/work/basedagents/basedagents/node_modules/[4mhono[24m/dist/compose.js:22:17)
+2026-10-10T16:38:24.2547244Z     at acquisitionCapture [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/acquisition/capture.ts:373:3[90m)[39m
+2026-10-10T16:38:24.2549592Z     at dispatch (file:///home/runner/work/basedagents/basedagents/node_modules/[4mhono[24m/dist/compose.js:22:17)
+2026-10-10T16:38:24.2551505Z     at [90m/home/runner/work/basedagents/basedagents/packages/api/[39msrc/test-helpers.ts:347:5
+2026-10-10T16:38:24.2553862Z     at dispatch (file:///home/runner/work/basedagents/basedagents/node_modules/[4mhono[24m/dist/compose.js:22:17)
+2026-10-10T16:38:24.2555770Z     at file:///home/runner/work/basedagents/basedagents/node_modules/[4mhono[24m/dist/hono-base.js:308:25 {
+2026-10-10T16:38:24.2556990Z   code: [32m'SQLITE_ERROR'[39m
+2026-10-10T16:38:24.2557668Z }
+2026-10-10T16:38:24.2558086Z 
+2026-10-10T16:38:24.3724513Z [90mstderr[2m | src/control/agent-testing/privacy.test.ts[2m > [22m[2muntrusted worker text stays data (spec §14.1, §20.4)[2m > [22m[2mprompt-injection strings in evidence cannot change budgets, brief limits or review state
+2026-10-10T16:38:24.3764112Z [22m[39m[posthog] POSTHOG_PROJECT_TOKEN is not set — product analytics and error tracking are OFF. Set it (and optionally POSTHOG_HOST) in .env / the Worker vars for this environment.
+2026-10-10T16:38:24.3792452Z 
+2026-10-10T16:38:25.0741304Z  [32m✓[39m src/control/ladder.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 168[2mms[22m[39m
+2026-10-10T16:38:25.2175698Z  [32m✓[39m src/control/agent-testing/privacy.test.ts [2m([22m[2m9 tests[22m[2m)[22m[33m 1734[2mms[22m[39m
+2026-10-10T16:38:25.2178018Z      [33m[2m✓[22m[39m public task list, detail, settled feed, status and catalog leak no briefs, targets, customer or order ids [33m 402[2mms[22m[39m
+2026-10-10T16:38:25.2374371Z  [32m✓[39m src/control/agent-testing/public-intake.test.ts [2m([22m[2m8 tests[22m[2m)[22m[33m 919[2mms[22m[39m
+2026-10-10T16:38:25.5905815Z  [32m✓[39m src/payments/index.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 83[2mms[22m[39m
+2026-10-10T16:38:25.6014025Z [90mstderr[2m | src/payments/house-wallet.test.ts[2m > [22m[2mpayments/house-wallet.ts[2m > [22m[2menv switch (fail closed)[2m > [22m[2mneeds a valid house key
+2026-10-10T16:38:25.6053670Z [22m[39m[escrow] house wallet disabled: ESCROW_WALLET_PRIVATE_KEY must be 64 hex characters (32 bytes), optionally 0x-prefixed
+2026-10-10T16:38:25.6072620Z 
+2026-10-10T16:38:25.6073616Z  [32m✓[39m src/payments/house-wallet.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 122[2mms[22m[39m
+2026-10-10T16:38:25.9685223Z [90mstderr[2m | src/routes/events.test.ts[2m > [22m[2mAgent Inbox (agent_events)[2m > [22m[2mfan-out matches webhook-less agents (the bug fix)[2m > [22m[2ma matching agent with NO webhook_url still gets task.available in its inbox
+2026-10-10T16:38:25.9727128Z [22m[39m[posthog] POSTHOG_PROJECT_TOKEN is not set — product analytics and error tracking are OFF. Set it (and optionally POSTHOG_HOST) in .env / the Worker vars for this environment.
+2026-10-10T16:38:25.9734700Z 
+2026-10-10T16:38:26.0346130Z  [32m✓[39m src/routes/events.test.ts [2m([22m[2m9 tests[22m[2m)[22m[33m 483[2mms[22m[39m
+2026-10-10T16:38:26.2021865Z  [32m✓[39m src/board-schema.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 84[2mms[22m[39m
+2026-10-10T16:38:26.2070320Z  [32m✓[39m src/reputation/eigentrust.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 146[2mms[22m[39m
+2026-10-10T16:38:26.7018449Z  [32m✓[39m src/skills/resolver.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 242[2mms[22m[39m
+2026-10-10T16:38:26.8070954Z [90mstdout[2m | src/routes/tasks-analytics.test.ts[2m > [22m[2mTask lifecycle analytics (PostHog)[2m > [22m[2mcaptures nothing when the action is refused
+2026-10-10T16:38:26.8073257Z [22m[39m[payments] disabled: TASK_PAYMENTS_ENABLED is not '1'
+2026-10-10T16:38:26.8122402Z 
+2026-10-10T16:38:27.1311252Z  [32m✓[39m src/routes/openapi.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 55[2mms[22m[39m
+2026-10-10T16:38:27.1474305Z  [32m✓[39m src/control/agent-testing/reports.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+2026-10-10T16:38:27.1556776Z  [32m✓[39m src/routes/tasks-analytics.test.ts [2m([22m[2m6 tests[22m[2m)[22m[33m 558[2mms[22m[39m
+2026-10-10T16:38:27.4801269Z  [32m✓[39m src/payments/cdp-jwt.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 132[2mms[22m[39m
+2026-10-10T16:38:27.5364344Z  [32m✓[39m src/mcp/attribution.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 64[2mms[22m[39m
+2026-10-10T16:38:27.5460372Z  [32m✓[39m src/mcp/worker.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 55[2mms[22m[39m
+2026-10-10T16:38:27.7660494Z [90mstderr[2m | src/lib/posthog.test.ts[2m > [22m[2mlib/posthog[2m > [22m[2mis a no-op without a token and never throws
+2026-10-10T16:38:27.7663908Z [22m[39m[posthog] POSTHOG_PROJECT_TOKEN is not set — product analytics and error tracking are OFF. Set it (and optionally POSTHOG_HOST) in .env / the Worker vars for this environment.
+2026-10-10T16:38:27.7665503Z 
+2026-10-10T16:38:27.7724558Z [90mstderr[2m | src/lib/posthog.test.ts[2m > [22m[2mlib/posthog[2m > [22m[2mpins a client whose construction throws to null instead of throwing
+2026-10-10T16:38:27.7726978Z [22m[39m[posthog] client construction failed — analytics are OFF for this isolate: Error: bad client config
+2026-10-10T16:38:27.7729484Z     at new PostHog [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/lib/posthog.test.ts:20:54[90m)[39m
+2026-10-10T16:38:27.7731839Z     at Module.getPostHog [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/lib/posthog.ts:62:14[90m)[39m
+2026-10-10T16:38:27.7734320Z     at [90m/home/runner/work/basedagents/basedagents/packages/api/[39msrc/lib/posthog.test.ts:77:12
+2026-10-10T16:38:27.7736403Z     at file:///home/runner/work/basedagents/basedagents/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:302:11
+2026-10-10T16:38:27.7738551Z     at file:///home/runner/work/basedagents/basedagents/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:1903:26
+2026-10-10T16:38:27.7740734Z     at file:///home/runner/work/basedagents/basedagents/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2326:20
+2026-10-10T16:38:27.7742274Z     at new Promise (<anonymous>)
+2026-10-10T16:38:27.7744014Z     at runWithCancel (file:///home/runner/work/basedagents/basedagents/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2323:10)
+2026-10-10T16:38:27.7746312Z     at file:///home/runner/work/basedagents/basedagents/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2305:20
+2026-10-10T16:38:27.7747688Z     at new Promise (<anonymous>)
+2026-10-10T16:38:27.7748210Z 
+2026-10-10T16:38:27.7758389Z [90mstderr[2m | src/lib/webhooks.test.ts[2m > [22m[2mfireWebhook[2m > [22m[2mblocks delivery to non-HTTPS URLs (fire-time SSRF re-validation)
+2026-10-10T16:38:27.7762359Z [22m[39m[webhook] blocked delivery to unsafe URL (event: verification.received)
+2026-10-10T16:38:27.7763387Z 
+2026-10-10T16:38:27.7769756Z [90mstderr[2m | src/lib/webhooks.test.ts[2m > [22m[2mfireWebhook[2m > [22m[2mblocks delivery to private/metadata addresses
+2026-10-10T16:38:27.7771588Z [22m[39m[webhook] blocked delivery to unsafe URL (event: verification.received)
+2026-10-10T16:38:27.7772747Z 
+2026-10-10T16:38:27.7774078Z [90mstderr[2m | src/lib/webhooks.test.ts[2m > [22m[2mfireWebhook[2m > [22m[2mblocks delivery to private/metadata addresses
+2026-10-10T16:38:27.7775951Z [22m[39m[webhook] blocked delivery to unsafe URL (event: verification.received)
+2026-10-10T16:38:27.7776790Z 
+2026-10-10T16:38:27.7778116Z [90mstderr[2m | src/lib/webhooks.test.ts[2m > [22m[2mfireWebhook[2m > [22m[2mblocks delivery to private/metadata addresses
+2026-10-10T16:38:27.7779986Z [22m[39m[webhook] blocked delivery to unsafe URL (event: verification.received)
+2026-10-10T16:38:27.7780807Z 
+2026-10-10T16:38:27.7782511Z [90mstderr[2m | src/lib/webhooks.test.ts[2m > [22m[2mfireWebhook[2m > [22m[2mblocks delivery to private/metadata addresses
+2026-10-10T16:38:27.7784457Z [22m[39m[webhook] blocked delivery to unsafe URL (event: verification.received)
+2026-10-10T16:38:27.7785343Z 
+2026-10-10T16:38:27.7868728Z [90mstderr[2m | src/lib/webhooks.test.ts[2m > [22m[2mfireWebhook[2m > [22m[2mdoes not throw on network error (fire-and-forget)
+2026-10-10T16:38:27.7893859Z [22m[39m[webhook] delivery failed to https://example.com/hook (event: verification.received): Error: Network error
+2026-10-10T16:38:27.7923439Z     at [90m/home/runner/work/basedagents/basedagents/packages/api/[39msrc/lib/webhooks.test.ts:76:33
+2026-10-10T16:38:27.7932224Z     at file:///home/runner/work/basedagents/basedagents/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:302:11
+2026-10-10T16:38:27.7939483Z     at file:///home/runner/work/basedagents/basedagents/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:1903:26
+2026-10-10T16:38:27.7941605Z     at file:///home/runner/work/basedagents/basedagents/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2326:20
+2026-10-10T16:38:27.7955404Z     at new Promise (<anonymous>)
+2026-10-10T16:38:27.7956470Z  [32m✓[39m src/lib/webhooks.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 25[2mms[22m[39m
+2026-10-10T16:38:27.7974525Z     at runWithCancel (file:///home/runner/work/basedagents/basedagents/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2323:10)
+2026-10-10T16:38:27.7976998Z     at file:///home/runner/work/basedagents/basedagents/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2305:20
+2026-10-10T16:38:27.7978451Z     at new Promise (<anonymous>)
+2026-10-10T16:38:27.7980242Z     at runWithTimeout (file:///home/runner/work/basedagents/basedagents/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2272:10)
+2026-10-10T16:38:27.7983024Z     at file:///home/runner/work/basedagents/basedagents/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2956:64
+2026-10-10T16:38:27.7984184Z 
+2026-10-10T16:38:27.8067195Z [90mstderr[2m | src/lib/posthog.test.ts[2m > [22m[2mlib/posthog[2m > [22m[2ma throwing client constructor never breaks the request (capture path)
+2026-10-10T16:38:27.8088326Z [22m[39m[posthog] client construction failed — analytics are OFF for this isolate: Error: bad client config
+2026-10-10T16:38:27.8095374Z     at new PostHog [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/lib/posthog.test.ts:20:54[90m)[39m
+2026-10-10T16:38:27.8097643Z     at getPostHog [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/lib/posthog.ts:62:14[90m)[39m
+2026-10-10T16:38:27.8100185Z     at Module.captureServerEvent [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/lib/posthog.ts:98:20[90m)[39m
+2026-10-10T16:38:27.8103864Z     at Array.<anonymous> [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/lib/posthog.test.ts:40:11[90m)[39m
+2026-10-10T16:38:27.8106540Z     at Hono.#dispatch (file:///home/runner/work/basedagents/basedagents/node_modules/[4mhono[24m/dist/hono-base.js:295:38)
+2026-10-10T16:38:27.8108744Z     at Hono.fetch (file:///home/runner/work/basedagents/basedagents/node_modules/[4mhono[24m/dist/hono-base.js:332:26)
+2026-10-10T16:38:27.8110901Z     at Hono.request (file:///home/runner/work/basedagents/basedagents/node_modules/[4mhono[24m/dist/hono-base.js:351:17)
+2026-10-10T16:38:27.8113128Z     at [90m/home/runner/work/basedagents/basedagents/packages/api/[39msrc/lib/posthog.test.ts:100:27
+2026-10-10T16:38:27.8114869Z     at file:///home/runner/work/basedagents/basedagents/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:302:11
+2026-10-10T16:38:27.8116825Z     at file:///home/runner/work/basedagents/basedagents/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:1903:26
+2026-10-10T16:38:27.8117988Z 
+2026-10-10T16:38:27.8119711Z [90mstderr[2m | src/lib/posthog.test.ts[2m > [22m[2mlib/posthog[2m > [22m[2ma throwing client constructor never masks the error response (exception path)
+2026-10-10T16:38:27.8122347Z [22m[39m[posthog] client construction failed — analytics are OFF for this isolate: Error: bad client config
+2026-10-10T16:38:27.8124508Z     at new PostHog [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/lib/posthog.test.ts:20:54[90m)[39m
+2026-10-10T16:38:27.8126673Z     at getPostHog [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/lib/posthog.ts:62:14[90m)[39m
+2026-10-10T16:38:27.8129018Z     at Module.captureServerException [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/lib/posthog.ts:119:20[90m)[39m
+2026-10-10T16:38:27.8131393Z     at Hono.errorHandler [90m(/home/runner/work/basedagents/basedagents/packages/api/[39msrc/lib/posthog.test.ts:47:11[90m)[39m
+2026-10-10T16:38:27.8133994Z     at Hono.#handleError (file:///home/runner/work/basedagents/basedagents/node_modules/[4mhono[24m/dist/hono-base.js:275:19)
+2026-10-10T16:38:27.8136303Z     at Hono.#dispatch (file:///home/runner/work/basedagents/basedagents/node_modules/[4mhono[24m/dist/hono-base.js:299:33)
+2026-10-10T16:38:27.8138567Z     at Hono.fetch (file:///home/runner/work/basedagents/basedagents/node_modules/[4mhono[24m/dist/hono-base.js:332:26)
+2026-10-10T16:38:27.8140624Z     at Hono.request (file:///home/runner/work/basedagents/basedagents/node_modules/[4mhono[24m/dist/hono-base.js:351:17)
+2026-10-10T16:38:27.8142979Z     at [90m/home/runner/work/basedagents/basedagents/packages/api/[39msrc/lib/posthog.test.ts:119:27
+2026-10-10T16:38:27.8145171Z     at file:///home/runner/work/basedagents/basedagents/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:302:11
+2026-10-10T16:38:27.8146246Z 
+2026-10-10T16:38:27.8183586Z  [32m✓[39m src/mcp/board-post.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 81[2mms[22m[39m
+2026-10-10T16:38:27.8287230Z  [32m✓[39m src/lib/posthog.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 49[2mms[22m[39m
+2026-10-10T16:38:28.4250421Z  [32m✓[39m src/routes/acquisition.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 111[2mms[22m[39m
+2026-10-10T16:38:28.6162913Z  [32m✓[39m src/routes/telemetry.test.ts [2m([22m[2m7 tests[22m[2m)[22m[33m 301[2mms[22m[39m
+2026-10-10T16:38:28.9229740Z  [32m✓[39m src/mcp/migration.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 27[2mms[22m[39m
+2026-10-10T16:38:29.1973650Z  [32m✓[39m src/acquisition/migration.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 252[2mms[22m[39m
+2026-10-10T16:38:29.2536504Z  [32m✓[39m src/control/registration-gate.test.ts [2m([22m[2m3 tests[22m[2m)[22m[33m 529[2mms[22m[39m
+2026-10-10T16:38:29.4263418Z  [32m✓[39m src/mcp/email.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+2026-10-10T16:38:29.5266467Z  [32m✓[39m src/routes/chain.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 153[2mms[22m[39m
+2026-10-10T16:38:29.7766868Z  [32m✓[39m src/lib/skeleton.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+2026-10-10T16:38:29.7984057Z  [32m✓[39m src/routes/patch-rename-skeleton.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 144[2mms[22m[39m
+2026-10-10T16:38:29.8786840Z  [32m✓[39m src/lib/rate-limiter.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 34[2mms[22m[39m
+2026-10-10T16:38:29.9992931Z  [32m✓[39m src/lib/ids.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 53[2mms[22m[39m
+2026-10-10T16:38:30.0041321Z 
+2026-10-10T16:38:30.0054568Z [2m Test Files [22m [1m[32m68 passed[39m[22m[90m (68)[39m
+2026-10-10T16:38:30.0061131Z [2m      Tests [22m [1m[32m1138 passed[39m[22m[90m (1138)[39m
+2026-10-10T16:38:30.0061719Z [2m   Start at [22m 16:38:04
+2026-10-10T16:38:30.0064703Z [2m   Duration [22m 25.72s[2m (transform 4.06s, setup 1.31s, import 22.59s, tests 40.13s, environment 11ms)[22m
+2026-10-10T16:38:30.0066106Z 
+2026-10-10T16:38:30.0507995Z 
+2026-10-10T16:38:30.0510678Z > basedagents@0.10.1 test
+2026-10-10T16:38:30.0511214Z > vitest run
+2026-10-10T16:38:30.0511437Z 
+2026-10-10T16:38:30.3438129Z 
+2026-10-10T16:38:30.3440448Z [1m[30m[46m RUN [49m[39m[22m [36mv4.1.11 [39m[90m/home/runner/work/basedagents/basedagents/packages/sdk[39m
+2026-10-10T16:38:30.3441264Z 
+2026-10-10T16:38:30.9981574Z  [32m✓[39m src/client.test.ts [2m([22m[2m54 tests[22m[2m)[22m[32m 205[2mms[22m[39m
+2026-10-10T16:38:31.1606792Z  [32m✓[39m src/cli/tasks.test.ts [2m([22m[2m45 tests[22m[2m)[22m[32m 263[2mms[22m[39m
+2026-10-10T16:38:31.3436136Z  [32m✓[39m src/cli/keypair.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 85[2mms[22m[39m
+2026-10-10T16:38:31.6173884Z  [32m✓[39m src/cli/wallet.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 208[2mms[22m[39m
+2026-10-10T16:38:31.7164311Z  [32m✓[39m src/crypto.test.ts [2m([22m[2m31 tests[22m[2m)[22m[32m 143[2mms[22m[39m
+2026-10-10T16:38:31.9726343Z  [32m✓[39m src/attribution.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 70[2mms[22m[39m
+2026-10-10T16:38:32.1862759Z  [32m✓[39m src/wallet-bind.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 60[2mms[22m[39m
+2026-10-10T16:38:32.8955576Z  [32m✓[39m src/cli/feedback.test.ts [2m([22m[2m8 tests[22m[2m)[22m[33m 1083[2mms[22m[39m
+2026-10-10T16:38:32.8956762Z      [33m[2m✓[22m[39m retries a 5xx with the same Idempotency-Key, never a 4xx [33m 1007[2mms[22m[39m
+2026-10-10T16:38:51.3553448Z  [32m✓[39m src/cli/front-door.test.ts [2m([22m[2m25 tests[22m[2m)[22m[33m 20161[2mms[22m[39m
+2026-10-10T16:38:51.3554398Z      [33m[2m✓[22m[39m keeps watching an accepted bounty until the transfer settles [33m 20015[2mms[22m[39m
+2026-10-10T16:38:51.3608730Z 
+2026-10-10T16:38:51.3614475Z [2m Test Files [22m [1m[32m9 passed[39m[22m[90m (9)[39m
+2026-10-10T16:38:51.3615499Z [2m      Tests [22m [1m[32m215 passed[39m[22m[90m (215)[39m
+2026-10-10T16:38:51.3616379Z [2m   Start at [22m 16:38:30
+2026-10-10T16:38:51.3618582Z [2m   Duration [22m 21.01s[2m (transform 850ms, setup 0ms, import 1.57s, tests 22.28s, environment 1ms)[22m
+2026-10-10T16:38:51.3619853Z 
+2026-10-10T16:38:51.3798245Z 
+2026-10-10T16:38:51.3798540Z > @basedagents/web@0.1.0 test
+2026-10-10T16:38:51.3798953Z > vitest run
+2026-10-10T16:38:51.3799121Z 
+2026-10-10T16:38:51.7350291Z 
+2026-10-10T16:38:51.7354600Z [1m[30m[46m RUN [49m[39m[22m [36mv4.1.11 [39m[90m/home/runner/work/basedagents/basedagents/packages/web[39m
+2026-10-10T16:38:51.7355357Z 
+2026-10-10T16:38:51.9355990Z  [32m✓[39m src/lib/registryStatus.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+2026-10-10T16:38:51.9387054Z 
+2026-10-10T16:38:51.9392357Z [2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+2026-10-10T16:38:51.9393301Z [2m      Tests [22m [1m[32m3 passed[39m[22m[90m (3)[39m
+2026-10-10T16:38:51.9393994Z [2m   Start at [22m 16:38:51
+2026-10-10T16:38:51.9395379Z [2m   Duration [22m 194ms[2m (transform 45ms, setup 0ms, import 53ms, tests 18ms, environment 0ms)[22m
+2026-10-10T16:38:51.9398572Z 
+2026-10-10T16:38:51.9877130Z 
+2026-10-10T16:38:51.9877586Z > @basedagents/console@0.1.0 test
+2026-10-10T16:38:51.9877962Z > vitest run
+2026-10-10T16:38:51.9878118Z 
+2026-10-10T16:38:52.2767747Z 
+2026-10-10T16:38:52.2770056Z [1m[30m[46m RUN [49m[39m[22m [36mv4.1.11 [39m[90m/home/runner/work/basedagents/basedagents/packages/console[39m
+2026-10-10T16:38:52.2770901Z 
+2026-10-10T16:38:52.6343132Z  [32m✓[39m src/lib/wallet.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 30[2mms[22m[39m
+2026-10-10T16:38:52.6390890Z  [32m✓[39m src/lib/ceremony.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+2026-10-10T16:38:52.6432135Z  [32m✓[39m src/lib/webauthn.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+2026-10-10T16:38:52.8044337Z  [32m✓[39m src/lib/money.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+2026-10-10T16:38:52.8383494Z  [32m✓[39m src/lib/intent.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+2026-10-10T16:38:52.8563049Z  [32m✓[39m src/components/TaskBits.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+2026-10-10T16:38:52.8600532Z 
+2026-10-10T16:38:52.8606698Z [2m Test Files [22m [1m[32m6 passed[39m[22m[90m (6)[39m
+2026-10-10T16:38:52.8607672Z [2m      Tests [22m [1m[32m45 passed[39m[22m[90m (45)[39m
+2026-10-10T16:38:52.8608296Z [2m   Start at [22m 16:38:52
+2026-10-10T16:38:52.8609127Z [2m   Duration [22m 574ms[2m (transform 350ms, setup 0ms, import 499ms, tests 76ms, environment 1ms)[22m
+2026-10-10T16:38:52.8611321Z 
+2026-10-10T16:38:52.8931860Z 
+2026-10-10T16:38:52.8932450Z > @basedagents/mcp@0.7.2 test
+2026-10-10T16:38:52.8932808Z > vitest run
+2026-10-10T16:38:52.8932964Z 
+2026-10-10T16:38:53.1764044Z 
+2026-10-10T16:38:53.1766479Z [1m[30m[46m RUN [49m[39m[22m [36mv4.1.11 [39m[90m/home/runner/work/basedagents/basedagents/packages/mcp[39m
+2026-10-10T16:38:53.1767769Z 
+2026-10-10T16:38:56.5305820Z [90mstderr[2m | test/tasks.test.ts[2m > [22m[2mtask marketplace against the real API[2m > [22m[2munpaid lifecycle: revision → re-delivery → dispute → cancel[2m > [22m[2mcreate_task without a bounty is open with payment_status none
+2026-10-10T16:38:56.5309463Z [22m[39m[posthog] POSTHOG_PROJECT_TOKEN is not set — product analytics and error tracking are OFF. Set it (and optionally POSTHOG_HOST) in .env / the Worker vars for this environment.
+2026-10-10T16:38:56.5311402Z 
+2026-10-10T16:38:57.3344000Z  [32m✓[39m test/board-and-messaging.test.ts [2m([22m[2m19 tests[22m[2m)[22m[33m 2912[2mms[22m[39m
+2026-10-10T16:38:58.1223353Z  [32m✓[39m test/tasks.test.ts [2m([22m[2m41 tests[22m[2m)[22m[33m 3703[2mms[22m[39m
+2026-10-10T16:38:59.3902756Z [basedagents-mcp] cannot persist attribution state at /tmp/mcp-attribution-Yub7dA/blocker/state.json (EEXIST: file already exists, mkdir '/tmp/mcp-attribution-Yub7dA/blocker') — running unattributed
+2026-10-10T16:38:59.9603930Z [basedagents-mcp] ignoring invalid --source value (analytics tag only — the server keeps running)
+2026-10-10T16:39:03.9096951Z  [32m✓[39m test/attribution.test.ts [2m([22m[2m13 tests[22m[2m)[22m[33m 9479[2mms[22m[39m
+2026-10-10T16:39:03.9098853Z      [33m[2m✓[22m[39m sends bounded attribution headers from a tagged environment, whatever the client [33m 1186[2mms[22m[39m
+2026-10-10T16:39:03.9100389Z      [33m[2m✓[22m[39m persists the installation id across restarts; repeated launches add no installations [33m 1996[2mms[22m[39m
+2026-10-10T16:39:03.9101461Z      [33m[2m✓[22m[39m gives distinct state paths distinct installation identities [33m 1244[2mms[22m[39m
+2026-10-10T16:39:03.9103299Z      [33m[2m✓[22m[39m runs unattributed (no installation id, tools fine) when state cannot be persisted [33m 579[2mms[22m[39m
+2026-10-10T16:39:03.9105072Z      [33m[2m✓[22m[39m discards an invalid source tag without blocking startup [33m 570[2mms[22m[39m
+2026-10-10T16:39:03.9107584Z      [33m[2m✓[22m[39m sends no attribution and creates no state when BASEDAGENTS_TELEMETRY=off [33m 571[2mms[22m[39m
+2026-10-10T16:39:03.9109408Z      [33m[2m✓[22m[39m sends no attribution and creates no state when BASEDAGENTS_NO_TELEMETRY=1 [33m 563[2mms[22m[39m
+2026-10-10T16:39:03.9110824Z      [33m[2m✓[22m[39m delivers batched tool outcomes to /v1/telemetry/mcp, deduplicated by tool-call id [33m 802[2mms[22m[39m
+2026-10-10T16:39:03.9112238Z      [33m[2m✓[22m[39m delivers a short session's outcomes when the client closes stdin [33m 617[2mms[22m[39m
+2026-10-10T16:39:03.9113707Z      [33m[2m✓[22m[39m warns on stderr (once) when the telemetry endpoint rejects a batch, and tools keep working [33m 703[2mms[22m[39m
+2026-10-10T16:39:03.9115437Z      [33m[2m✓[22m[39m keeps concurrent tool calls on distinct tool-call ids [33m 613[2mms[22m[39m
+2026-10-10T16:39:03.9146187Z 
+2026-10-10T16:39:03.9151316Z [2m Test Files [22m [1m[32m3 passed[39m[22m[90m (3)[39m
+2026-10-10T16:39:03.9163125Z [2m      Tests [22m [1m[32m73 passed[39m[22m[90m (73)[39m
+2026-10-10T16:39:03.9172709Z [2m   Start at [22m 16:38:53
+2026-10-10T16:39:03.9173449Z [2m   Duration [22m 10.73s[2m (transform 1.34s, setup 0ms, import 3.16s, tests 16.09s, environment 1ms)[22m
+2026-10-10T16:39:03.9173877Z 
+2026-10-10T16:39:03.9381094Z 
+2026-10-10T16:39:03.9381672Z > @basedagents/github-action@0.1.0 test
+2026-10-10T16:39:03.9382490Z > echo ok
+2026-10-10T16:39:03.9382694Z 
+2026-10-10T16:39:03.9403860Z ok
+2026-10-10T16:39:03.9566686Z ##[group]Run npm run build
+2026-10-10T16:39:03.9566978Z [36;1mnpm run build[0m
+2026-10-10T16:39:03.9628686Z shell: /usr/bin/bash -e {0}
+2026-10-10T16:39:03.9628939Z ##[endgroup]
+2026-10-10T16:39:04.0669758Z 
+2026-10-10T16:39:04.0670119Z > build
+2026-10-10T16:39:04.0670639Z > npm run build --workspaces
+2026-10-10T16:39:04.0670953Z 
+2026-10-10T16:39:04.1856576Z 
+2026-10-10T16:39:04.1857446Z > @basedagents/api@0.1.0 build
+2026-10-10T16:39:04.1858081Z > tsc
+2026-10-10T16:39:04.1858335Z 
+2026-10-10T16:39:06.5805861Z 
+2026-10-10T16:39:06.5806351Z > basedagents@0.10.1 build
+2026-10-10T16:39:06.5806700Z > tsc
+2026-10-10T16:39:06.5806845Z 
+2026-10-10T16:39:07.7812710Z 
+2026-10-10T16:39:07.7813331Z > @basedagents/web@0.1.0 build
+2026-10-10T16:39:07.7814223Z > tsc && vite build && node scripts/prerender.mjs && node scripts/build-changelog.mjs
+2026-10-10T16:39:07.7814817Z 
+2026-10-10T16:39:09.5671532Z [36mvite v6.4.3 [32mbuilding for production...[36m[39m
+2026-10-10T16:39:09.6444124Z transforming...
+2026-10-10T16:39:11.6480563Z [32m✓[39m 392 modules transformed.
+2026-10-10T16:39:11.8260990Z rendering chunks...
+2026-10-10T16:39:12.0154075Z computing gzip size...
+2026-10-10T16:39:12.0434677Z [2mdist/[22m[32mindex.html                [39m[1m[2m  7.46 kB[22m[1m[22m[2m │ gzip:   2.57 kB[22m
+2026-10-10T16:39:12.0436124Z [2mdist/[22m[32mregistry.html             [39m[1m[2m  9.97 kB[22m[1m[22m[2m │ gzip:   3.65 kB[22m
+2026-10-10T16:39:12.0437549Z [2mdist/[22m[32mdocs/agents.html          [39m[1m[2m 12.70 kB[22m[1m[22m[2m │ gzip:   5.04 kB[22m
+2026-10-10T16:39:12.0439067Z [2mdist/[22m[2massets/[22m[35mmain-BFcEUE5T.css  [39m[1m[2m 21.32 kB[22m[1m[22m[2m │ gzip:   4.56 kB[22m
+2026-10-10T16:39:12.0440632Z [2mdist/[22m[2massets/[22m[36mmain-DEnfbo06.js   [39m[1m[33m958.11 kB[39m[22m[2m │ gzip: 291.03 kB[22m
+2026-10-10T16:39:12.0441526Z [33m
+2026-10-10T16:39:12.0442425Z (!) Some chunks are larger than 500 kB after minification. Consider:
+2026-10-10T16:39:12.0443296Z - Using dynamic import() to code-split the application
+2026-10-10T16:39:12.0445438Z - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+2026-10-10T16:39:12.0446804Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+2026-10-10T16:39:12.0447318Z [32m✓ built in 2.45s[39m
+2026-10-10T16:39:13.5118112Z prerendered / → dist/index.html (8137 bytes of markup)
+2026-10-10T16:39:13.5235088Z prerendered /tasks → dist/tasks.html (11027 bytes of markup)
+2026-10-10T16:39:13.5348343Z prerendered /about → dist/about.html (24523 bytes of markup)
+2026-10-10T16:39:14.0097803Z changelog: 10 releases, 107 entries → dist/changelog.html, dist/changelog.json
+2026-10-10T16:39:14.0232803Z 
+2026-10-10T16:39:14.0233086Z > @basedagents/console@0.1.0 build
+2026-10-10T16:39:14.0233444Z > tsc && vite build
+2026-10-10T16:39:14.0233612Z 
+2026-10-10T16:39:15.6432643Z [36mvite v6.4.3 [32mbuilding for production...[36m[39m
+2026-10-10T16:39:15.6984743Z transforming...
+2026-10-10T16:39:17.0250818Z [32m✓[39m 86 modules transformed.
+2026-10-10T16:39:17.1643656Z rendering chunks...
+2026-10-10T16:39:17.2750320Z computing gzip size...
+2026-10-10T16:39:17.2873339Z [2mdist/[22m[32mversion.json                         [39m[1m[2m  0.04 kB[22m[1m[22m[2m │ gzip:  0.06 kB[22m
+2026-10-10T16:39:17.2875007Z [2mdist/[22m[32mindex.html                           [39m[1m[2m  1.59 kB[22m[1m[22m[2m │ gzip:  0.79 kB[22m
+2026-10-10T16:39:17.2876824Z [2mdist/[22m[2massets/[22m[35mindex-C38vYHZN.css            [39m[1m[2m 21.45 kB[22m[1m[22m[2m │ gzip:  5.04 kB[22m
+2026-10-10T16:39:17.2878690Z [2mdist/[22m[2massets/[22m[36mAuthNav-BfBGln48.js           [39m[1m[2m  0.77 kB[22m[1m[22m[2m │ gzip:  0.36 kB[22m
+2026-10-10T16:39:17.2880544Z [2mdist/[22m[2massets/[22m[36mAddAgent-f3-VKcpK.js          [39m[1m[2m  2.10 kB[22m[1m[22m[2m │ gzip:  1.04 kB[22m
+2026-10-10T16:39:17.2883092Z [2mdist/[22m[2massets/[22m[36mSignWallet-CZoGRITk.js        [39m[1m[2m  2.24 kB[22m[1m[22m[2m │ gzip:  1.04 kB[22m
+2026-10-10T16:39:17.2884971Z [2mdist/[22m[2massets/[22m[36mStart-CBMQkm0J.js             [39m[1m[2m  2.54 kB[22m[1m[22m[2m │ gzip:  1.24 kB[22m
+2026-10-10T16:39:17.2886775Z [2mdist/[22m[2massets/[22m[36mAudits-yjwsXvUg.js            [39m[1m[2m  2.63 kB[22m[1m[22m[2m │ gzip:  1.05 kB[22m
+2026-10-10T16:39:17.2888463Z [2mdist/[22m[2massets/[22m[36mAgent-D8Px1Ssf.js             [39m[1m[2m  3.00 kB[22m[1m[22m[2m │ gzip:  1.23 kB[22m
+2026-10-10T16:39:17.2890126Z [2mdist/[22m[2massets/[22m[36mRecover-DTktveBQ.js           [39m[1m[2m  3.32 kB[22m[1m[22m[2m │ gzip:  1.31 kB[22m
+2026-10-10T16:39:17.2891820Z [2mdist/[22m[2massets/[22m[36mtesting-Dw2A00Yp.js           [39m[1m[2m  3.74 kB[22m[1m[22m[2m │ gzip:  1.09 kB[22m
+2026-10-10T16:39:17.2893805Z [2mdist/[22m[2massets/[22m[36mTasks-DEb9D6Bq.js             [39m[1m[2m  3.74 kB[22m[1m[22m[2m │ gzip:  1.42 kB[22m
+2026-10-10T16:39:17.2895503Z [2mdist/[22m[2massets/[22m[36mExplore-BkYRNiuy.js           [39m[1m[2m  3.97 kB[22m[1m[22m[2m │ gzip:  1.55 kB[22m
+2026-10-10T16:39:17.2897213Z [2mdist/[22m[2massets/[22m[36mTaskBits-CMz710uo.js          [39m[1m[2m  4.19 kB[22m[1m[22m[2m │ gzip:  1.70 kB[22m
+2026-10-10T16:39:17.2898984Z [2mdist/[22m[2massets/[22m[36mAdminFeedback-CLOTktfb.js     [39m[1m[2m  4.46 kB[22m[1m[22m[2m │ gzip:  1.75 kB[22m
+2026-10-10T16:39:17.2900728Z [2mdist/[22m[2massets/[22m[36mwallet-DM4UC2Dd.js            [39m[1m[2m  4.55 kB[22m[1m[22m[2m │ gzip:  2.05 kB[22m
+2026-10-10T16:39:17.2922882Z [2mdist/[22m[2massets/[22m[36mBoard-DznbJlZt.js             [39m[1m[2m  4.61 kB[22m[1m[22m[2m │ gzip:  1.87 kB[22m
+2026-10-10T16:39:17.2924176Z [2mdist/[22m[2massets/[22m[36mHome-Dta6KHPT.js              [39m[1m[2m  6.79 kB[22m[1m[22m[2m │ gzip:  2.17 kB[22m
+2026-10-10T16:39:17.2925360Z [2mdist/[22m[2massets/[22m[36mReportView-B77GXs9B.js        [39m[1m[2m  6.90 kB[22m[1m[22m[2m │ gzip:  2.05 kB[22m
+2026-10-10T16:39:17.2926499Z [2mdist/[22m[2massets/[22m[36mceremony-D2TqNS3k.js          [39m[1m[2m  6.99 kB[22m[1m[22m[2m │ gzip:  3.31 kB[22m
+2026-10-10T16:39:17.2927660Z [2mdist/[22m[2massets/[22m[36mRequestDetail-Xz4c3khj.js     [39m[1m[2m  7.37 kB[22m[1m[22m[2m │ gzip:  2.48 kB[22m
+2026-10-10T16:39:17.2929103Z [2mdist/[22m[2massets/[22m[36mAdminQueue-CDiK_3vh.js        [39m[1m[2m  8.58 kB[22m[1m[22m[2m │ gzip:  2.49 kB[22m
+2026-10-10T16:39:17.2930358Z [2mdist/[22m[2massets/[22m[36mOrderDetail-nHe5x5db.js       [39m[1m[2m  8.64 kB[22m[1m[22m[2m │ gzip:  2.68 kB[22m
+2026-10-10T16:39:17.2931631Z [2mdist/[22m[2massets/[22m[36mTaskNew-DYxkrg-o.js           [39m[1m[2m  9.79 kB[22m[1m[22m[2m │ gzip:  3.54 kB[22m
+2026-10-10T16:39:17.2933190Z [2mdist/[22m[2massets/[22m[36mAdminRequest-iR1ZT--z.js      [39m[1m[2m 10.21 kB[22m[1m[22m[2m │ gzip:  3.32 kB[22m
+2026-10-10T16:39:17.2934492Z [2mdist/[22m[2massets/[22m[36mAdminAcquisition-Cdd43Ynn.js  [39m[1m[2m 10.94 kB[22m[1m[22m[2m │ gzip:  2.86 kB[22m
+2026-10-10T16:39:17.2935737Z [2mdist/[22m[2massets/[22m[36mIntake-CQpxQndl.js            [39m[1m[2m 13.71 kB[22m[1m[22m[2m │ gzip:  4.30 kB[22m
+2026-10-10T16:39:17.2936979Z [2mdist/[22m[2massets/[22m[36mTaskReview-DSS8T_JV.js        [39m[1m[2m 18.94 kB[22m[1m[22m[2m │ gzip:  5.71 kB[22m
+2026-10-10T16:39:17.2938230Z [2mdist/[22m[2massets/[22m[36mAdminOrder-CFA6TvtS.js        [39m[1m[2m 19.27 kB[22m[1m[22m[2m │ gzip:  5.50 kB[22m
+2026-10-10T16:39:17.2939461Z [2mdist/[22m[2massets/[22m[36mindex-BOdZMb1H.js             [39m[1m[2m256.65 kB[22m[1m[22m[2m │ gzip: 82.09 kB[22m
+2026-10-10T16:39:17.2940203Z [32m✓ built in 1.63s[39m
+2026-10-10T16:39:17.3175461Z 
+2026-10-10T16:39:17.3175826Z > @basedagents/mcp@0.7.2 build
+2026-10-10T16:39:17.3176271Z > tsc
+2026-10-10T16:39:17.3176725Z 
+2026-10-10T16:39:25.5321317Z 
+2026-10-10T16:39:25.5322208Z > @basedagents/github-action@0.1.0 build
+2026-10-10T16:39:25.5323426Z > esbuild src/index.ts --bundle --platform=node --target=node20 --format=cjs --outfile=dist/index.js --log-level=warning
+2026-10-10T16:39:25.5324108Z 
+2026-10-10T16:39:25.5893644Z ##[group]Run node scripts/check-positioning.mjs
+2026-10-10T16:39:25.5894344Z [36;1mnode scripts/check-positioning.mjs[0m
+2026-10-10T16:39:25.5970378Z shell: /usr/bin/bash -e {0}
+2026-10-10T16:39:25.5970649Z ##[endgroup]
+2026-10-10T16:39:26.3159182Z check-positioning: ok (29 surfaces, 5 built pages)
+2026-10-10T16:39:26.3239234Z ##[group]Run node --test scripts/check-prod-drift.test.mjs scripts/lib/custody-claims.test.mjs scripts/check-front-door.test.mjs
+2026-10-10T16:39:26.3240178Z [36;1mnode --test scripts/check-prod-drift.test.mjs scripts/lib/custody-claims.test.mjs scripts/check-front-door.test.mjs[0m
+2026-10-10T16:39:26.3302818Z shell: /usr/bin/bash -e {0}
+2026-10-10T16:39:26.3303089Z ##[endgroup]
+2026-10-10T16:39:26.3851644Z TAP version 13
+2026-10-10T16:39:26.5461398Z # Subtest: a correct host passes
+2026-10-10T16:39:26.5482695Z ok 1 - a correct host passes
+2026-10-10T16:39:26.5483222Z   ---
+2026-10-10T16:39:26.5483627Z   duration_ms: 81.58858
+2026-10-10T16:39:26.5484074Z   type: 'test'
+2026-10-10T16:39:26.5484455Z   ...
+2026-10-10T16:39:26.5766487Z # Subtest: reports markdown served as HTML
+2026-10-10T16:39:26.5793207Z ok 2 - reports markdown served as HTML
+2026-10-10T16:39:26.5817838Z   ---
+2026-10-10T16:39:26.5824234Z   duration_ms: 27.500743
+2026-10-10T16:39:26.5825120Z   type: 'test'
+2026-10-10T16:39:26.5825654Z   ...
+2026-10-10T16:39:26.6023031Z # Subtest: reports a stale skill
+2026-10-10T16:39:26.6070433Z ok 3 - reports a stale skill
+2026-10-10T16:39:26.6092617Z   ---
+2026-10-10T16:39:26.6111433Z   duration_ms: 26.88061
+2026-10-10T16:39:26.6122678Z   type: 'test'
+2026-10-10T16:39:26.6143309Z   ...
+2026-10-10T16:39:26.6219314Z # Subtest: reports no Vary: Accept
+2026-10-10T16:39:26.6242682Z ok 4 - reports no Vary: Accept
+2026-10-10T16:39:26.6263300Z   ---
+2026-10-10T16:39:26.6293186Z   duration_ms: 23.5612
+2026-10-10T16:39:26.6294028Z   type: 'test'
+2026-10-10T16:39:26.6294422Z   ...
+2026-10-10T16:39:26.6509887Z # Subtest: reports no 304 on If-None-Match
+2026-10-10T16:39:26.6516216Z ok 5 - reports no 304 on If-None-Match
+2026-10-10T16:39:26.6516816Z   ---
+2026-10-10T16:39:26.6517169Z   duration_ms: 29.956475
+2026-10-10T16:39:26.6518045Z   type: 'test'
+2026-10-10T16:39:26.6518374Z   ...
+2026-10-10T16:39:26.7573516Z # Subtest: a site that matches positioning passes
+2026-10-10T16:39:26.7582807Z ok 6 - a site that matches positioning passes
+2026-10-10T16:39:26.7592732Z   ---
+2026-10-10T16:39:26.7593525Z   duration_ms: 53.503349
+2026-10-10T16:39:26.7594277Z   type: 'test'
+2026-10-10T16:39:26.7594630Z   ...
+2026-10-10T16:39:26.7595060Z # Subtest: a deliberately stale title fails
+2026-10-10T16:39:26.7595582Z ok 7 - a deliberately stale title fails
+2026-10-10T16:39:26.7596007Z   ---
+2026-10-10T16:39:26.7596293Z   duration_ms: 22.649703
+2026-10-10T16:39:26.7596668Z   type: 'test'
+2026-10-10T16:39:26.7596966Z   ...
+2026-10-10T16:39:26.7597785Z # Subtest: an old og:image version fails, on both og and twitter tags
+2026-10-10T16:39:26.7598634Z ok 8 - an old og:image version fails, on both og and twitter tags
+2026-10-10T16:39:26.7599132Z   ---
+2026-10-10T16:39:26.7599442Z   duration_ms: 15.270376
+2026-10-10T16:39:26.7599812Z   type: 'test'
+2026-10-10T16:39:26.7600141Z   ...
+2026-10-10T16:39:26.7600657Z # Subtest: stale llms.txt and agent.json fail; a missing page fails
+2026-10-10T16:39:26.7601304Z ok 9 - stale llms.txt and agent.json fail; a missing page fails
+2026-10-10T16:39:26.7601805Z   ---
+2026-10-10T16:39:26.7602492Z   duration_ms: 12.687979
+2026-10-10T16:39:26.7602793Z   type: 'test'
+2026-10-10T16:39:26.7603063Z   ...
+2026-10-10T16:39:26.7603446Z # Subtest: an edge throttle is reported as throttling, not drift
+2026-10-10T16:39:26.7603974Z ok 10 - an edge throttle is reported as throttling, not drift
+2026-10-10T16:39:26.7604349Z   ---
+2026-10-10T16:39:26.7604545Z   duration_ms: 9.292017
+2026-10-10T16:39:26.7604803Z   type: 'test'
+2026-10-10T16:39:26.7605023Z   ...
+2026-10-10T16:39:26.7605368Z # Subtest: checkBody accepts attribute order either way
+2026-10-10T16:39:26.7605847Z ok 11 - checkBody accepts attribute order either way
+2026-10-10T16:39:26.7606193Z   ---
+2026-10-10T16:39:26.7606414Z   duration_ms: 0.522513
+2026-10-10T16:39:26.7606666Z   type: 'test'
+2026-10-10T16:39:26.7606878Z   ...
+2026-10-10T16:39:26.7607198Z # Subtest: the CLI exits non-zero against a stale site
+2026-10-10T16:39:26.7608083Z ok 12 - the CLI exits non-zero against a stale site
+2026-10-10T16:39:26.7608420Z   ---
+2026-10-10T16:39:26.7608642Z   duration_ms: 191.162099
+2026-10-10T16:39:26.7608892Z   type: 'test'
+2026-10-10T16:39:26.7609107Z   ...
+2026-10-10T16:39:26.7669043Z # Subtest: a default-flow custody claim fails
+2026-10-10T16:39:26.7669942Z ok 13 - a default-flow custody claim fails
+2026-10-10T16:39:26.7670413Z   ---
+2026-10-10T16:39:26.7670635Z   duration_ms: 2.784764
+2026-10-10T16:39:26.7670869Z   type: 'test'
+2026-10-10T16:39:26.7671080Z   ...
+2026-10-10T16:39:26.7671611Z # Subtest: a claim in the same sentence as the opt-out passes
+2026-10-10T16:39:26.7683449Z ok 14 - a claim in the same sentence as the opt-out passes
+2026-10-10T16:39:26.7684014Z   ---
+2026-10-10T16:39:26.7684251Z   duration_ms: 1.09097
+2026-10-10T16:39:26.7684490Z   type: 'test'
+2026-10-10T16:39:26.7684702Z   ...
+2026-10-10T16:39:26.7685035Z # Subtest: a claim right after the opt-out sentence passes
+2026-10-10T16:39:26.7685517Z ok 15 - a claim right after the opt-out sentence passes
+2026-10-10T16:39:26.7685830Z   ---
+2026-10-10T16:39:26.7686032Z   duration_ms: 0.336397
+2026-10-10T16:39:26.7686253Z   type: 'test'
+2026-10-10T16:39:26.7686666Z   ...
+2026-10-10T16:39:26.7687310Z # Subtest: an opt-out elsewhere in the paragraph does NOT excuse a default-flow claim (mixed paragraph)
+2026-10-10T16:39:26.7688130Z ok 16 - an opt-out elsewhere in the paragraph does NOT excuse a default-flow claim (mixed paragraph)
+2026-10-10T16:39:26.7688603Z   ---
+2026-10-10T16:39:26.7688797Z   duration_ms: 0.294238
+2026-10-10T16:39:26.7689019Z   type: 'test'
+2026-10-10T16:39:26.7689217Z   ...
+2026-10-10T16:39:26.7689544Z # Subtest: unrelated "never touches" is not a custody claim
+2026-10-10T16:39:26.7690003Z ok 17 - unrelated "never touches" is not a custody claim
+2026-10-10T16:39:26.7690310Z   ---
+2026-10-10T16:39:26.7690757Z   duration_ms: 0.368707
+2026-10-10T16:39:26.7690980Z   type: 'test'
+2026-10-10T16:39:26.7691176Z   ...
+2026-10-10T16:39:26.7691418Z # Subtest: reports the line number
+2026-10-10T16:39:26.7691733Z ok 18 - reports the line number
+2026-10-10T16:39:26.7692238Z   ---
+2026-10-10T16:39:26.7692447Z   duration_ms: 0.4296
+2026-10-10T16:39:26.7692665Z   type: 'test'
+2026-10-10T16:39:26.7692857Z   ...
+2026-10-10T16:39:26.7693034Z 1..18
+2026-10-10T16:39:26.7693214Z # tests 18
+2026-10-10T16:39:26.7693400Z # suites 0
+2026-10-10T16:39:26.7693587Z # pass 18
+2026-10-10T16:39:26.7693779Z # fail 0
+2026-10-10T16:39:26.7693970Z # cancelled 0
+2026-10-10T16:39:26.7694169Z # skipped 0
+2026-10-10T16:39:26.7694390Z # todo 0
+2026-10-10T16:39:26.7694628Z # duration_ms 401.097593
+2026-10-10T16:39:26.7765327Z ##[group]Run npx tsx scripts/sync-skill.ts --check
+2026-10-10T16:39:26.7765740Z [36;1mnpx tsx scripts/sync-skill.ts --check[0m
+2026-10-10T16:39:26.7828571Z shell: /usr/bin/bash -e {0}
+2026-10-10T16:39:26.7828847Z ##[endgroup]
+2026-10-10T16:39:27.5388523Z skill v1.3.8: surfaces in sync, references resolve (sha256 480e391e2bbd…)
+2026-10-10T16:39:27.5711567Z ##[group]Run npx tsx scripts/check-examples.ts
+2026-10-10T16:39:27.5712364Z [36;1mnpx tsx scripts/check-examples.ts[0m
+2026-10-10T16:39:27.5712948Z [36;1mnode --test examples/tasks/post-task.test.mjs[0m
+2026-10-10T16:39:27.5775444Z shell: /usr/bin/bash -e {0}
+2026-10-10T16:39:27.5775719Z ##[endgroup]
+2026-10-10T16:39:28.4219082Z check-examples: ok (4 task templates, 2 manifests)
+2026-10-10T16:39:28.5077116Z TAP version 13
+2026-10-10T16:39:28.5566068Z # Subtest: front matter: plain and folded values
+2026-10-10T16:39:28.5571385Z ok 1 - front matter: plain and folded values
+2026-10-10T16:39:28.5572456Z   ---
+2026-10-10T16:39:28.5572955Z   duration_ms: 2.172134
+2026-10-10T16:39:28.5573561Z   type: 'test'
+2026-10-10T16:39:28.5574083Z   ...
+2026-10-10T16:39:28.5577312Z # Subtest: variables: required, defaulted, and conflicting defaults
+2026-10-10T16:39:28.5579738Z ok 2 - variables: required, defaulted, and conflicting defaults
+2026-10-10T16:39:28.5582424Z   ---
+2026-10-10T16:39:28.5582891Z   duration_ms: 0.539745
+2026-10-10T16:39:28.5583334Z   type: 'test'
+2026-10-10T16:39:28.5583711Z   ...
+2026-10-10T16:39:28.5584538Z # Subtest: fill: quoted placeholders become JSON strings, unquoted are raw
+2026-10-10T16:39:28.5603343Z ok 3 - fill: quoted placeholders become JSON strings, unquoted are raw
+2026-10-10T16:39:28.5604140Z   ---
+2026-10-10T16:39:28.5604592Z   duration_ms: 0.479843
+2026-10-10T16:39:28.5605054Z   type: 'test'
+2026-10-10T16:39:28.5605429Z   ...
+2026-10-10T16:39:28.5606737Z # Subtest: fill: missing and unknown variables are errors that list what the template takes
+2026-10-10T16:39:28.5607622Z ok 4 - fill: missing and unknown variables are errors that list what the template takes
+2026-10-10T16:39:28.5608056Z   ---
+2026-10-10T16:39:28.5608263Z   duration_ms: 0.422927
+2026-10-10T16:39:28.5608654Z   type: 'test'
+2026-10-10T16:39:28.5609013Z   ...
+2026-10-10T16:39:28.5609616Z # Subtest: task body: fields, capabilities, and the API limits
+2026-10-10T16:39:28.5610478Z ok 5 - task body: fields, capabilities, and the API limits
+2026-10-10T16:39:28.5610872Z   ---
+2026-10-10T16:39:28.5611075Z   duration_ms: 0.53685
+2026-10-10T16:39:28.5611303Z   type: 'test'
+2026-10-10T16:39:28.5611500Z   ...
+2026-10-10T16:39:28.5611717Z # Subtest: USDC amounts
+2026-10-10T16:39:28.5612307Z ok 6 - USDC amounts
+2026-10-10T16:39:28.5612832Z   ---
+2026-10-10T16:39:28.5613168Z   duration_ms: 0.482328
+2026-10-10T16:39:28.5613480Z   type: 'test'
+2026-10-10T16:39:28.5613685Z   ...
+2026-10-10T16:39:28.5614127Z # Subtest: monthly spend counts this month's bounties, not cancelled or free tasks
+2026-10-10T16:39:28.5614749Z ok 7 - monthly spend counts this month's bounties, not cancelled or free tasks
+2026-10-10T16:39:28.5615133Z   ---
+2026-10-10T16:39:28.5615330Z   duration_ms: 0.446631
+2026-10-10T16:39:28.5615567Z   type: 'test'
+2026-10-10T16:39:28.5615865Z   ...
+2026-10-10T16:39:28.5616243Z # Subtest: arguments
+2026-10-10T16:39:28.5623026Z ok 8 - arguments
+2026-10-10T16:39:28.5623492Z   ---
+2026-10-10T16:39:28.5623935Z   duration_ms: 0.5805
+2026-10-10T16:39:28.5624413Z   type: 'test'
+2026-10-10T16:39:28.5624833Z   ...
+2026-10-10T16:39:28.5625540Z # Subtest: posting without a key refuses before loading the SDK
+2026-10-10T16:39:28.5626622Z ok 9 - posting without a key refuses before loading the SDK
+2026-10-10T16:39:28.5627410Z   ---
+2026-10-10T16:39:28.5627922Z   duration_ms: 0.942425
+2026-10-10T16:39:28.5628515Z   type: 'test'
+2026-10-10T16:39:28.5629005Z   ...
+2026-10-10T16:39:28.5629976Z # Subtest: template authorized-data-acquisition.md: fills and fits the API limits
+2026-10-10T16:39:28.5631415Z ok 10 - template authorized-data-acquisition.md: fills and fits the API limits
+2026-10-10T16:39:28.5632488Z   ---
+2026-10-10T16:39:28.5632886Z   duration_ms: 0.652244
+2026-10-10T16:39:28.5633323Z   type: 'test'
+2026-10-10T16:39:28.5633711Z   ...
+2026-10-10T16:39:28.5634520Z # Subtest: template environment-reproduction.md: fills and fits the API limits
+2026-10-10T16:39:28.5636071Z ok 11 - template environment-reproduction.md: fills and fits the API limits
+2026-10-10T16:39:28.5636860Z   ---
+2026-10-10T16:39:28.5637244Z   duration_ms: 0.973182
+2026-10-10T16:39:28.5637675Z   type: 'test'
+2026-10-10T16:39:28.5638045Z   ...
+2026-10-10T16:39:28.5638932Z # Subtest: template external-agent-compatibility-test.md: fills and fits the API limits
+2026-10-10T16:39:28.5642833Z ok 12 - template external-agent-compatibility-test.md: fills and fits the API limits
+2026-10-10T16:39:28.5643316Z   ---
+2026-10-10T16:39:28.5643536Z   duration_ms: 0.291022
+2026-10-10T16:39:28.5644033Z   type: 'test'
+2026-10-10T16:39:28.5644510Z   ...
+2026-10-10T16:39:28.5645310Z # Subtest: template real-world-failure-sample.md: fills and fits the API limits
+2026-10-10T16:39:28.5646236Z ok 13 - template real-world-failure-sample.md: fills and fits the API limits
+2026-10-10T16:39:28.5646799Z   ---
+2026-10-10T16:39:28.5647261Z   duration_ms: 0.16077
+2026-10-10T16:39:28.5647813Z   type: 'test'
+2026-10-10T16:39:28.5648240Z   ...
+2026-10-10T16:39:28.5718866Z 1..13
+2026-10-10T16:39:28.5719247Z # tests 13
+2026-10-10T16:39:28.5719756Z # suites 0
+2026-10-10T16:39:28.5720374Z # pass 13
+2026-10-10T16:39:28.5720971Z # fail 0
+2026-10-10T16:39:28.5721541Z # cancelled 0
+2026-10-10T16:39:28.5722272Z # skipped 0
+2026-10-10T16:39:28.5722874Z # todo 0
+2026-10-10T16:39:28.5723577Z # duration_ms 76.47384
+2026-10-10T16:39:28.5803833Z ##[group]Run git diff --exit-code --stat -- packages/github-action/dist || {
+2026-10-10T16:39:28.5804400Z [36;1mgit diff --exit-code --stat -- packages/github-action/dist || {[0m
+2026-10-10T16:39:28.5805142Z [36;1m  echo "::error::packages/github-action/dist is stale — run 'npm run build --workspace=packages/github-action' and commit the result"[0m
+2026-10-10T16:39:28.5805752Z [36;1m  exit 1[0m
+2026-10-10T16:39:28.5805956Z [36;1m}[0m
+2026-10-10T16:39:28.5867424Z shell: /usr/bin/bash -e {0}
+2026-10-10T16:39:28.5867681Z ##[endgroup]
+2026-10-10T16:39:28.6467500Z Post job cleanup.
+2026-10-10T16:39:28.7754934Z (node:4386) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-10T16:39:28.7756333Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-10T16:39:28.7761733Z Cache hit occurred on the primary key node-cache-Linux-x64-npm-f0dfbeccf4cf03614a1c70e0a334c7d6dee17688428dbfb743ab1fccbde237df, not saving cache.
+2026-10-10T16:39:28.7909468Z Post job cleanup.
+2026-10-10T16:39:28.8767996Z [command]/usr/bin/git version
+2026-10-10T16:39:28.8814363Z git version 2.55.0
+2026-10-10T16:39:28.8854617Z Temporarily overriding HOME='/home/runner/work/_temp/80757162-1383-4d9b-a828-df617da82895' before making global git config changes
+2026-10-10T16:39:28.8856286Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-10T16:39:28.8860099Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/basedagents/basedagents
+2026-10-10T16:39:28.8900069Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-10T16:39:28.8937017Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-10T16:39:28.9197071Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-10T16:39:28.9228340Z http.https://github.com/.extraheader
+2026-10-10T16:39:28.9243831Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-10T16:39:28.9285023Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-10T16:39:28.9572940Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-10T16:39:28.9614166Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-10T16:39:29.0024579Z Cleaning up orphan processes
+2026-10-10T16:39:29.0343194Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

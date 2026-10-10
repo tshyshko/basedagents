@@ -1,0 +1,1488 @@
+﻿2026-10-06T02:12:40.0696976Z Current runner version: '2.337.0'
+2026-10-06T02:12:40.0732708Z ##[group]Runner Image Provisioner
+2026-10-06T02:12:40.0734281Z Hosted Compute Agent
+2026-10-06T02:12:40.0735332Z Version: 20260901.588
+2026-10-06T02:12:40.0736534Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+2026-10-06T02:12:40.0738248Z Build Date: 2026-09-01T19:56:44Z
+2026-10-06T02:12:40.0739493Z Worker ID: {bd21fc4b-40fe-489d-814c-fec8809f8060}
+2026-10-06T02:12:40.0740817Z Azure Region: southcentralus
+2026-10-06T02:12:40.0741790Z ##[endgroup]
+2026-10-06T02:12:40.0744008Z ##[group]Operating System
+2026-10-06T02:12:40.0745059Z Ubuntu
+2026-10-06T02:12:40.0745862Z 24.04.5
+2026-10-06T02:12:40.0746729Z LTS
+2026-10-06T02:12:40.0747776Z ##[endgroup]
+2026-10-06T02:12:40.0748660Z ##[group]Runner Image
+2026-10-06T02:12:40.0749754Z Image: ubuntu-24.04
+2026-10-06T02:12:40.0750695Z Version: 20260927.320.1
+2026-10-06T02:12:40.0753133Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260927.320/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-06T02:12:40.0755685Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260927.320
+2026-10-06T02:12:40.0758034Z ##[endgroup]
+2026-10-06T02:12:40.0760154Z ##[group]GITHUB_TOKEN Permissions
+2026-10-06T02:12:40.0763408Z Attestations: write
+2026-10-06T02:12:40.0764366Z Contents: read
+2026-10-06T02:12:40.0765375Z Metadata: read
+2026-10-06T02:12:40.0766348Z ##[endgroup]
+2026-10-06T02:12:40.0769514Z Secret source: Actions
+2026-10-06T02:12:40.0771217Z Cache mode: write
+2026-10-06T02:12:40.0772804Z Prepare workflow directory
+2026-10-06T02:12:40.1129603Z Prepare all required actions
+2026-10-06T02:12:40.1179357Z Getting action download info
+2026-10-06T02:12:40.4052594Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-06T02:12:40.5006532Z Download action repository 'actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-10-06T02:12:40.5865665Z Download action repository 'actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-06T02:12:40.6606651Z Download action repository 'actions/attest-build-provenance@e8998f949152b193b063cb0ec769d69d929409be' (SHA:e8998f949152b193b063cb0ec769d69d929409be)
+2026-10-06T02:12:41.1098661Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-06T02:12:41.3198156Z Getting action download info
+2026-10-06T02:12:41.4398765Z Download action repository 'actions/attest-build-provenance@1176ef556905f349f669722abf30bce1a6e16e01' (SHA:1176ef556905f349f669722abf30bce1a6e16e01)
+2026-10-06T02:12:41.8876665Z Download action repository 'actions/attest@ce27ba3b4a9a139d9a20a4a07d69fabb52f1e5bc' (SHA:ce27ba3b4a9a139d9a20a4a07d69fabb52f1e5bc)
+2026-10-06T02:12:42.3975167Z Complete job name: Build, reproducibility gate, dry-run publish, attest
+2026-10-06T02:12:42.5105935Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-10-06T02:12:42.5108178Z with:
+2026-10-06T02:12:42.5109108Z   persist-credentials: false
+2026-10-06T02:12:42.5110227Z   repository: tshyshko/basedagents
+2026-10-06T02:12:42.5118932Z   token: ***
+2026-10-06T02:12:42.5119849Z   ssh-strict: true
+2026-10-06T02:12:42.5120750Z   ssh-user: git
+2026-10-06T02:12:42.5121620Z   clean: true
+2026-10-06T02:12:42.5122564Z   sparse-checkout-cone-mode: true
+2026-10-06T02:12:42.5123662Z   fetch-depth: 1
+2026-10-06T02:12:42.5124567Z   fetch-tags: false
+2026-10-06T02:12:42.5125496Z   show-progress: true
+2026-10-06T02:12:42.5126442Z   lfs: false
+2026-10-06T02:12:42.5127304Z   submodules: false
+2026-10-06T02:12:42.5128391Z   set-safe-directory: true
+2026-10-06T02:12:42.5129448Z   allow-unsafe-pr-checkout: false
+2026-10-06T02:12:42.5130826Z ##[endgroup]
+2026-10-06T02:12:42.6158332Z Syncing repository: tshyshko/basedagents
+2026-10-06T02:12:42.6162560Z ##[group]Getting Git version info
+2026-10-06T02:12:42.6165266Z Working directory is '/home/runner/work/basedagents/basedagents'
+2026-10-06T02:12:42.6168947Z [command]/usr/bin/git version
+2026-10-06T02:12:42.6201362Z git version 2.55.0
+2026-10-06T02:12:42.6227389Z ##[endgroup]
+2026-10-06T02:12:42.6243407Z Temporarily overriding HOME='/home/runner/work/_temp/20b91350-628b-4195-890b-ce52f4a54157' before making global git config changes
+2026-10-06T02:12:42.6248909Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-06T02:12:42.6253243Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/basedagents/basedagents
+2026-10-06T02:12:42.6300620Z Deleting the contents of '/home/runner/work/basedagents/basedagents'
+2026-10-06T02:12:42.6305032Z ##[group]Initializing the repository
+2026-10-06T02:12:42.6310555Z [command]/usr/bin/git init /home/runner/work/basedagents/basedagents
+2026-10-06T02:12:42.6409914Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-06T02:12:42.6413584Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-06T02:12:42.6417132Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-06T02:12:42.6420243Z hint: call:
+2026-10-06T02:12:42.6421850Z hint:
+2026-10-06T02:12:42.6424062Z hint: 	git config --global init.defaultBranch <name>
+2026-10-06T02:12:42.6426386Z hint:
+2026-10-06T02:12:42.6428828Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-06T02:12:42.6432219Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-06T02:12:42.6435324Z hint:
+2026-10-06T02:12:42.6436975Z hint: 	git branch -m <name>
+2026-10-06T02:12:42.6439232Z hint:
+2026-10-06T02:12:42.6441615Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-06T02:12:42.6445478Z Initialized empty Git repository in /home/runner/work/basedagents/basedagents/.git/
+2026-10-06T02:12:42.6452112Z [command]/usr/bin/git remote add origin https://github.com/tshyshko/basedagents
+2026-10-06T02:12:42.6475456Z ##[endgroup]
+2026-10-06T02:12:42.6478301Z ##[group]Disabling automatic garbage collection
+2026-10-06T02:12:42.6481943Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-06T02:12:42.6515666Z ##[endgroup]
+2026-10-06T02:12:42.6518652Z ##[group]Setting up auth
+2026-10-06T02:12:42.6523477Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-06T02:12:42.6560736Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-06T02:12:42.6940111Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-06T02:12:42.6973199Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-06T02:12:42.7209074Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-06T02:12:42.7246522Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-06T02:12:42.7470198Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-06T02:12:42.7511368Z ##[endgroup]
+2026-10-06T02:12:42.7513765Z ##[group]Fetching the repository
+2026-10-06T02:12:42.7521999Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +ef1cb5dabeaa85627dc0768828a04351b073415d:refs/tags/v0.0.0-test.1
+2026-10-06T02:12:43.7342731Z From https://github.com/tshyshko/basedagents
+2026-10-06T02:12:43.7346028Z  * [new ref]         ef1cb5dabeaa85627dc0768828a04351b073415d -> v0.0.0-test.1
+2026-10-06T02:12:43.7354053Z ##[endgroup]
+2026-10-06T02:12:43.7356992Z ##[group]Determining the checkout info
+2026-10-06T02:12:43.7360325Z ##[endgroup]
+2026-10-06T02:12:43.7362779Z [command]/usr/bin/git sparse-checkout disable
+2026-10-06T02:12:43.7416304Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-06T02:12:43.7460444Z ##[group]Checking out the ref
+2026-10-06T02:12:43.7463996Z [command]/usr/bin/git checkout --progress --force refs/tags/v0.0.0-test.1
+2026-10-06T02:12:43.8215200Z Note: switching to 'refs/tags/v0.0.0-test.1'.
+2026-10-06T02:12:43.8216923Z 
+2026-10-06T02:12:43.8219400Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-06T02:12:43.8222145Z changes and commit them, and you can discard any commits you make in this
+2026-10-06T02:12:43.8224644Z state without impacting any branches by switching back to a branch.
+2026-10-06T02:12:43.8225567Z 
+2026-10-06T02:12:43.8226201Z If you want to create a new branch to retain commits you create, you may
+2026-10-06T02:12:43.8228126Z do so (now or later) by using -c with the switch command. Example:
+2026-10-06T02:12:43.8229563Z 
+2026-10-06T02:12:43.8229970Z   git switch -c <new-branch-name>
+2026-10-06T02:12:43.8230567Z 
+2026-10-06T02:12:43.8230922Z Or undo this operation with:
+2026-10-06T02:12:43.8231477Z 
+2026-10-06T02:12:43.8231794Z   git switch -
+2026-10-06T02:12:43.8232233Z 
+2026-10-06T02:12:43.8232924Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-06T02:12:43.8233894Z 
+2026-10-06T02:12:43.8234698Z HEAD is now at ef1cb5d ci(release): harden release/publish pipeline (fork audit)
+2026-10-06T02:12:43.8238242Z ##[endgroup]
+2026-10-06T02:12:43.8281776Z [command]/usr/bin/git log -1 --format=%H
+2026-10-06T02:12:43.8312116Z ef1cb5dabeaa85627dc0768828a04351b073415d
+2026-10-06T02:12:43.8324431Z ##[group]Removing auth
+2026-10-06T02:12:43.8329936Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-06T02:12:43.8368889Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-06T02:12:43.8616305Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-06T02:12:43.8643522Z http.https://github.com/.extraheader
+2026-10-06T02:12:43.8651320Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-06T02:12:43.8685414Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-06T02:12:43.8906725Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-06T02:12:43.8940643Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-06T02:12:43.9158114Z ##[endgroup]
+2026-10-06T02:12:43.9414311Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+2026-10-06T02:12:43.9414817Z with:
+2026-10-06T02:12:43.9415075Z   node-version: 22
+2026-10-06T02:12:43.9415341Z   cache: npm
+2026-10-06T02:12:43.9415595Z   always-auth: false
+2026-10-06T02:12:43.9415871Z   check-latest: false
+2026-10-06T02:12:43.9418570Z   token: ***
+2026-10-06T02:12:43.9418852Z ##[endgroup]
+2026-10-06T02:12:44.0819131Z Found in cache @ /opt/hostedtoolcache/node/22.23.3/x64
+2026-10-06T02:12:44.0822102Z (node:2397) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-06T02:12:44.0823560Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-06T02:12:44.0828568Z ##[group]Environment details
+2026-10-06T02:12:44.4643195Z node: v22.23.3
+2026-10-06T02:12:44.4643960Z npm: 10.9.9
+2026-10-06T02:12:44.4644310Z yarn: 1.22.22
+2026-10-06T02:12:44.4645228Z ##[endgroup]
+2026-10-06T02:12:44.4693980Z [command]/opt/hostedtoolcache/node/22.23.3/x64/bin/npm config get cache
+2026-10-06T02:12:44.5781579Z /home/runner/.npm
+2026-10-06T02:12:44.7388932Z Cache hit for: node-cache-Linux-x64-npm-f0dfbeccf4cf03614a1c70e0a334c7d6dee17688428dbfb743ab1fccbde237df
+2026-10-06T02:12:44.7502239Z (node:2397) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-06T02:12:45.6026583Z Received 44414368 of 44414368 (100.0%), 58.9 MBs/sec
+2026-10-06T02:12:45.6027445Z Cache Size: ~42 MB (44414368 B)
+2026-10-06T02:12:45.6057158Z [command]/usr/bin/tar -xf /home/runner/work/_temp/a20be97d-e2db-41ab-8ca5-385a2d91aa74/cache.tzst -P -C /home/runner/work/basedagents/basedagents --use-compress-program unzstd
+2026-10-06T02:12:45.7669840Z Cache restored successfully
+2026-10-06T02:12:45.7698949Z Cache restored from key: node-cache-Linux-x64-npm-f0dfbeccf4cf03614a1c70e0a334c7d6dee17688428dbfb743ab1fccbde237df
+2026-10-06T02:12:45.7941811Z ##[group]Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+2026-10-06T02:12:45.7942269Z with:
+2026-10-06T02:12:45.7942482Z   python-version: 3.12
+2026-10-06T02:12:45.7942721Z   check-latest: false
+2026-10-06T02:12:45.7944961Z   token: ***
+2026-10-06T02:12:45.7945179Z   update-environment: true
+2026-10-06T02:12:45.7945436Z   allow-prereleases: false
+2026-10-06T02:12:45.7945674Z   freethreaded: false
+2026-10-06T02:12:45.7945928Z ##[endgroup]
+2026-10-06T02:12:45.9269896Z ##[group]Installed versions
+2026-10-06T02:12:45.9516430Z (node:2445) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-06T02:12:45.9518193Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-06T02:12:45.9519122Z Successfully set up CPython (3.12.14)
+2026-10-06T02:12:45.9519916Z ##[endgroup]
+2026-10-06T02:12:45.9687814Z ##[group]Run node --version && npm --version && python3 --version
+2026-10-06T02:12:45.9688416Z [36;1mnode --version && npm --version && python3 --version[0m
+2026-10-06T02:12:45.9968658Z shell: /usr/bin/bash -e {0}
+2026-10-06T02:12:45.9969035Z env:
+2026-10-06T02:12:45.9969344Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:12:45.9969843Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-10-06T02:12:45.9970299Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:12:45.9970691Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:12:45.9971107Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:12:45.9971543Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-10-06T02:12:45.9971886Z ##[endgroup]
+2026-10-06T02:12:46.0116889Z v22.23.3
+2026-10-06T02:12:46.0843018Z 10.9.9
+2026-10-06T02:12:46.0978471Z Python 3.12.14
+2026-10-06T02:12:46.1015976Z ##[group]Run npm ci
+2026-10-06T02:12:46.1016265Z [36;1mnpm ci[0m
+2026-10-06T02:12:46.1079317Z shell: /usr/bin/bash -e {0}
+2026-10-06T02:12:46.1079586Z env:
+2026-10-06T02:12:46.1079865Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:12:46.1080341Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-10-06T02:12:46.1080791Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:12:46.1081197Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:12:46.1081598Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:12:46.1082012Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-10-06T02:12:46.1082353Z ##[endgroup]
+2026-10-06T02:12:48.4796450Z npm warn deprecated prebuild-install@7.1.3: No longer maintained. Please contact the author of the relevant native addon; alternatives are available.
+2026-10-06T02:12:51.6758507Z 
+2026-10-06T02:12:51.6759367Z added 488 packages, and audited 495 packages in 6s
+2026-10-06T02:12:51.6759813Z 
+2026-10-06T02:12:51.6773829Z 186 packages are looking for funding
+2026-10-06T02:12:51.6774274Z   run `npm fund` for details
+2026-10-06T02:12:51.6812531Z 
+2026-10-06T02:12:51.6813041Z 3 vulnerabilities (1 low, 1 high, 1 critical)
+2026-10-06T02:12:51.6813773Z 
+2026-10-06T02:12:51.6814417Z To address issues that do not require attention, run:
+2026-10-06T02:12:51.6814780Z   npm audit fix
+2026-10-06T02:12:51.6814921Z 
+2026-10-06T02:12:51.6815455Z To address all issues (including breaking changes), run:
+2026-10-06T02:12:51.6816107Z   npm audit fix --force
+2026-10-06T02:12:51.6816517Z 
+2026-10-06T02:12:51.6816997Z Run `npm audit` for details.
+2026-10-06T02:12:51.7536590Z ##[group]Run set -euo pipefail
+2026-10-06T02:12:51.7536961Z [36;1mset -euo pipefail[0m
+2026-10-06T02:12:51.7537218Z [36;1mfor run in 1 2; do[0m
+2026-10-06T02:12:51.7537890Z [36;1m  # Clean INCLUDING the composite build's tsbuildinfo: with a stale[0m
+2026-10-06T02:12:51.7538417Z [36;1m  # packages/sdk/tsconfig.tsbuildinfo, `tsc` treats the project as[0m
+2026-10-06T02:12:51.7538906Z [36;1m  # up to date, emits nothing, and npm packs a 4-file tarball with no[0m
+2026-10-06T02:12:51.7539294Z [36;1m  # dist/ (audit finding F1).[0m
+2026-10-06T02:12:51.7539883Z [36;1m  rm -rf packages/sdk/dist packages/mcp/dist packages/sdk/tsconfig.tsbuildinfo packages/mcp/tsconfig.tsbuildinfo[0m
+2026-10-06T02:12:51.7540499Z [36;1m  npm run build --workspace=packages/sdk[0m
+2026-10-06T02:12:51.7540956Z [36;1m  npm run build --workspace=packages/mcp[0m
+2026-10-06T02:12:51.7541491Z [36;1m  mkdir -p "dist-run$run"[0m
+2026-10-06T02:12:51.7542134Z [36;1m  npm pack --workspace=packages/sdk --workspace=packages/mcp --pack-destination "dist-run$run" --ignore-scripts >/dev/null[0m
+2026-10-06T02:12:51.7543049Z [36;1m  (cd "dist-run$run" && sha256sum -- *.tgz | sort -k2) > "run$run.sha256"[0m
+2026-10-06T02:12:51.7543473Z [36;1m  echo "run $run:"; cat "run$run.sha256"[0m
+2026-10-06T02:12:51.7543850Z [36;1mdone[0m
+2026-10-06T02:12:51.7544242Z [36;1m# Content guard: the packed entry points must exist.[0m
+2026-10-06T02:12:51.7544929Z [36;1mfor f in dist-run1/basedagents-[0-9]*.tgz dist-run1/basedagents-mcp-[0-9]*.tgz; do[0m
+2026-10-06T02:12:51.7545567Z [36;1m  p=package/dist/index.js[0m
+2026-10-06T02:12:51.7545958Z [36;1m  [ -f "$f" ] || { echo "::error::expected tarball $f not found"; exit 1; }[0m
+2026-10-06T02:12:51.7546718Z [36;1m  listing=$(tar tzf "$f")  # whole listing first: `tar | grep -q` + pipefail = SIGPIPE false failure[0m
+2026-10-06T02:12:51.7547829Z [36;1m  grep -qx "$p" <<<"$listing" || { echo "::error::$f is missing $p"; exit 1; }[0m
+2026-10-06T02:12:51.7548622Z [36;1m  echo "$f contains $p ($(wc -l <<<"$listing") files)"[0m
+2026-10-06T02:12:51.7549174Z [36;1mdone[0m
+2026-10-06T02:12:51.7549571Z [36;1mif diff -u run1.sha256 run2.sha256; then[0m
+2026-10-06T02:12:51.7550350Z [36;1m  echo "REPRODUCIBLE: run1 and run2 npm tarball hashes are identical"[0m
+2026-10-06T02:12:51.7551013Z [36;1melse[0m
+2026-10-06T02:12:51.7551539Z [36;1m  echo "::error::npm tarballs differ between two clean builds"; exit 1[0m
+2026-10-06T02:12:51.7552420Z [36;1mfi[0m
+2026-10-06T02:12:51.7552976Z [36;1mmkdir -p release-artifacts && cp dist-run1/*.tgz release-artifacts/[0m
+2026-10-06T02:12:51.7620194Z shell: /usr/bin/bash -e {0}
+2026-10-06T02:12:51.7620456Z env:
+2026-10-06T02:12:51.7620730Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:12:51.7621197Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-10-06T02:12:51.7621639Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:12:51.7622035Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:12:51.7622434Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:12:51.7622835Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-10-06T02:12:51.7623164Z ##[endgroup]
+2026-10-06T02:12:52.0342232Z 
+2026-10-06T02:12:52.0342603Z > basedagents@0.10.1 build
+2026-10-06T02:12:52.0343043Z > tsc
+2026-10-06T02:12:52.0343201Z 
+2026-10-06T02:12:55.1825969Z 
+2026-10-06T02:12:55.1826907Z > @basedagents/mcp@0.7.2 build
+2026-10-06T02:12:55.1827241Z > tsc
+2026-10-06T02:12:55.1827370Z 
+2026-10-06T02:13:04.0547320Z npm notice
+2026-10-06T02:13:04.0550298Z npm notice 📦  basedagents@0.10.1
+2026-10-06T02:13:04.0550928Z npm notice Tarball Contents
+2026-10-06T02:13:04.0554526Z npm notice 10.1kB LICENSE
+2026-10-06T02:13:04.0555106Z npm notice 40.5kB README.md
+2026-10-06T02:13:04.0555714Z npm notice 128B bin/basedagents.mjs
+2026-10-06T02:13:04.0556479Z npm notice 126B dist/attribution.test.d.ts.map
+2026-10-06T02:13:04.0557830Z npm notice 3.7kB dist/attribution.test.js.map
+2026-10-06T02:13:04.0558560Z npm notice 298B dist/cli/check.d.ts
+2026-10-06T02:13:04.0559225Z npm notice 199B dist/cli/check.d.ts.map
+2026-10-06T02:13:04.0559863Z npm notice 6.8kB dist/cli/check.js
+2026-10-06T02:13:04.0560498Z npm notice 7.5kB dist/cli/check.js.map
+2026-10-06T02:13:04.0561179Z npm notice 763B dist/cli/commands.d.ts
+2026-10-06T02:13:04.0561878Z npm notice 397B dist/cli/commands.d.ts.map
+2026-10-06T02:13:04.0562555Z npm notice 2.9kB dist/cli/commands.js
+2026-10-06T02:13:04.0563311Z npm notice 3.3kB dist/cli/commands.js.map
+2026-10-06T02:13:04.0564028Z npm notice 103B dist/cli/feedback.d.ts
+2026-10-06T02:13:04.0564703Z npm notice 191B dist/cli/feedback.d.ts.map
+2026-10-06T02:13:04.0565381Z npm notice 5.8kB dist/cli/feedback.js
+2026-10-06T02:13:04.0566049Z npm notice 4.8kB dist/cli/feedback.js.map
+2026-10-06T02:13:04.0566778Z npm notice 127B dist/cli/feedback.test.d.ts.map
+2026-10-06T02:13:04.0567895Z npm notice 7.0kB dist/cli/feedback.test.js.map
+2026-10-06T02:13:04.0568719Z npm notice 131B dist/cli/front-door.test.d.ts.map
+2026-10-06T02:13:04.0569514Z npm notice 19.2kB dist/cli/front-door.test.js.map
+2026-10-06T02:13:04.0570187Z npm notice 91B dist/cli/id.d.ts
+2026-10-06T02:13:04.0570800Z npm notice 179B dist/cli/id.d.ts.map
+2026-10-06T02:13:04.0571402Z npm notice 5.3kB dist/cli/id.js
+2026-10-06T02:13:04.0571986Z npm notice 4.5kB dist/cli/id.js.map
+2026-10-06T02:13:04.0572593Z npm notice 3.6kB dist/cli/index.d.ts
+2026-10-06T02:13:04.0573257Z npm notice 209B dist/cli/index.d.ts.map
+2026-10-06T02:13:04.0573889Z npm notice 6.4kB dist/cli/index.js
+2026-10-06T02:13:04.0574530Z npm notice 3.3kB dist/cli/index.js.map
+2026-10-06T02:13:04.0575176Z npm notice 269B dist/cli/init.d.ts
+2026-10-06T02:13:04.0575795Z npm notice 197B dist/cli/init.d.ts.map
+2026-10-06T02:13:04.0576396Z npm notice 9.2kB dist/cli/init.js
+2026-10-06T02:13:04.0576993Z npm notice 9.6kB dist/cli/init.js.map
+2026-10-06T02:13:04.0581499Z npm notice 125B dist/cli/keypair.test.d.ts.map
+2026-10-06T02:13:04.0582310Z npm notice 12.8kB dist/cli/keypair.test.js.map
+2026-10-06T02:13:04.0583016Z npm notice 466B dist/cli/keyring.d.ts
+2026-10-06T02:13:04.0583682Z npm notice 203B dist/cli/keyring.d.ts.map
+2026-10-06T02:13:04.0584256Z npm notice 1.0kB dist/cli/keyring.js
+2026-10-06T02:13:04.0584901Z npm notice 601B dist/cli/keyring.js.map
+2026-10-06T02:13:04.0585496Z npm notice 271B dist/cli/register.d.ts
+2026-10-06T02:13:04.0586107Z npm notice 205B dist/cli/register.d.ts.map
+2026-10-06T02:13:04.0586711Z npm notice 20.7kB dist/cli/register.js
+2026-10-06T02:13:04.0587295Z npm notice 21.4kB dist/cli/register.js.map
+2026-10-06T02:13:04.0588156Z npm notice 249B dist/cli/scan.d.ts
+2026-10-06T02:13:04.0588692Z npm notice 197B dist/cli/scan.d.ts.map
+2026-10-06T02:13:04.0589144Z npm notice 8.4kB dist/cli/scan.js
+2026-10-06T02:13:04.0589616Z npm notice 9.5kB dist/cli/scan.js.map
+2026-10-06T02:13:04.0590085Z npm notice 250B dist/cli/task.d.ts
+2026-10-06T02:13:04.0590555Z npm notice 195B dist/cli/task.d.ts.map
+2026-10-06T02:13:04.0591056Z npm notice 7.2kB dist/cli/task.js
+2026-10-06T02:13:04.0591825Z npm notice 8.9kB dist/cli/task.js.map
+2026-10-06T02:13:04.0592391Z npm notice 5.1kB dist/cli/tasks.d.ts
+2026-10-06T02:13:04.0592992Z npm notice 2.3kB dist/cli/tasks.d.ts.map
+2026-10-06T02:13:04.0593591Z npm notice 48.6kB dist/cli/tasks.js
+2026-10-06T02:13:04.0594162Z npm notice 43.3kB dist/cli/tasks.js.map
+2026-10-06T02:13:04.0594768Z npm notice 121B dist/cli/tasks.test.d.ts.map
+2026-10-06T02:13:04.0595386Z npm notice 30.6kB dist/cli/tasks.test.js.map
+2026-10-06T02:13:04.0596030Z npm notice 395B dist/cli/validate.d.ts
+2026-10-06T02:13:04.0597067Z npm notice 288B dist/cli/validate.d.ts.map
+2026-10-06T02:13:04.0597917Z npm notice 13.7kB dist/cli/validate.js
+2026-10-06T02:13:04.0598354Z npm notice 13.3kB dist/cli/validate.js.map
+2026-10-06T02:13:04.0598745Z npm notice 4.7kB dist/cli/wallet.d.ts
+2026-10-06T02:13:04.0599176Z npm notice 1.3kB dist/cli/wallet.d.ts.map
+2026-10-06T02:13:04.0599549Z npm notice 22.7kB dist/cli/wallet.js
+2026-10-06T02:13:04.0600073Z npm notice 16.9kB dist/cli/wallet.js.map
+2026-10-06T02:13:04.0600452Z npm notice 123B dist/cli/wallet.test.d.ts.map
+2026-10-06T02:13:04.0600842Z npm notice 12.4kB dist/cli/wallet.test.js.map
+2026-10-06T02:13:04.0601184Z npm notice 210B dist/cli/whois.d.ts
+2026-10-06T02:13:04.0601519Z npm notice 198B dist/cli/whois.d.ts.map
+2026-10-06T02:13:04.0601861Z npm notice 9.0kB dist/cli/whois.js
+2026-10-06T02:13:04.0602186Z npm notice 11.0kB dist/cli/whois.js.map
+2026-10-06T02:13:04.0602534Z npm notice 116B dist/client.test.d.ts.map
+2026-10-06T02:13:04.0602892Z npm notice 42.8kB dist/client.test.js.map
+2026-10-06T02:13:04.0603242Z npm notice 116B dist/crypto.test.d.ts.map
+2026-10-06T02:13:04.0603582Z npm notice 12.5kB dist/crypto.test.js.map
+2026-10-06T02:13:04.0603905Z npm notice 45.3kB dist/index.d.ts
+2026-10-06T02:13:04.0604258Z npm notice 24.3kB dist/index.d.ts.map
+2026-10-06T02:13:04.0604683Z npm notice 45.7kB dist/index.js
+2026-10-06T02:13:04.0604995Z npm notice 31.2kB dist/index.js.map
+2026-10-06T02:13:04.0605326Z npm notice 397B dist/redact.d.ts
+2026-10-06T02:13:04.0605650Z npm notice 280B dist/redact.d.ts.map
+2026-10-06T02:13:04.0605967Z npm notice 2.4kB dist/redact.js
+2026-10-06T02:13:04.0606272Z npm notice 1.5kB dist/redact.js.map
+2026-10-06T02:13:04.0606596Z npm notice 1.1kB dist/scanner/index.d.ts
+2026-10-06T02:13:04.0606949Z npm notice 1.1kB dist/scanner/index.d.ts.map
+2026-10-06T02:13:04.0607310Z npm notice 20.1kB dist/scanner/index.js
+2026-10-06T02:13:04.0607916Z npm notice 15.0kB dist/scanner/index.js.map
+2026-10-06T02:13:04.0608251Z npm notice 75B dist/version.d.ts
+2026-10-06T02:13:04.0608574Z npm notice 142B dist/version.d.ts.map
+2026-10-06T02:13:04.0608886Z npm notice 689B dist/version.js
+2026-10-06T02:13:04.0609178Z npm notice 268B dist/version.js.map
+2026-10-06T02:13:04.0609495Z npm notice 1.5kB dist/wallet-bind.d.ts
+2026-10-06T02:13:04.0609842Z npm notice 772B dist/wallet-bind.d.ts.map
+2026-10-06T02:13:04.0610180Z npm notice 3.9kB dist/wallet-bind.js
+2026-10-06T02:13:04.0610516Z npm notice 3.7kB dist/wallet-bind.js.map
+2026-10-06T02:13:04.0610889Z npm notice 126B dist/wallet-bind.test.d.ts.map
+2026-10-06T02:13:04.0611269Z npm notice 1.9kB dist/wallet-bind.test.js.map
+2026-10-06T02:13:04.0611789Z npm notice 1.5kB package.json
+2026-10-06T02:13:04.0612276Z npm notice Tarball Details
+2026-10-06T02:13:04.0612743Z npm notice name: basedagents
+2026-10-06T02:13:04.0613207Z npm notice version: 0.10.1
+2026-10-06T02:13:04.0613769Z npm notice filename: basedagents-0.10.1.tgz
+2026-10-06T02:13:04.0614372Z npm notice package size: 158.6 kB
+2026-10-06T02:13:04.0614925Z npm notice unpacked size: 744.4 kB
+2026-10-06T02:13:04.0615587Z npm notice shasum: 453c65def21937704196ab2e8689feab7735dde3
+2026-10-06T02:13:04.0616419Z npm notice integrity: sha512-+F5WvM5Mh+zbd[...]qpr5TSgkb9IWA==
+2026-10-06T02:13:04.0617061Z npm notice total files: 98
+2026-10-06T02:13:04.0617632Z npm notice
+2026-10-06T02:13:04.0617969Z npm notice
+2026-10-06T02:13:04.0618582Z npm notice 📦  @basedagents/mcp@0.7.2
+2026-10-06T02:13:04.0619107Z npm notice Tarball Contents
+2026-10-06T02:13:04.0645348Z npm notice 10.8kB LICENSE
+2026-10-06T02:13:04.0645875Z npm notice 19.0kB README.md
+2026-10-06T02:13:04.0646390Z npm notice 47B bin/basedagents-mcp.mjs
+2026-10-06T02:13:04.0646961Z npm notice 3.6kB dist/attribution.d.ts
+2026-10-06T02:13:04.0647728Z npm notice 15.5kB dist/attribution.js
+2026-10-06T02:13:04.0648318Z npm notice 2.6kB dist/index.d.ts
+2026-10-06T02:13:04.0648853Z npm notice 90.7kB dist/index.js
+2026-10-06T02:13:04.0649347Z npm notice 1.4kB package.json
+2026-10-06T02:13:04.0649819Z npm notice Tarball Details
+2026-10-06T02:13:04.0650568Z npm notice name: @basedagents/mcp
+2026-10-06T02:13:04.0651055Z npm notice version: 0.7.2
+2026-10-06T02:13:04.0651639Z npm notice filename: basedagents-mcp-0.7.2.tgz
+2026-10-06T02:13:04.0652292Z npm notice package size: 40.7 kB
+2026-10-06T02:13:04.0652829Z npm notice unpacked size: 143.7 kB
+2026-10-06T02:13:04.0653455Z npm notice shasum: 8ba49323c56ab8d6c01549dd5c1c0c9ce805bcd2
+2026-10-06T02:13:04.0654412Z npm notice integrity: sha512-3yHWUeMGeIhcd[...]ZrCIBkBkjL7UQ==
+2026-10-06T02:13:04.0655051Z npm notice total files: 8
+2026-10-06T02:13:04.0655453Z npm notice
+2026-10-06T02:13:04.0712950Z run 1:
+2026-10-06T02:13:04.0722808Z c05c3688ad2d4c4afbdce211ffa671c87106c4e55c403a095d3f7260cbcc6537  basedagents-0.10.1.tgz
+2026-10-06T02:13:04.0723773Z ba186feb883e72ee85229309aab27ea6a35962c07e93ca1070270eeee58bcef8  basedagents-mcp-0.7.2.tgz
+2026-10-06T02:13:04.1911738Z 
+2026-10-06T02:13:04.1912348Z > basedagents@0.10.1 build
+2026-10-06T02:13:04.1912903Z > tsc
+2026-10-06T02:13:04.1913167Z 
+2026-10-06T02:13:07.0422870Z 
+2026-10-06T02:13:07.0423590Z > @basedagents/mcp@0.7.2 build
+2026-10-06T02:13:07.0424001Z > tsc
+2026-10-06T02:13:07.0424160Z 
+2026-10-06T02:13:15.4995817Z npm notice
+2026-10-06T02:13:15.4998441Z npm notice 📦  basedagents@0.10.1
+2026-10-06T02:13:15.4998885Z npm notice Tarball Contents
+2026-10-06T02:13:15.5001973Z npm notice 10.1kB LICENSE
+2026-10-06T02:13:15.5002431Z npm notice 40.5kB README.md
+2026-10-06T02:13:15.5002999Z npm notice 128B bin/basedagents.mjs
+2026-10-06T02:13:15.5003703Z npm notice 126B dist/attribution.test.d.ts.map
+2026-10-06T02:13:15.5004192Z npm notice 3.7kB dist/attribution.test.js.map
+2026-10-06T02:13:15.5004570Z npm notice 298B dist/cli/check.d.ts
+2026-10-06T02:13:15.5005128Z npm notice 199B dist/cli/check.d.ts.map
+2026-10-06T02:13:15.5005476Z npm notice 6.8kB dist/cli/check.js
+2026-10-06T02:13:15.5005823Z npm notice 7.5kB dist/cli/check.js.map
+2026-10-06T02:13:15.5006209Z npm notice 763B dist/cli/commands.d.ts
+2026-10-06T02:13:15.5006552Z npm notice 397B dist/cli/commands.d.ts.map
+2026-10-06T02:13:15.5006904Z npm notice 2.9kB dist/cli/commands.js
+2026-10-06T02:13:15.5007659Z npm notice 3.3kB dist/cli/commands.js.map
+2026-10-06T02:13:15.5008219Z npm notice 103B dist/cli/feedback.d.ts
+2026-10-06T02:13:15.5008824Z npm notice 191B dist/cli/feedback.d.ts.map
+2026-10-06T02:13:15.5009375Z npm notice 5.8kB dist/cli/feedback.js
+2026-10-06T02:13:15.5009713Z npm notice 4.8kB dist/cli/feedback.js.map
+2026-10-06T02:13:15.5010092Z npm notice 127B dist/cli/feedback.test.d.ts.map
+2026-10-06T02:13:15.5010483Z npm notice 7.0kB dist/cli/feedback.test.js.map
+2026-10-06T02:13:15.5010881Z npm notice 131B dist/cli/front-door.test.d.ts.map
+2026-10-06T02:13:15.5011578Z npm notice 19.2kB dist/cli/front-door.test.js.map
+2026-10-06T02:13:15.5012193Z npm notice 91B dist/cli/id.d.ts
+2026-10-06T02:13:15.5012763Z npm notice 179B dist/cli/id.d.ts.map
+2026-10-06T02:13:15.5013334Z npm notice 5.3kB dist/cli/id.js
+2026-10-06T02:13:15.5013948Z npm notice 4.5kB dist/cli/id.js.map
+2026-10-06T02:13:15.5014595Z npm notice 3.6kB dist/cli/index.d.ts
+2026-10-06T02:13:15.5015211Z npm notice 209B dist/cli/index.d.ts.map
+2026-10-06T02:13:15.5015548Z npm notice 6.4kB dist/cli/index.js
+2026-10-06T02:13:15.5015867Z npm notice 3.3kB dist/cli/index.js.map
+2026-10-06T02:13:15.5016198Z npm notice 269B dist/cli/init.d.ts
+2026-10-06T02:13:15.5016513Z npm notice 197B dist/cli/init.d.ts.map
+2026-10-06T02:13:15.5016837Z npm notice 9.2kB dist/cli/init.js
+2026-10-06T02:13:15.5017156Z npm notice 9.6kB dist/cli/init.js.map
+2026-10-06T02:13:15.5017799Z npm notice 125B dist/cli/keypair.test.d.ts.map
+2026-10-06T02:13:15.5018232Z npm notice 12.8kB dist/cli/keypair.test.js.map
+2026-10-06T02:13:15.5018571Z npm notice 466B dist/cli/keyring.d.ts
+2026-10-06T02:13:15.5018895Z npm notice 203B dist/cli/keyring.d.ts.map
+2026-10-06T02:13:15.5019230Z npm notice 1.0kB dist/cli/keyring.js
+2026-10-06T02:13:15.5019545Z npm notice 601B dist/cli/keyring.js.map
+2026-10-06T02:13:15.5019872Z npm notice 271B dist/cli/register.d.ts
+2026-10-06T02:13:15.5020451Z npm notice 205B dist/cli/register.d.ts.map
+2026-10-06T02:13:15.5020787Z npm notice 20.7kB dist/cli/register.js
+2026-10-06T02:13:15.5021117Z npm notice 21.4kB dist/cli/register.js.map
+2026-10-06T02:13:15.5021441Z npm notice 249B dist/cli/scan.d.ts
+2026-10-06T02:13:15.5021761Z npm notice 197B dist/cli/scan.d.ts.map
+2026-10-06T02:13:15.5022073Z npm notice 8.4kB dist/cli/scan.js
+2026-10-06T02:13:15.5022505Z npm notice 9.5kB dist/cli/scan.js.map
+2026-10-06T02:13:15.5022829Z npm notice 250B dist/cli/task.d.ts
+2026-10-06T02:13:15.5023138Z npm notice 195B dist/cli/task.d.ts.map
+2026-10-06T02:13:15.5023445Z npm notice 7.2kB dist/cli/task.js
+2026-10-06T02:13:15.5023749Z npm notice 8.9kB dist/cli/task.js.map
+2026-10-06T02:13:15.5024058Z npm notice 5.1kB dist/cli/tasks.d.ts
+2026-10-06T02:13:15.5024377Z npm notice 2.3kB dist/cli/tasks.d.ts.map
+2026-10-06T02:13:15.5024703Z npm notice 48.6kB dist/cli/tasks.js
+2026-10-06T02:13:15.5025017Z npm notice 43.3kB dist/cli/tasks.js.map
+2026-10-06T02:13:15.5025363Z npm notice 121B dist/cli/tasks.test.d.ts.map
+2026-10-06T02:13:15.5025733Z npm notice 30.6kB dist/cli/tasks.test.js.map
+2026-10-06T02:13:15.5026079Z npm notice 395B dist/cli/validate.d.ts
+2026-10-06T02:13:15.5026414Z npm notice 288B dist/cli/validate.d.ts.map
+2026-10-06T02:13:15.5026750Z npm notice 13.7kB dist/cli/validate.js
+2026-10-06T02:13:15.5027082Z npm notice 13.3kB dist/cli/validate.js.map
+2026-10-06T02:13:15.5027561Z npm notice 4.7kB dist/cli/wallet.d.ts
+2026-10-06T02:13:15.5027895Z npm notice 1.3kB dist/cli/wallet.d.ts.map
+2026-10-06T02:13:15.5028226Z npm notice 22.7kB dist/cli/wallet.js
+2026-10-06T02:13:15.5028546Z npm notice 16.9kB dist/cli/wallet.js.map
+2026-10-06T02:13:15.5028897Z npm notice 123B dist/cli/wallet.test.d.ts.map
+2026-10-06T02:13:15.5029273Z npm notice 12.4kB dist/cli/wallet.test.js.map
+2026-10-06T02:13:15.5029608Z npm notice 210B dist/cli/whois.d.ts
+2026-10-06T02:13:15.5029923Z npm notice 198B dist/cli/whois.d.ts.map
+2026-10-06T02:13:15.5030237Z npm notice 9.0kB dist/cli/whois.js
+2026-10-06T02:13:15.5030562Z npm notice 11.0kB dist/cli/whois.js.map
+2026-10-06T02:13:15.5030894Z npm notice 116B dist/client.test.d.ts.map
+2026-10-06T02:13:15.5031536Z npm notice 42.8kB dist/client.test.js.map
+2026-10-06T02:13:15.5032277Z npm notice 116B dist/crypto.test.d.ts.map
+2026-10-06T02:13:15.5032964Z npm notice 12.5kB dist/crypto.test.js.map
+2026-10-06T02:13:15.5033611Z npm notice 45.3kB dist/index.d.ts
+2026-10-06T02:13:15.5034033Z npm notice 24.3kB dist/index.d.ts.map
+2026-10-06T02:13:15.5034365Z npm notice 45.7kB dist/index.js
+2026-10-06T02:13:15.5034843Z npm notice 31.2kB dist/index.js.map
+2026-10-06T02:13:15.5035167Z npm notice 397B dist/redact.d.ts
+2026-10-06T02:13:15.5035471Z npm notice 280B dist/redact.d.ts.map
+2026-10-06T02:13:15.5035776Z npm notice 2.4kB dist/redact.js
+2026-10-06T02:13:15.5036070Z npm notice 1.5kB dist/redact.js.map
+2026-10-06T02:13:15.5036396Z npm notice 1.1kB dist/scanner/index.d.ts
+2026-10-06T02:13:15.5036747Z npm notice 1.1kB dist/scanner/index.d.ts.map
+2026-10-06T02:13:15.5037101Z npm notice 20.1kB dist/scanner/index.js
+2026-10-06T02:13:15.5037706Z npm notice 15.0kB dist/scanner/index.js.map
+2026-10-06T02:13:15.5038058Z npm notice 75B dist/version.d.ts
+2026-10-06T02:13:15.5038369Z npm notice 142B dist/version.d.ts.map
+2026-10-06T02:13:15.5038680Z npm notice 689B dist/version.js
+2026-10-06T02:13:15.5038975Z npm notice 268B dist/version.js.map
+2026-10-06T02:13:15.5039289Z npm notice 1.5kB dist/wallet-bind.d.ts
+2026-10-06T02:13:15.5039635Z npm notice 772B dist/wallet-bind.d.ts.map
+2026-10-06T02:13:15.5039972Z npm notice 3.9kB dist/wallet-bind.js
+2026-10-06T02:13:15.5040340Z npm notice 3.7kB dist/wallet-bind.js.map
+2026-10-06T02:13:15.5040711Z npm notice 126B dist/wallet-bind.test.d.ts.map
+2026-10-06T02:13:15.5041090Z npm notice 1.9kB dist/wallet-bind.test.js.map
+2026-10-06T02:13:15.5041416Z npm notice 1.5kB package.json
+2026-10-06T02:13:15.5041691Z npm notice Tarball Details
+2026-10-06T02:13:15.5041967Z npm notice name: basedagents
+2026-10-06T02:13:15.5042234Z npm notice version: 0.10.1
+2026-10-06T02:13:15.5042742Z npm notice filename: basedagents-0.10.1.tgz
+2026-10-06T02:13:15.5043096Z npm notice package size: 158.6 kB
+2026-10-06T02:13:15.5043409Z npm notice unpacked size: 744.4 kB
+2026-10-06T02:13:15.5043808Z npm notice shasum: 453c65def21937704196ab2e8689feab7735dde3
+2026-10-06T02:13:15.5044304Z npm notice integrity: sha512-+F5WvM5Mh+zbd[...]qpr5TSgkb9IWA==
+2026-10-06T02:13:15.5044678Z npm notice total files: 98
+2026-10-06T02:13:15.5045027Z npm notice
+2026-10-06T02:13:15.5045223Z npm notice
+2026-10-06T02:13:15.5045786Z npm notice 📦  @basedagents/mcp@0.7.2
+2026-10-06T02:13:15.5046314Z npm notice Tarball Contents
+2026-10-06T02:13:15.5046763Z npm notice 10.8kB LICENSE
+2026-10-06T02:13:15.5047206Z npm notice 19.0kB README.md
+2026-10-06T02:13:15.5047939Z npm notice 47B bin/basedagents-mcp.mjs
+2026-10-06T02:13:15.5048527Z npm notice 3.6kB dist/attribution.d.ts
+2026-10-06T02:13:15.5049107Z npm notice 15.5kB dist/attribution.js
+2026-10-06T02:13:15.5049632Z npm notice 2.6kB dist/index.d.ts
+2026-10-06T02:13:15.5050157Z npm notice 90.7kB dist/index.js
+2026-10-06T02:13:15.5050626Z npm notice 1.4kB package.json
+2026-10-06T02:13:15.5051091Z npm notice Tarball Details
+2026-10-06T02:13:15.5051589Z npm notice name: @basedagents/mcp
+2026-10-06T02:13:15.5052076Z npm notice version: 0.7.2
+2026-10-06T02:13:15.5052635Z npm notice filename: basedagents-mcp-0.7.2.tgz
+2026-10-06T02:13:15.5053244Z npm notice package size: 40.7 kB
+2026-10-06T02:13:15.5053798Z npm notice unpacked size: 143.7 kB
+2026-10-06T02:13:15.5054477Z npm notice shasum: 8ba49323c56ab8d6c01549dd5c1c0c9ce805bcd2
+2026-10-06T02:13:15.5055353Z npm notice integrity: sha512-3yHWUeMGeIhcd[...]ZrCIBkBkjL7UQ==
+2026-10-06T02:13:15.5055979Z npm notice total files: 8
+2026-10-06T02:13:15.5056361Z npm notice
+2026-10-06T02:13:15.5133225Z run 2:
+2026-10-06T02:13:15.5144138Z c05c3688ad2d4c4afbdce211ffa671c87106c4e55c403a095d3f7260cbcc6537  basedagents-0.10.1.tgz
+2026-10-06T02:13:15.5145111Z ba186feb883e72ee85229309aab27ea6a35962c07e93ca1070270eeee58bcef8  basedagents-mcp-0.7.2.tgz
+2026-10-06T02:13:15.5250871Z dist-run1/basedagents-0.10.1.tgz contains package/dist/index.js (98 files)
+2026-10-06T02:13:15.5312013Z dist-run1/basedagents-mcp-0.7.2.tgz contains package/dist/index.js (8 files)
+2026-10-06T02:13:15.5331504Z REPRODUCIBLE: run1 and run2 npm tarball hashes are identical
+2026-10-06T02:13:15.5391329Z ##[group]Run set -euo pipefail
+2026-10-06T02:13:15.5391679Z [36;1mset -euo pipefail[0m
+2026-10-06T02:13:15.5392157Z [36;1mfor t in ./release-artifacts/*.tgz; do  # ./ prefix: a bare a/b.tgz is read as a GitHub shorthand[0m
+2026-10-06T02:13:15.5392681Z [36;1m  echo "::group::npm publish --dry-run $t"[0m
+2026-10-06T02:13:15.5393108Z [36;1m  npm publish "$t" --dry-run --ignore-scripts --access public[0m
+2026-10-06T02:13:15.5393482Z [36;1m  echo "::endgroup::"[0m
+2026-10-06T02:13:15.5393732Z [36;1mdone[0m
+2026-10-06T02:13:15.5457980Z shell: /usr/bin/bash -e {0}
+2026-10-06T02:13:15.5458237Z env:
+2026-10-06T02:13:15.5458518Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:15.5458980Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-10-06T02:13:15.5459415Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:15.5459801Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:15.5460310Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:15.5460713Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-10-06T02:13:15.5461038Z ##[endgroup]
+2026-10-06T02:13:15.5541078Z ##[group]npm publish --dry-run ./release-artifacts/basedagents-0.10.1.tgz
+2026-10-06T02:13:16.0457941Z npm notice
+2026-10-06T02:13:16.0462731Z npm notice 📦  basedagents@0.10.1
+2026-10-06T02:13:16.0463276Z npm notice Tarball Contents
+2026-10-06T02:13:16.0465696Z npm notice 10.1kB LICENSE
+2026-10-06T02:13:16.0466045Z npm notice 40.5kB README.md
+2026-10-06T02:13:16.0466367Z npm notice 128B bin/basedagents.mjs
+2026-10-06T02:13:16.0466748Z npm notice 126B dist/attribution.test.d.ts.map
+2026-10-06T02:13:16.0467397Z npm notice 3.7kB dist/attribution.test.js.map
+2026-10-06T02:13:16.0468047Z npm notice 298B dist/cli/check.d.ts
+2026-10-06T02:13:16.0468375Z npm notice 199B dist/cli/check.d.ts.map
+2026-10-06T02:13:16.0468708Z npm notice 6.8kB dist/cli/check.js
+2026-10-06T02:13:16.0469048Z npm notice 7.5kB dist/cli/check.js.map
+2026-10-06T02:13:16.0469378Z npm notice 763B dist/cli/commands.d.ts
+2026-10-06T02:13:16.0469718Z npm notice 397B dist/cli/commands.d.ts.map
+2026-10-06T02:13:16.0470051Z npm notice 2.9kB dist/cli/commands.js
+2026-10-06T02:13:16.0470381Z npm notice 3.3kB dist/cli/commands.js.map
+2026-10-06T02:13:16.0470717Z npm notice 103B dist/cli/feedback.d.ts
+2026-10-06T02:13:16.0471063Z npm notice 191B dist/cli/feedback.d.ts.map
+2026-10-06T02:13:16.0471400Z npm notice 5.8kB dist/cli/feedback.js
+2026-10-06T02:13:16.0471728Z npm notice 4.8kB dist/cli/feedback.js.map
+2026-10-06T02:13:16.0472105Z npm notice 127B dist/cli/feedback.test.d.ts.map
+2026-10-06T02:13:16.0472497Z npm notice 7.0kB dist/cli/feedback.test.js.map
+2026-10-06T02:13:16.0474163Z npm notice 131B dist/cli/front-door.test.d.ts.map
+2026-10-06T02:13:16.0474626Z npm notice 19.2kB dist/cli/front-door.test.js.map
+2026-10-06T02:13:16.0475230Z npm notice 91B dist/cli/id.d.ts
+2026-10-06T02:13:16.0475831Z npm notice 179B dist/cli/id.d.ts.map
+2026-10-06T02:13:16.0476400Z npm notice 5.3kB dist/cli/id.js
+2026-10-06T02:13:16.0476973Z npm notice 4.5kB dist/cli/id.js.map
+2026-10-06T02:13:16.0477762Z npm notice 3.6kB dist/cli/index.d.ts
+2026-10-06T02:13:16.0478362Z npm notice 209B dist/cli/index.d.ts.map
+2026-10-06T02:13:16.0478973Z npm notice 6.4kB dist/cli/index.js
+2026-10-06T02:13:16.0479530Z npm notice 3.3kB dist/cli/index.js.map
+2026-10-06T02:13:16.0480094Z npm notice 269B dist/cli/init.d.ts
+2026-10-06T02:13:16.0480643Z npm notice 197B dist/cli/init.d.ts.map
+2026-10-06T02:13:16.0481188Z npm notice 9.2kB dist/cli/init.js
+2026-10-06T02:13:16.0481741Z npm notice 9.6kB dist/cli/init.js.map
+2026-10-06T02:13:16.0482318Z npm notice 125B dist/cli/keypair.test.d.ts.map
+2026-10-06T02:13:16.0482733Z npm notice 12.8kB dist/cli/keypair.test.js.map
+2026-10-06T02:13:16.0483104Z npm notice 466B dist/cli/keyring.d.ts
+2026-10-06T02:13:16.0483456Z npm notice 203B dist/cli/keyring.d.ts.map
+2026-10-06T02:13:16.0483797Z npm notice 1.0kB dist/cli/keyring.js
+2026-10-06T02:13:16.0484353Z npm notice 601B dist/cli/keyring.js.map
+2026-10-06T02:13:16.0484718Z npm notice 271B dist/cli/register.d.ts
+2026-10-06T02:13:16.0485061Z npm notice 205B dist/cli/register.d.ts.map
+2026-10-06T02:13:16.0485403Z npm notice 20.7kB dist/cli/register.js
+2026-10-06T02:13:16.0485745Z npm notice 21.4kB dist/cli/register.js.map
+2026-10-06T02:13:16.0486079Z npm notice 249B dist/cli/scan.d.ts
+2026-10-06T02:13:16.0486395Z npm notice 197B dist/cli/scan.d.ts.map
+2026-10-06T02:13:16.0486719Z npm notice 8.4kB dist/cli/scan.js
+2026-10-06T02:13:16.0487054Z npm notice 9.5kB dist/cli/scan.js.map
+2026-10-06T02:13:16.0487374Z npm notice 250B dist/cli/task.d.ts
+2026-10-06T02:13:16.0487954Z npm notice 195B dist/cli/task.d.ts.map
+2026-10-06T02:13:16.0488296Z npm notice 7.2kB dist/cli/task.js
+2026-10-06T02:13:16.0488609Z npm notice 8.9kB dist/cli/task.js.map
+2026-10-06T02:13:16.0488932Z npm notice 5.1kB dist/cli/tasks.d.ts
+2026-10-06T02:13:16.0489264Z npm notice 2.3kB dist/cli/tasks.d.ts.map
+2026-10-06T02:13:16.0489608Z npm notice 48.6kB dist/cli/tasks.js
+2026-10-06T02:13:16.0489930Z npm notice 43.3kB dist/cli/tasks.js.map
+2026-10-06T02:13:16.0490282Z npm notice 121B dist/cli/tasks.test.d.ts.map
+2026-10-06T02:13:16.0490656Z npm notice 30.6kB dist/cli/tasks.test.js.map
+2026-10-06T02:13:16.0491003Z npm notice 395B dist/cli/validate.d.ts
+2026-10-06T02:13:16.0491338Z npm notice 288B dist/cli/validate.d.ts.map
+2026-10-06T02:13:16.0491680Z npm notice 13.7kB dist/cli/validate.js
+2026-10-06T02:13:16.0492014Z npm notice 13.3kB dist/cli/validate.js.map
+2026-10-06T02:13:16.0492350Z npm notice 4.7kB dist/cli/wallet.d.ts
+2026-10-06T02:13:16.0492875Z npm notice 1.3kB dist/cli/wallet.d.ts.map
+2026-10-06T02:13:16.0493673Z npm notice 22.7kB dist/cli/wallet.js
+2026-10-06T02:13:16.0494242Z npm notice 16.9kB dist/cli/wallet.js.map
+2026-10-06T02:13:16.0494866Z npm notice 123B dist/cli/wallet.test.d.ts.map
+2026-10-06T02:13:16.0495524Z npm notice 12.4kB dist/cli/wallet.test.js.map
+2026-10-06T02:13:16.0496122Z npm notice 210B dist/cli/whois.d.ts
+2026-10-06T02:13:16.0496679Z npm notice 198B dist/cli/whois.d.ts.map
+2026-10-06T02:13:16.0497242Z npm notice 9.0kB dist/cli/whois.js
+2026-10-06T02:13:16.0497967Z npm notice 11.0kB dist/cli/whois.js.map
+2026-10-06T02:13:16.0498310Z npm notice 116B dist/client.test.d.ts.map
+2026-10-06T02:13:16.0498669Z npm notice 42.8kB dist/client.test.js.map
+2026-10-06T02:13:16.0499011Z npm notice 116B dist/crypto.test.d.ts.map
+2026-10-06T02:13:16.0499352Z npm notice 12.5kB dist/crypto.test.js.map
+2026-10-06T02:13:16.0499682Z npm notice 45.3kB dist/index.d.ts
+2026-10-06T02:13:16.0500000Z npm notice 24.3kB dist/index.d.ts.map
+2026-10-06T02:13:16.0500314Z npm notice 45.7kB dist/index.js
+2026-10-06T02:13:16.0500642Z npm notice 31.2kB dist/index.js.map
+2026-10-06T02:13:16.0500953Z npm notice 397B dist/redact.d.ts
+2026-10-06T02:13:16.0501265Z npm notice 280B dist/redact.d.ts.map
+2026-10-06T02:13:16.0501579Z npm notice 2.4kB dist/redact.js
+2026-10-06T02:13:16.0501885Z npm notice 1.5kB dist/redact.js.map
+2026-10-06T02:13:16.0502219Z npm notice 1.1kB dist/scanner/index.d.ts
+2026-10-06T02:13:16.0502574Z npm notice 1.1kB dist/scanner/index.d.ts.map
+2026-10-06T02:13:16.0502930Z npm notice 20.1kB dist/scanner/index.js
+2026-10-06T02:13:16.0503277Z npm notice 15.0kB dist/scanner/index.js.map
+2026-10-06T02:13:16.0503614Z npm notice 75B dist/version.d.ts
+2026-10-06T02:13:16.0503937Z npm notice 142B dist/version.d.ts.map
+2026-10-06T02:13:16.0504257Z npm notice 689B dist/version.js
+2026-10-06T02:13:16.0504559Z npm notice 268B dist/version.js.map
+2026-10-06T02:13:16.0504881Z npm notice 1.5kB dist/wallet-bind.d.ts
+2026-10-06T02:13:16.0505225Z npm notice 772B dist/wallet-bind.d.ts.map
+2026-10-06T02:13:16.0505563Z npm notice 3.9kB dist/wallet-bind.js
+2026-10-06T02:13:16.0505897Z npm notice 3.7kB dist/wallet-bind.js.map
+2026-10-06T02:13:16.0506263Z npm notice 126B dist/wallet-bind.test.d.ts.map
+2026-10-06T02:13:16.0506643Z npm notice 1.9kB dist/wallet-bind.test.js.map
+2026-10-06T02:13:16.0506967Z npm notice 1.5kB package.json
+2026-10-06T02:13:16.0507393Z npm notice Tarball Details
+2026-10-06T02:13:16.0507970Z npm notice name: basedagents
+2026-10-06T02:13:16.0508242Z npm notice version: 0.10.1
+2026-10-06T02:13:16.0508577Z npm notice filename: basedagents-0.10.1.tgz
+2026-10-06T02:13:16.0508931Z npm notice package size: 158.6 kB
+2026-10-06T02:13:16.0509253Z npm notice unpacked size: 744.4 kB
+2026-10-06T02:13:16.0509653Z npm notice shasum: 453c65def21937704196ab2e8689feab7735dde3
+2026-10-06T02:13:16.0510143Z npm notice integrity: sha512-+F5WvM5Mh+zbd[...]qpr5TSgkb9IWA==
+2026-10-06T02:13:16.0510519Z npm notice total files: 98
+2026-10-06T02:13:16.0510759Z npm notice
+2026-10-06T02:13:16.0511261Z npm warn This command requires you to be logged in to https://registry.npmjs.org/ (dry-run)
+2026-10-06T02:13:16.0512033Z npm notice Publishing to https://registry.npmjs.org/ with tag latest and public access (dry-run)
+2026-10-06T02:13:16.0512578Z + basedagents@0.10.1
+2026-10-06T02:13:16.0595910Z ##[endgroup]
+2026-10-06T02:13:16.0596777Z ##[group]npm publish --dry-run ./release-artifacts/basedagents-mcp-0.7.2.tgz
+2026-10-06T02:13:16.3758996Z npm notice
+2026-10-06T02:13:16.3762329Z npm notice 📦  @basedagents/mcp@0.7.2
+2026-10-06T02:13:16.3762955Z npm notice Tarball Contents
+2026-10-06T02:13:16.3764469Z npm notice 10.8kB LICENSE
+2026-10-06T02:13:16.3765013Z npm notice 19.0kB README.md
+2026-10-06T02:13:16.3765630Z npm notice 47B bin/basedagents-mcp.mjs
+2026-10-06T02:13:16.3766322Z npm notice 3.6kB dist/attribution.d.ts
+2026-10-06T02:13:16.3766984Z npm notice 15.5kB dist/attribution.js
+2026-10-06T02:13:16.3767791Z npm notice 2.6kB dist/index.d.ts
+2026-10-06T02:13:16.3768359Z npm notice 90.7kB dist/index.js
+2026-10-06T02:13:16.3768877Z npm notice 1.4kB package.json
+2026-10-06T02:13:16.3770000Z npm notice Tarball Details
+2026-10-06T02:13:16.3770587Z npm notice name: @basedagents/mcp
+2026-10-06T02:13:16.3771168Z npm notice version: 0.7.2
+2026-10-06T02:13:16.3771830Z npm notice filename: basedagents-mcp-0.7.2.tgz
+2026-10-06T02:13:16.3772526Z npm notice package size: 40.7 kB
+2026-10-06T02:13:16.3773163Z npm notice unpacked size: 143.7 kB
+2026-10-06T02:13:16.3773947Z npm notice shasum: 8ba49323c56ab8d6c01549dd5c1c0c9ce805bcd2
+2026-10-06T02:13:16.3774894Z npm notice integrity: sha512-3yHWUeMGeIhcd[...]ZrCIBkBkjL7UQ==
+2026-10-06T02:13:16.3775636Z npm notice total files: 8
+2026-10-06T02:13:16.3776083Z npm notice
+2026-10-06T02:13:16.3795014Z npm warn This command requires you to be logged in to https://registry.npmjs.org/ (dry-run)
+2026-10-06T02:13:16.3796503Z npm notice Publishing to https://registry.npmjs.org/ with tag latest and public access (dry-run)
+2026-10-06T02:13:16.3797810Z + @basedagents/mcp@0.7.2
+2026-10-06T02:13:16.3871398Z ##[endgroup]
+2026-10-06T02:13:16.3906500Z ##[group]Run set -euo pipefail
+2026-10-06T02:13:16.3906858Z [36;1mset -euo pipefail[0m
+2026-10-06T02:13:16.3907212Z [36;1mpython3 -m pip install --quiet build==1.2.2.post1 twine==6.1.0[0m
+2026-10-06T02:13:16.3907883Z [36;1mfor run in 1 2; do[0m
+2026-10-06T02:13:16.3908225Z [36;1m  rm -rf packages/python/build packages/python/*.egg-info[0m
+2026-10-06T02:13:16.3908781Z [36;1m  python3 -m build packages/python --outdir "py-run$run"[0m
+2026-10-06T02:13:16.3909285Z [36;1m  (cd "py-run$run" && sha256sum -- * | sort -k2) | tee "py-run$run.sha256"[0m
+2026-10-06T02:13:16.3909661Z [36;1mdone[0m
+2026-10-06T02:13:16.3910349Z [36;1mif diff <(grep whl py-run1.sha256) <(grep whl py-run2.sha256); then echo "wheel: REPRODUCIBLE (byte-identical)"; else echo "::error::wheel differs between two clean builds"; exit 1; fi[0m
+2026-10-06T02:13:16.3911215Z [36;1mif diff <(grep tar.gz py-run1.sha256) <(grep tar.gz py-run2.sha256); then[0m
+2026-10-06T02:13:16.3911674Z [36;1m  echo "sdist: byte-identical"[0m
+2026-10-06T02:13:16.3911954Z [36;1melse[0m
+2026-10-06T02:13:16.3912286Z [36;1m  # setuptools' sdist ignores SOURCE_DATE_EPOCH for the gzip header and[0m
+2026-10-06T02:13:16.3912810Z [36;1m  # generated members (PKG-INFO, egg-info): compare CONTENT instead.[0m
+2026-10-06T02:13:16.3913344Z [36;1m  mkdir -p s1 s2 && tar xzf py-run1/*.tar.gz -C s1 && tar xzf py-run2/*.tar.gz -C s2[0m
+2026-10-06T02:13:16.3914185Z [36;1m  if diff -r s1 s2; then echo "sdist: NOT byte-identical (gzip/tar mtimes only) — file contents identical"; else echo "::error::sdist contents differ"; exit 1; fi[0m
+2026-10-06T02:13:16.3914889Z [36;1mfi[0m
+2026-10-06T02:13:16.3915116Z [36;1mpython3 -m twine check py-run1/*[0m
+2026-10-06T02:13:16.3915428Z [36;1mcp py-run1/* release-artifacts/[0m
+2026-10-06T02:13:16.3979166Z shell: /usr/bin/bash -e {0}
+2026-10-06T02:13:16.3979420Z env:
+2026-10-06T02:13:16.3979694Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:16.3980168Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-10-06T02:13:16.3980635Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:16.3981044Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:16.3981436Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:16.3981841Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-10-06T02:13:16.3982179Z   SOURCE_DATE_EPOCH: 315532800
+2026-10-06T02:13:16.3982417Z ##[endgroup]
+2026-10-06T02:13:21.7309867Z * Creating isolated environment: venv+pip...
+2026-10-06T02:13:21.7517538Z * Installing packages in isolated environment:
+2026-10-06T02:13:22.8271143Z   - setuptools>=68
+2026-10-06T02:13:22.8271626Z   - wheel
+2026-10-06T02:13:22.8272117Z * Getting build dependencies for sdist...
+2026-10-06T02:13:23.3038744Z running egg_info
+2026-10-06T02:13:23.3054467Z creating basedagents.egg-info
+2026-10-06T02:13:23.3055674Z writing basedagents.egg-info/PKG-INFO
+2026-10-06T02:13:23.3063790Z writing dependency_links to basedagents.egg-info/dependency_links.txt
+2026-10-06T02:13:23.3066253Z writing entry points to basedagents.egg-info/entry_points.txt
+2026-10-06T02:13:23.3070446Z writing requirements to basedagents.egg-info/requires.txt
+2026-10-06T02:13:23.3071145Z writing top-level names to basedagents.egg-info/top_level.txt
+2026-10-06T02:13:23.3072447Z writing manifest file 'basedagents.egg-info/SOURCES.txt'
+2026-10-06T02:13:23.3123428Z reading manifest file 'basedagents.egg-info/SOURCES.txt'
+2026-10-06T02:13:23.3132737Z writing manifest file 'basedagents.egg-info/SOURCES.txt'
+2026-10-06T02:13:23.3360543Z WARNING `project.license` as a TOML table is deprecated
+2026-10-06T02:13:23.3361347Z !!
+2026-10-06T02:13:23.3361586Z 
+2026-10-06T02:13:23.3362009Z         ********************************************************************************
+2026-10-06T02:13:23.3364380Z         Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+2026-10-06T02:13:23.3365860Z 
+2026-10-06T02:13:23.3366484Z         By 2027-Feb-18, you need to update your project and remove deprecated calls
+2026-10-06T02:13:23.3367864Z         or your builds will no longer be supported.
+2026-10-06T02:13:23.3368377Z 
+2026-10-06T02:13:23.3369265Z         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-10-06T02:13:23.3370476Z         ********************************************************************************
+2026-10-06T02:13:23.3370939Z 
+2026-10-06T02:13:23.3371105Z !!
+2026-10-06T02:13:23.3371645Z WARNING License classifiers are deprecated.
+2026-10-06T02:13:23.3372207Z !!
+2026-10-06T02:13:23.3372410Z 
+2026-10-06T02:13:23.3372755Z         ********************************************************************************
+2026-10-06T02:13:23.3373594Z         Please consider removing the following classifiers in favor of a SPDX license expression:
+2026-10-06T02:13:23.3374016Z 
+2026-10-06T02:13:23.3374340Z         License :: OSI Approved :: MIT License
+2026-10-06T02:13:23.3374565Z 
+2026-10-06T02:13:23.3374996Z         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-10-06T02:13:23.3375881Z         ********************************************************************************
+2026-10-06T02:13:23.3376207Z 
+2026-10-06T02:13:23.3376301Z !!
+2026-10-06T02:13:23.3376589Z WARNING License classifiers are deprecated.
+2026-10-06T02:13:23.3376888Z !!
+2026-10-06T02:13:23.3376995Z 
+2026-10-06T02:13:23.3377193Z         ********************************************************************************
+2026-10-06T02:13:23.3378086Z         Please consider removing the following classifiers in favor of a SPDX license expression:
+2026-10-06T02:13:23.3378495Z 
+2026-10-06T02:13:23.3378656Z         License :: OSI Approved :: MIT License
+2026-10-06T02:13:23.3378876Z 
+2026-10-06T02:13:23.3379277Z         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-10-06T02:13:23.3379915Z         ********************************************************************************
+2026-10-06T02:13:23.3380176Z 
+2026-10-06T02:13:23.3380265Z !!
+2026-10-06T02:13:23.3380478Z * Building sdist...
+2026-10-06T02:13:23.4946056Z running sdist
+2026-10-06T02:13:23.4947269Z running egg_info
+2026-10-06T02:13:23.4978268Z writing basedagents.egg-info/PKG-INFO
+2026-10-06T02:13:23.4986159Z writing dependency_links to basedagents.egg-info/dependency_links.txt
+2026-10-06T02:13:23.4990098Z writing entry points to basedagents.egg-info/entry_points.txt
+2026-10-06T02:13:23.4994144Z writing requirements to basedagents.egg-info/requires.txt
+2026-10-06T02:13:23.4995475Z writing top-level names to basedagents.egg-info/top_level.txt
+2026-10-06T02:13:23.5047244Z reading manifest file 'basedagents.egg-info/SOURCES.txt'
+2026-10-06T02:13:23.5061237Z writing manifest file 'basedagents.egg-info/SOURCES.txt'
+2026-10-06T02:13:23.5064377Z running check
+2026-10-06T02:13:23.5094647Z creating basedagents-0.5.2
+2026-10-06T02:13:23.5097969Z creating basedagents-0.5.2/basedagents
+2026-10-06T02:13:23.5100096Z creating basedagents-0.5.2/basedagents.egg-info
+2026-10-06T02:13:23.5101914Z creating basedagents-0.5.2/basedagents/integrations
+2026-10-06T02:13:23.5103578Z creating basedagents-0.5.2/tests
+2026-10-06T02:13:23.5104816Z copying files to basedagents-0.5.2...
+2026-10-06T02:13:23.5105790Z copying README.md -> basedagents-0.5.2
+2026-10-06T02:13:23.5108406Z copying pyproject.toml -> basedagents-0.5.2
+2026-10-06T02:13:23.5110770Z copying basedagents/__init__.py -> basedagents-0.5.2/basedagents
+2026-10-06T02:13:23.5112457Z copying basedagents/auth.py -> basedagents-0.5.2/basedagents
+2026-10-06T02:13:23.5114310Z copying basedagents/cli.py -> basedagents-0.5.2/basedagents
+2026-10-06T02:13:23.5116246Z copying basedagents/client.py -> basedagents-0.5.2/basedagents
+2026-10-06T02:13:23.5118870Z copying basedagents/easy.py -> basedagents-0.5.2/basedagents
+2026-10-06T02:13:23.5120962Z copying basedagents/keypair.py -> basedagents-0.5.2/basedagents
+2026-10-06T02:13:23.5122591Z copying basedagents/middleware.py -> basedagents-0.5.2/basedagents
+2026-10-06T02:13:23.5124432Z copying basedagents/pow.py -> basedagents-0.5.2/basedagents
+2026-10-06T02:13:23.5126438Z copying basedagents.egg-info/PKG-INFO -> basedagents-0.5.2/basedagents.egg-info
+2026-10-06T02:13:23.5128563Z copying basedagents.egg-info/SOURCES.txt -> basedagents-0.5.2/basedagents.egg-info
+2026-10-06T02:13:23.5130422Z copying basedagents.egg-info/dependency_links.txt -> basedagents-0.5.2/basedagents.egg-info
+2026-10-06T02:13:23.5132220Z copying basedagents.egg-info/entry_points.txt -> basedagents-0.5.2/basedagents.egg-info
+2026-10-06T02:13:23.5133996Z copying basedagents.egg-info/requires.txt -> basedagents-0.5.2/basedagents.egg-info
+2026-10-06T02:13:23.5135773Z copying basedagents.egg-info/top_level.txt -> basedagents-0.5.2/basedagents.egg-info
+2026-10-06T02:13:23.5137837Z copying basedagents/integrations/__init__.py -> basedagents-0.5.2/basedagents/integrations
+2026-10-06T02:13:23.5139645Z copying basedagents/integrations/autogen.py -> basedagents-0.5.2/basedagents/integrations
+2026-10-06T02:13:23.5141516Z copying basedagents/integrations/crewai.py -> basedagents-0.5.2/basedagents/integrations
+2026-10-06T02:13:23.5143343Z copying basedagents/integrations/langchain.py -> basedagents-0.5.2/basedagents/integrations
+2026-10-06T02:13:23.5144869Z copying tests/test_auth.py -> basedagents-0.5.2/tests
+2026-10-06T02:13:23.5146927Z copying tests/test_client.py -> basedagents-0.5.2/tests
+2026-10-06T02:13:23.5149534Z copying tests/test_keypair.py -> basedagents-0.5.2/tests
+2026-10-06T02:13:23.5151166Z copying tests/test_middleware.py -> basedagents-0.5.2/tests
+2026-10-06T02:13:23.5152991Z copying tests/test_pow.py -> basedagents-0.5.2/tests
+2026-10-06T02:13:23.5162613Z Writing basedagents-0.5.2/setup.cfg
+2026-10-06T02:13:23.5164202Z Creating tar archive
+2026-10-06T02:13:23.5363899Z removing 'basedagents-0.5.2' (and everything under it)
+2026-10-06T02:13:23.5565485Z WARNING `project.license` as a TOML table is deprecated
+2026-10-06T02:13:23.5566088Z !!
+2026-10-06T02:13:23.5566278Z 
+2026-10-06T02:13:23.5576344Z         ********************************************************************************
+2026-10-06T02:13:23.5577868Z         Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+2026-10-06T02:13:23.5578547Z 
+2026-10-06T02:13:23.5578931Z         By 2027-Feb-18, you need to update your project and remove deprecated calls
+2026-10-06T02:13:23.5579442Z         or your builds will no longer be supported.
+2026-10-06T02:13:23.5579677Z 
+2026-10-06T02:13:23.5580061Z         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-10-06T02:13:23.5580653Z         ********************************************************************************
+2026-10-06T02:13:23.5580905Z 
+2026-10-06T02:13:23.5580989Z !!
+2026-10-06T02:13:23.5581503Z WARNING License classifiers are deprecated.
+2026-10-06T02:13:23.5581798Z !!
+2026-10-06T02:13:23.5581905Z 
+2026-10-06T02:13:23.5582089Z         ********************************************************************************
+2026-10-06T02:13:23.5582666Z         Please consider removing the following classifiers in favor of a SPDX license expression:
+2026-10-06T02:13:23.5583049Z 
+2026-10-06T02:13:23.5583219Z         License :: OSI Approved :: MIT License
+2026-10-06T02:13:23.5583431Z 
+2026-10-06T02:13:23.5583792Z         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-10-06T02:13:23.5584386Z         ********************************************************************************
+2026-10-06T02:13:23.5584627Z 
+2026-10-06T02:13:23.5584704Z !!
+2026-10-06T02:13:23.5584979Z WARNING License classifiers are deprecated.
+2026-10-06T02:13:23.5585260Z !!
+2026-10-06T02:13:23.5585359Z 
+2026-10-06T02:13:23.5585658Z         ********************************************************************************
+2026-10-06T02:13:23.5586233Z         Please consider removing the following classifiers in favor of a SPDX license expression:
+2026-10-06T02:13:23.5586603Z 
+2026-10-06T02:13:23.5586749Z         License :: OSI Approved :: MIT License
+2026-10-06T02:13:23.5586957Z 
+2026-10-06T02:13:23.5587318Z         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-10-06T02:13:23.5588172Z         ********************************************************************************
+2026-10-06T02:13:23.5588412Z 
+2026-10-06T02:13:23.5588488Z !!
+2026-10-06T02:13:23.5813935Z * Building wheel from sdist
+2026-10-06T02:13:23.5821870Z * Creating isolated environment: venv+pip...
+2026-10-06T02:13:23.5841818Z * Installing packages in isolated environment:
+2026-10-06T02:13:24.3138890Z   - setuptools>=68
+2026-10-06T02:13:24.3139328Z   - wheel
+2026-10-06T02:13:24.3139820Z * Getting build dependencies for wheel...
+2026-10-06T02:13:24.7568649Z running egg_info
+2026-10-06T02:13:24.7585015Z writing basedagents.egg-info/PKG-INFO
+2026-10-06T02:13:24.7593764Z writing dependency_links to basedagents.egg-info/dependency_links.txt
+2026-10-06T02:13:24.7596747Z writing entry points to basedagents.egg-info/entry_points.txt
+2026-10-06T02:13:24.7600947Z writing requirements to basedagents.egg-info/requires.txt
+2026-10-06T02:13:24.7602449Z writing top-level names to basedagents.egg-info/top_level.txt
+2026-10-06T02:13:24.7655841Z reading manifest file 'basedagents.egg-info/SOURCES.txt'
+2026-10-06T02:13:24.7669979Z writing manifest file 'basedagents.egg-info/SOURCES.txt'
+2026-10-06T02:13:24.7897356Z WARNING `project.license` as a TOML table is deprecated
+2026-10-06T02:13:24.7898451Z !!
+2026-10-06T02:13:24.7898702Z 
+2026-10-06T02:13:24.7899138Z         ********************************************************************************
+2026-10-06T02:13:24.7901139Z         Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+2026-10-06T02:13:24.7902580Z 
+2026-10-06T02:13:24.7903176Z         By 2027-Feb-18, you need to update your project and remove deprecated calls
+2026-10-06T02:13:24.7904264Z         or your builds will no longer be supported.
+2026-10-06T02:13:24.7904764Z 
+2026-10-06T02:13:24.7905591Z         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-10-06T02:13:24.7907022Z         ********************************************************************************
+2026-10-06T02:13:24.7907848Z 
+2026-10-06T02:13:24.7908038Z !!
+2026-10-06T02:13:24.7908557Z WARNING License classifiers are deprecated.
+2026-10-06T02:13:24.7909034Z !!
+2026-10-06T02:13:24.7909193Z 
+2026-10-06T02:13:24.7909413Z         ********************************************************************************
+2026-10-06T02:13:24.7910064Z         Please consider removing the following classifiers in favor of a SPDX license expression:
+2026-10-06T02:13:24.7910754Z 
+2026-10-06T02:13:24.7911114Z         License :: OSI Approved :: MIT License
+2026-10-06T02:13:24.7911478Z 
+2026-10-06T02:13:24.7911908Z         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-10-06T02:13:24.7912582Z         ********************************************************************************
+2026-10-06T02:13:24.7912849Z 
+2026-10-06T02:13:24.7912943Z !!
+2026-10-06T02:13:24.7913245Z WARNING License classifiers are deprecated.
+2026-10-06T02:13:24.7913570Z !!
+2026-10-06T02:13:24.7913677Z 
+2026-10-06T02:13:24.7913883Z         ********************************************************************************
+2026-10-06T02:13:24.7914508Z         Please consider removing the following classifiers in favor of a SPDX license expression:
+2026-10-06T02:13:24.7914930Z 
+2026-10-06T02:13:24.7915095Z         License :: OSI Approved :: MIT License
+2026-10-06T02:13:24.7915317Z 
+2026-10-06T02:13:24.7915895Z         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-10-06T02:13:24.7916553Z         ********************************************************************************
+2026-10-06T02:13:24.7916827Z 
+2026-10-06T02:13:24.7916919Z !!
+2026-10-06T02:13:24.7917148Z * Building wheel...
+2026-10-06T02:13:24.9444165Z running bdist_wheel
+2026-10-06T02:13:24.9515544Z running build
+2026-10-06T02:13:24.9515979Z running build_py
+2026-10-06T02:13:24.9535496Z creating build/lib/basedagents
+2026-10-06T02:13:24.9538198Z copying basedagents/auth.py -> build/lib/basedagents
+2026-10-06T02:13:24.9540779Z copying basedagents/keypair.py -> build/lib/basedagents
+2026-10-06T02:13:24.9542942Z copying basedagents/cli.py -> build/lib/basedagents
+2026-10-06T02:13:24.9545241Z copying basedagents/middleware.py -> build/lib/basedagents
+2026-10-06T02:13:24.9547413Z copying basedagents/pow.py -> build/lib/basedagents
+2026-10-06T02:13:24.9549668Z copying basedagents/easy.py -> build/lib/basedagents
+2026-10-06T02:13:24.9551770Z copying basedagents/client.py -> build/lib/basedagents
+2026-10-06T02:13:24.9554187Z copying basedagents/__init__.py -> build/lib/basedagents
+2026-10-06T02:13:24.9557042Z creating build/lib/basedagents/integrations
+2026-10-06T02:13:24.9558971Z copying basedagents/integrations/langchain.py -> build/lib/basedagents/integrations
+2026-10-06T02:13:24.9561270Z copying basedagents/integrations/crewai.py -> build/lib/basedagents/integrations
+2026-10-06T02:13:24.9563297Z copying basedagents/integrations/autogen.py -> build/lib/basedagents/integrations
+2026-10-06T02:13:24.9565466Z copying basedagents/integrations/__init__.py -> build/lib/basedagents/integrations
+2026-10-06T02:13:24.9566445Z running egg_info
+2026-10-06T02:13:24.9581321Z writing basedagents.egg-info/PKG-INFO
+2026-10-06T02:13:24.9590150Z writing dependency_links to basedagents.egg-info/dependency_links.txt
+2026-10-06T02:13:24.9594050Z writing entry points to basedagents.egg-info/entry_points.txt
+2026-10-06T02:13:24.9598149Z writing requirements to basedagents.egg-info/requires.txt
+2026-10-06T02:13:24.9600374Z writing top-level names to basedagents.egg-info/top_level.txt
+2026-10-06T02:13:24.9625878Z reading manifest file 'basedagents.egg-info/SOURCES.txt'
+2026-10-06T02:13:24.9639012Z writing manifest file 'basedagents.egg-info/SOURCES.txt'
+2026-10-06T02:13:24.9671830Z installing to build/bdist.linux-x86_64/wheel
+2026-10-06T02:13:24.9672466Z running install
+2026-10-06T02:13:24.9742210Z running install_lib
+2026-10-06T02:13:24.9756554Z creating build/bdist.linux-x86_64/wheel
+2026-10-06T02:13:24.9759608Z creating build/bdist.linux-x86_64/wheel/basedagents
+2026-10-06T02:13:24.9761301Z copying build/lib/basedagents/auth.py -> build/bdist.linux-x86_64/wheel/./basedagents
+2026-10-06T02:13:24.9763121Z copying build/lib/basedagents/keypair.py -> build/bdist.linux-x86_64/wheel/./basedagents
+2026-10-06T02:13:24.9765354Z creating build/bdist.linux-x86_64/wheel/basedagents/integrations
+2026-10-06T02:13:24.9767242Z copying build/lib/basedagents/integrations/langchain.py -> build/bdist.linux-x86_64/wheel/./basedagents/integrations
+2026-10-06T02:13:24.9769259Z copying build/lib/basedagents/integrations/crewai.py -> build/bdist.linux-x86_64/wheel/./basedagents/integrations
+2026-10-06T02:13:24.9771018Z copying build/lib/basedagents/integrations/autogen.py -> build/bdist.linux-x86_64/wheel/./basedagents/integrations
+2026-10-06T02:13:24.9772817Z copying build/lib/basedagents/integrations/__init__.py -> build/bdist.linux-x86_64/wheel/./basedagents/integrations
+2026-10-06T02:13:24.9774278Z copying build/lib/basedagents/cli.py -> build/bdist.linux-x86_64/wheel/./basedagents
+2026-10-06T02:13:24.9776057Z copying build/lib/basedagents/middleware.py -> build/bdist.linux-x86_64/wheel/./basedagents
+2026-10-06T02:13:24.9777859Z copying build/lib/basedagents/pow.py -> build/bdist.linux-x86_64/wheel/./basedagents
+2026-10-06T02:13:24.9779572Z copying build/lib/basedagents/easy.py -> build/bdist.linux-x86_64/wheel/./basedagents
+2026-10-06T02:13:24.9781477Z copying build/lib/basedagents/client.py -> build/bdist.linux-x86_64/wheel/./basedagents
+2026-10-06T02:13:24.9783180Z copying build/lib/basedagents/__init__.py -> build/bdist.linux-x86_64/wheel/./basedagents
+2026-10-06T02:13:24.9784262Z running install_egg_info
+2026-10-06T02:13:24.9798629Z Copying basedagents.egg-info to build/bdist.linux-x86_64/wheel/./basedagents-0.5.2-py3.12.egg-info
+2026-10-06T02:13:24.9807117Z running install_scripts
+2026-10-06T02:13:24.9816878Z creating build/bdist.linux-x86_64/wheel/basedagents-0.5.2.dist-info/WHEEL
+2026-10-06T02:13:24.9822054Z creating '/home/runner/work/basedagents/basedagents/py-run1/.tmp-xv01x21v/basedagents-0.5.2-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+2026-10-06T02:13:24.9824948Z adding 'basedagents/__init__.py'
+2026-10-06T02:13:24.9827562Z adding 'basedagents/auth.py'
+2026-10-06T02:13:24.9832262Z adding 'basedagents/cli.py'
+2026-10-06T02:13:24.9843763Z adding 'basedagents/client.py'
+2026-10-06T02:13:24.9846958Z adding 'basedagents/easy.py'
+2026-10-06T02:13:24.9850082Z adding 'basedagents/keypair.py'
+2026-10-06T02:13:24.9854325Z adding 'basedagents/middleware.py'
+2026-10-06T02:13:24.9856690Z adding 'basedagents/pow.py'
+2026-10-06T02:13:24.9859373Z adding 'basedagents/integrations/__init__.py'
+2026-10-06T02:13:24.9863130Z adding 'basedagents/integrations/autogen.py'
+2026-10-06T02:13:24.9866566Z adding 'basedagents/integrations/crewai.py'
+2026-10-06T02:13:24.9870314Z adding 'basedagents/integrations/langchain.py'
+2026-10-06T02:13:24.9875629Z adding 'basedagents-0.5.2.dist-info/METADATA'
+2026-10-06T02:13:24.9877218Z adding 'basedagents-0.5.2.dist-info/WHEEL'
+2026-10-06T02:13:24.9879416Z adding 'basedagents-0.5.2.dist-info/entry_points.txt'
+2026-10-06T02:13:24.9880641Z adding 'basedagents-0.5.2.dist-info/top_level.txt'
+2026-10-06T02:13:24.9882988Z adding 'basedagents-0.5.2.dist-info/RECORD'
+2026-10-06T02:13:24.9884222Z removing build/bdist.linux-x86_64/wheel
+2026-10-06T02:13:25.0075639Z WARNING `project.license` as a TOML table is deprecated
+2026-10-06T02:13:25.0076110Z !!
+2026-10-06T02:13:25.0076239Z 
+2026-10-06T02:13:25.0076449Z         ********************************************************************************
+2026-10-06T02:13:25.0077343Z         Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+2026-10-06T02:13:25.0078295Z 
+2026-10-06T02:13:25.0078582Z         By 2027-Feb-18, you need to update your project and remove deprecated calls
+2026-10-06T02:13:25.0079063Z         or your builds will no longer be supported.
+2026-10-06T02:13:25.0079283Z 
+2026-10-06T02:13:25.0079659Z         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-10-06T02:13:25.0080273Z         ********************************************************************************
+2026-10-06T02:13:25.0080525Z 
+2026-10-06T02:13:25.0080604Z !!
+2026-10-06T02:13:25.0080882Z WARNING License classifiers are deprecated.
+2026-10-06T02:13:25.0081166Z !!
+2026-10-06T02:13:25.0081270Z 
+2026-10-06T02:13:25.0081673Z         ********************************************************************************
+2026-10-06T02:13:25.0082243Z         Please consider removing the following classifiers in favor of a SPDX license expression:
+2026-10-06T02:13:25.0082754Z 
+2026-10-06T02:13:25.0082941Z         License :: OSI Approved :: MIT License
+2026-10-06T02:13:25.0083149Z 
+2026-10-06T02:13:25.0083511Z         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-10-06T02:13:25.0084182Z         ********************************************************************************
+2026-10-06T02:13:25.0084421Z 
+2026-10-06T02:13:25.0084507Z !!
+2026-10-06T02:13:25.0084772Z WARNING License classifiers are deprecated.
+2026-10-06T02:13:25.0085063Z !!
+2026-10-06T02:13:25.0085158Z 
+2026-10-06T02:13:25.0085342Z         ********************************************************************************
+2026-10-06T02:13:25.0086034Z         Please consider removing the following classifiers in favor of a SPDX license expression:
+2026-10-06T02:13:25.0086410Z 
+2026-10-06T02:13:25.0086561Z         License :: OSI Approved :: MIT License
+2026-10-06T02:13:25.0086860Z 
+2026-10-06T02:13:25.0087221Z         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-10-06T02:13:25.0088057Z         ********************************************************************************
+2026-10-06T02:13:25.0088298Z 
+2026-10-06T02:13:25.0088382Z !!
+2026-10-06T02:13:25.0240497Z Successfully built basedagents-0.5.2.tar.gz and basedagents-0.5.2-py3-none-any.whl
+2026-10-06T02:13:25.0405181Z 167a114ffc54aed89d9b0dc282c1fcf02a915ba99aba70675f92cd96dd1d3353  basedagents-0.5.2-py3-none-any.whl
+2026-10-06T02:13:25.0406109Z e08ef164852b5dcce4c11f208836c7ece12bf412d91ae90737cbdf1111912687  basedagents-0.5.2.tar.gz
+2026-10-06T02:13:25.1211390Z * Creating isolated environment: venv+pip...
+2026-10-06T02:13:25.1247642Z * Installing packages in isolated environment:
+2026-10-06T02:13:25.8622040Z   - setuptools>=68
+2026-10-06T02:13:25.8622495Z   - wheel
+2026-10-06T02:13:25.8622996Z * Getting build dependencies for sdist...
+2026-10-06T02:13:26.3103934Z running egg_info
+2026-10-06T02:13:26.3120600Z creating basedagents.egg-info
+2026-10-06T02:13:26.3121525Z writing basedagents.egg-info/PKG-INFO
+2026-10-06T02:13:26.3130038Z writing dependency_links to basedagents.egg-info/dependency_links.txt
+2026-10-06T02:13:26.3132869Z writing entry points to basedagents.egg-info/entry_points.txt
+2026-10-06T02:13:26.3136791Z writing requirements to basedagents.egg-info/requires.txt
+2026-10-06T02:13:26.3138145Z writing top-level names to basedagents.egg-info/top_level.txt
+2026-10-06T02:13:26.3139612Z writing manifest file 'basedagents.egg-info/SOURCES.txt'
+2026-10-06T02:13:26.3194102Z reading manifest file 'basedagents.egg-info/SOURCES.txt'
+2026-10-06T02:13:26.3204168Z writing manifest file 'basedagents.egg-info/SOURCES.txt'
+2026-10-06T02:13:26.3424352Z WARNING `project.license` as a TOML table is deprecated
+2026-10-06T02:13:26.3425158Z !!
+2026-10-06T02:13:26.3425388Z 
+2026-10-06T02:13:26.3425821Z         ********************************************************************************
+2026-10-06T02:13:26.3427425Z         Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+2026-10-06T02:13:26.3428880Z 
+2026-10-06T02:13:26.3429374Z         By 2027-Feb-18, you need to update your project and remove deprecated calls
+2026-10-06T02:13:26.3430213Z         or your builds will no longer be supported.
+2026-10-06T02:13:26.3430592Z 
+2026-10-06T02:13:26.3431245Z         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-10-06T02:13:26.3432436Z         ********************************************************************************
+2026-10-06T02:13:26.3432896Z 
+2026-10-06T02:13:26.3433037Z !!
+2026-10-06T02:13:26.3433572Z WARNING License classifiers are deprecated.
+2026-10-06T02:13:26.3434429Z !!
+2026-10-06T02:13:26.3434634Z 
+2026-10-06T02:13:26.3435009Z         ********************************************************************************
+2026-10-06T02:13:26.3436003Z         Please consider removing the following classifiers in favor of a SPDX license expression:
+2026-10-06T02:13:26.3436422Z 
+2026-10-06T02:13:26.3436614Z         License :: OSI Approved :: MIT License
+2026-10-06T02:13:26.3436833Z 
+2026-10-06T02:13:26.3437221Z         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-10-06T02:13:26.3438385Z         ********************************************************************************
+2026-10-06T02:13:26.3438658Z 
+2026-10-06T02:13:26.3438740Z !!
+2026-10-06T02:13:26.3439022Z WARNING License classifiers are deprecated.
+2026-10-06T02:13:26.3439309Z !!
+2026-10-06T02:13:26.3439411Z 
+2026-10-06T02:13:26.3440001Z         ********************************************************************************
+2026-10-06T02:13:26.3440936Z         Please consider removing the following classifiers in favor of a SPDX license expression:
+2026-10-06T02:13:26.3441551Z 
+2026-10-06T02:13:26.3441810Z         License :: OSI Approved :: MIT License
+2026-10-06T02:13:26.3442161Z 
+2026-10-06T02:13:26.3442768Z         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-10-06T02:13:26.3443740Z         ********************************************************************************
+2026-10-06T02:13:26.3444136Z 
+2026-10-06T02:13:26.3444266Z !!
+2026-10-06T02:13:26.3444607Z * Building sdist...
+2026-10-06T02:13:26.4979552Z running sdist
+2026-10-06T02:13:26.4981310Z running egg_info
+2026-10-06T02:13:26.5011641Z writing basedagents.egg-info/PKG-INFO
+2026-10-06T02:13:26.5019667Z writing dependency_links to basedagents.egg-info/dependency_links.txt
+2026-10-06T02:13:26.5021937Z writing entry points to basedagents.egg-info/entry_points.txt
+2026-10-06T02:13:26.5025396Z writing requirements to basedagents.egg-info/requires.txt
+2026-10-06T02:13:26.5026869Z writing top-level names to basedagents.egg-info/top_level.txt
+2026-10-06T02:13:26.5077784Z reading manifest file 'basedagents.egg-info/SOURCES.txt'
+2026-10-06T02:13:26.5091307Z writing manifest file 'basedagents.egg-info/SOURCES.txt'
+2026-10-06T02:13:26.5093977Z running check
+2026-10-06T02:13:26.5124473Z creating basedagents-0.5.2
+2026-10-06T02:13:26.5127684Z creating basedagents-0.5.2/basedagents
+2026-10-06T02:13:26.5129617Z creating basedagents-0.5.2/basedagents.egg-info
+2026-10-06T02:13:26.5131348Z creating basedagents-0.5.2/basedagents/integrations
+2026-10-06T02:13:26.5132947Z creating basedagents-0.5.2/tests
+2026-10-06T02:13:26.5134187Z copying files to basedagents-0.5.2...
+2026-10-06T02:13:26.5135159Z copying README.md -> basedagents-0.5.2
+2026-10-06T02:13:26.5137720Z copying pyproject.toml -> basedagents-0.5.2
+2026-10-06T02:13:26.5139828Z copying basedagents/__init__.py -> basedagents-0.5.2/basedagents
+2026-10-06T02:13:26.5141746Z copying basedagents/auth.py -> basedagents-0.5.2/basedagents
+2026-10-06T02:13:26.5143520Z copying basedagents/cli.py -> basedagents-0.5.2/basedagents
+2026-10-06T02:13:26.5145528Z copying basedagents/client.py -> basedagents-0.5.2/basedagents
+2026-10-06T02:13:26.5147979Z copying basedagents/easy.py -> basedagents-0.5.2/basedagents
+2026-10-06T02:13:26.5149956Z copying basedagents/keypair.py -> basedagents-0.5.2/basedagents
+2026-10-06T02:13:26.5151777Z copying basedagents/middleware.py -> basedagents-0.5.2/basedagents
+2026-10-06T02:13:26.5153589Z copying basedagents/pow.py -> basedagents-0.5.2/basedagents
+2026-10-06T02:13:26.5155552Z copying basedagents.egg-info/PKG-INFO -> basedagents-0.5.2/basedagents.egg-info
+2026-10-06T02:13:26.5157696Z copying basedagents.egg-info/SOURCES.txt -> basedagents-0.5.2/basedagents.egg-info
+2026-10-06T02:13:26.5159698Z copying basedagents.egg-info/dependency_links.txt -> basedagents-0.5.2/basedagents.egg-info
+2026-10-06T02:13:26.5161405Z copying basedagents.egg-info/entry_points.txt -> basedagents-0.5.2/basedagents.egg-info
+2026-10-06T02:13:26.5163180Z copying basedagents.egg-info/requires.txt -> basedagents-0.5.2/basedagents.egg-info
+2026-10-06T02:13:26.5164954Z copying basedagents.egg-info/top_level.txt -> basedagents-0.5.2/basedagents.egg-info
+2026-10-06T02:13:26.5166769Z copying basedagents/integrations/__init__.py -> basedagents-0.5.2/basedagents/integrations
+2026-10-06T02:13:26.5168742Z copying basedagents/integrations/autogen.py -> basedagents-0.5.2/basedagents/integrations
+2026-10-06T02:13:26.5170612Z copying basedagents/integrations/crewai.py -> basedagents-0.5.2/basedagents/integrations
+2026-10-06T02:13:26.5172450Z copying basedagents/integrations/langchain.py -> basedagents-0.5.2/basedagents/integrations
+2026-10-06T02:13:26.5173943Z copying tests/test_auth.py -> basedagents-0.5.2/tests
+2026-10-06T02:13:26.5175770Z copying tests/test_client.py -> basedagents-0.5.2/tests
+2026-10-06T02:13:26.5178035Z copying tests/test_keypair.py -> basedagents-0.5.2/tests
+2026-10-06T02:13:26.5180435Z copying tests/test_middleware.py -> basedagents-0.5.2/tests
+2026-10-06T02:13:26.5182191Z copying tests/test_pow.py -> basedagents-0.5.2/tests
+2026-10-06T02:13:26.5191353Z Writing basedagents-0.5.2/setup.cfg
+2026-10-06T02:13:26.5192911Z Creating tar archive
+2026-10-06T02:13:26.5393102Z removing 'basedagents-0.5.2' (and everything under it)
+2026-10-06T02:13:26.5588369Z WARNING `project.license` as a TOML table is deprecated
+2026-10-06T02:13:26.5588979Z !!
+2026-10-06T02:13:26.5589152Z 
+2026-10-06T02:13:26.5589490Z         ********************************************************************************
+2026-10-06T02:13:26.5591029Z         Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+2026-10-06T02:13:26.5592072Z 
+2026-10-06T02:13:26.5592356Z         By 2027-Feb-18, you need to update your project and remove deprecated calls
+2026-10-06T02:13:26.5592849Z         or your builds will no longer be supported.
+2026-10-06T02:13:26.5593083Z 
+2026-10-06T02:13:26.5593479Z         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-10-06T02:13:26.5594081Z         ********************************************************************************
+2026-10-06T02:13:26.5594327Z 
+2026-10-06T02:13:26.5594407Z !!
+2026-10-06T02:13:26.5594688Z WARNING License classifiers are deprecated.
+2026-10-06T02:13:26.5594976Z !!
+2026-10-06T02:13:26.5595080Z 
+2026-10-06T02:13:26.5595264Z         ********************************************************************************
+2026-10-06T02:13:26.5595842Z         Please consider removing the following classifiers in favor of a SPDX license expression:
+2026-10-06T02:13:26.5596218Z 
+2026-10-06T02:13:26.5596392Z         License :: OSI Approved :: MIT License
+2026-10-06T02:13:26.5596597Z 
+2026-10-06T02:13:26.5596959Z         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-10-06T02:13:26.5597804Z         ********************************************************************************
+2026-10-06T02:13:26.5598067Z 
+2026-10-06T02:13:26.5598148Z !!
+2026-10-06T02:13:26.5598424Z WARNING License classifiers are deprecated.
+2026-10-06T02:13:26.5598704Z !!
+2026-10-06T02:13:26.5598806Z 
+2026-10-06T02:13:26.5598982Z         ********************************************************************************
+2026-10-06T02:13:26.5599535Z         Please consider removing the following classifiers in favor of a SPDX license expression:
+2026-10-06T02:13:26.5599907Z 
+2026-10-06T02:13:26.5600058Z         License :: OSI Approved :: MIT License
+2026-10-06T02:13:26.5600257Z 
+2026-10-06T02:13:26.5600618Z         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-10-06T02:13:26.5601212Z         ********************************************************************************
+2026-10-06T02:13:26.5601449Z 
+2026-10-06T02:13:26.5601524Z !!
+2026-10-06T02:13:26.5836909Z * Building wheel from sdist
+2026-10-06T02:13:26.5844817Z * Creating isolated environment: venv+pip...
+2026-10-06T02:13:26.5865550Z * Installing packages in isolated environment:
+2026-10-06T02:13:27.3224227Z   - setuptools>=68
+2026-10-06T02:13:27.3224658Z   - wheel
+2026-10-06T02:13:27.3224986Z * Getting build dependencies for wheel...
+2026-10-06T02:13:27.7688875Z running egg_info
+2026-10-06T02:13:27.7705314Z writing basedagents.egg-info/PKG-INFO
+2026-10-06T02:13:27.7714257Z writing dependency_links to basedagents.egg-info/dependency_links.txt
+2026-10-06T02:13:27.7717356Z writing entry points to basedagents.egg-info/entry_points.txt
+2026-10-06T02:13:27.7721471Z writing requirements to basedagents.egg-info/requires.txt
+2026-10-06T02:13:27.7723017Z writing top-level names to basedagents.egg-info/top_level.txt
+2026-10-06T02:13:27.7776433Z reading manifest file 'basedagents.egg-info/SOURCES.txt'
+2026-10-06T02:13:27.7790429Z writing manifest file 'basedagents.egg-info/SOURCES.txt'
+2026-10-06T02:13:27.8016591Z WARNING `project.license` as a TOML table is deprecated
+2026-10-06T02:13:27.8017216Z !!
+2026-10-06T02:13:27.8017353Z 
+2026-10-06T02:13:27.8017830Z         ********************************************************************************
+2026-10-06T02:13:27.8018752Z         Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+2026-10-06T02:13:27.8019837Z 
+2026-10-06T02:13:27.8020305Z         By 2027-Feb-18, you need to update your project and remove deprecated calls
+2026-10-06T02:13:27.8021103Z         or your builds will no longer be supported.
+2026-10-06T02:13:27.8021474Z 
+2026-10-06T02:13:27.8022384Z         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-10-06T02:13:27.8023199Z         ********************************************************************************
+2026-10-06T02:13:27.8023454Z 
+2026-10-06T02:13:27.8023545Z !!
+2026-10-06T02:13:27.8023829Z WARNING License classifiers are deprecated.
+2026-10-06T02:13:27.8024164Z !!
+2026-10-06T02:13:27.8024268Z 
+2026-10-06T02:13:27.8024461Z         ********************************************************************************
+2026-10-06T02:13:27.8025037Z         Please consider removing the following classifiers in favor of a SPDX license expression:
+2026-10-06T02:13:27.8025412Z 
+2026-10-06T02:13:27.8025591Z         License :: OSI Approved :: MIT License
+2026-10-06T02:13:27.8025800Z 
+2026-10-06T02:13:27.8026159Z         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-10-06T02:13:27.8026729Z         ********************************************************************************
+2026-10-06T02:13:27.8026965Z 
+2026-10-06T02:13:27.8027041Z !!
+2026-10-06T02:13:27.8027311Z WARNING License classifiers are deprecated.
+2026-10-06T02:13:27.8027825Z !!
+2026-10-06T02:13:27.8027933Z 
+2026-10-06T02:13:27.8028129Z         ********************************************************************************
+2026-10-06T02:13:27.8028698Z         Please consider removing the following classifiers in favor of a SPDX license expression:
+2026-10-06T02:13:27.8029066Z 
+2026-10-06T02:13:27.8029213Z         License :: OSI Approved :: MIT License
+2026-10-06T02:13:27.8029419Z 
+2026-10-06T02:13:27.8029781Z         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-10-06T02:13:27.8030349Z         ********************************************************************************
+2026-10-06T02:13:27.8030587Z 
+2026-10-06T02:13:27.8030665Z !!
+2026-10-06T02:13:27.8030881Z * Building wheel...
+2026-10-06T02:13:27.9571680Z running bdist_wheel
+2026-10-06T02:13:27.9639751Z running build
+2026-10-06T02:13:27.9640202Z running build_py
+2026-10-06T02:13:27.9657087Z creating build/lib/basedagents
+2026-10-06T02:13:27.9660132Z copying basedagents/auth.py -> build/lib/basedagents
+2026-10-06T02:13:27.9662689Z copying basedagents/keypair.py -> build/lib/basedagents
+2026-10-06T02:13:27.9664765Z copying basedagents/cli.py -> build/lib/basedagents
+2026-10-06T02:13:27.9667109Z copying basedagents/middleware.py -> build/lib/basedagents
+2026-10-06T02:13:27.9669599Z copying basedagents/pow.py -> build/lib/basedagents
+2026-10-06T02:13:27.9671649Z copying basedagents/easy.py -> build/lib/basedagents
+2026-10-06T02:13:27.9673772Z copying basedagents/client.py -> build/lib/basedagents
+2026-10-06T02:13:27.9676243Z copying basedagents/__init__.py -> build/lib/basedagents
+2026-10-06T02:13:27.9679463Z creating build/lib/basedagents/integrations
+2026-10-06T02:13:27.9681057Z copying basedagents/integrations/langchain.py -> build/lib/basedagents/integrations
+2026-10-06T02:13:27.9683342Z copying basedagents/integrations/crewai.py -> build/lib/basedagents/integrations
+2026-10-06T02:13:27.9685554Z copying basedagents/integrations/autogen.py -> build/lib/basedagents/integrations
+2026-10-06T02:13:27.9687756Z copying basedagents/integrations/__init__.py -> build/lib/basedagents/integrations
+2026-10-06T02:13:27.9689162Z running egg_info
+2026-10-06T02:13:27.9704030Z writing basedagents.egg-info/PKG-INFO
+2026-10-06T02:13:27.9713363Z writing dependency_links to basedagents.egg-info/dependency_links.txt
+2026-10-06T02:13:27.9717209Z writing entry points to basedagents.egg-info/entry_points.txt
+2026-10-06T02:13:27.9722127Z writing requirements to basedagents.egg-info/requires.txt
+2026-10-06T02:13:27.9724261Z writing top-level names to basedagents.egg-info/top_level.txt
+2026-10-06T02:13:27.9749724Z reading manifest file 'basedagents.egg-info/SOURCES.txt'
+2026-10-06T02:13:27.9762874Z writing manifest file 'basedagents.egg-info/SOURCES.txt'
+2026-10-06T02:13:27.9795928Z installing to build/bdist.linux-x86_64/wheel
+2026-10-06T02:13:27.9796559Z running install
+2026-10-06T02:13:27.9865672Z running install_lib
+2026-10-06T02:13:27.9888135Z creating build/bdist.linux-x86_64/wheel
+2026-10-06T02:13:27.9891159Z creating build/bdist.linux-x86_64/wheel/basedagents
+2026-10-06T02:13:27.9892968Z copying build/lib/basedagents/auth.py -> build/bdist.linux-x86_64/wheel/./basedagents
+2026-10-06T02:13:27.9894796Z copying build/lib/basedagents/keypair.py -> build/bdist.linux-x86_64/wheel/./basedagents
+2026-10-06T02:13:27.9896834Z creating build/bdist.linux-x86_64/wheel/basedagents/integrations
+2026-10-06T02:13:27.9898938Z copying build/lib/basedagents/integrations/langchain.py -> build/bdist.linux-x86_64/wheel/./basedagents/integrations
+2026-10-06T02:13:27.9900709Z copying build/lib/basedagents/integrations/crewai.py -> build/bdist.linux-x86_64/wheel/./basedagents/integrations
+2026-10-06T02:13:27.9902455Z copying build/lib/basedagents/integrations/autogen.py -> build/bdist.linux-x86_64/wheel/./basedagents/integrations
+2026-10-06T02:13:27.9904227Z copying build/lib/basedagents/integrations/__init__.py -> build/bdist.linux-x86_64/wheel/./basedagents/integrations
+2026-10-06T02:13:27.9905691Z copying build/lib/basedagents/cli.py -> build/bdist.linux-x86_64/wheel/./basedagents
+2026-10-06T02:13:27.9907710Z copying build/lib/basedagents/middleware.py -> build/bdist.linux-x86_64/wheel/./basedagents
+2026-10-06T02:13:27.9909505Z copying build/lib/basedagents/pow.py -> build/bdist.linux-x86_64/wheel/./basedagents
+2026-10-06T02:13:27.9911225Z copying build/lib/basedagents/easy.py -> build/bdist.linux-x86_64/wheel/./basedagents
+2026-10-06T02:13:27.9913015Z copying build/lib/basedagents/client.py -> build/bdist.linux-x86_64/wheel/./basedagents
+2026-10-06T02:13:27.9914913Z copying build/lib/basedagents/__init__.py -> build/bdist.linux-x86_64/wheel/./basedagents
+2026-10-06T02:13:27.9916059Z running install_egg_info
+2026-10-06T02:13:27.9930880Z Copying basedagents.egg-info to build/bdist.linux-x86_64/wheel/./basedagents-0.5.2-py3.12.egg-info
+2026-10-06T02:13:27.9939470Z running install_scripts
+2026-10-06T02:13:27.9949192Z creating build/bdist.linux-x86_64/wheel/basedagents-0.5.2.dist-info/WHEEL
+2026-10-06T02:13:27.9954059Z creating '/home/runner/work/basedagents/basedagents/py-run2/.tmp-x30ki6f8/basedagents-0.5.2-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+2026-10-06T02:13:27.9957027Z adding 'basedagents/__init__.py'
+2026-10-06T02:13:27.9960140Z adding 'basedagents/auth.py'
+2026-10-06T02:13:27.9964475Z adding 'basedagents/cli.py'
+2026-10-06T02:13:27.9976064Z adding 'basedagents/client.py'
+2026-10-06T02:13:27.9979515Z adding 'basedagents/easy.py'
+2026-10-06T02:13:27.9982294Z adding 'basedagents/keypair.py'
+2026-10-06T02:13:27.9986585Z adding 'basedagents/middleware.py'
+2026-10-06T02:13:27.9989404Z adding 'basedagents/pow.py'
+2026-10-06T02:13:27.9991612Z adding 'basedagents/integrations/__init__.py'
+2026-10-06T02:13:27.9995309Z adding 'basedagents/integrations/autogen.py'
+2026-10-06T02:13:27.9999030Z adding 'basedagents/integrations/crewai.py'
+2026-10-06T02:13:28.0002459Z adding 'basedagents/integrations/langchain.py'
+2026-10-06T02:13:28.0007531Z adding 'basedagents-0.5.2.dist-info/METADATA'
+2026-10-06T02:13:28.0009612Z adding 'basedagents-0.5.2.dist-info/WHEEL'
+2026-10-06T02:13:28.0011353Z adding 'basedagents-0.5.2.dist-info/entry_points.txt'
+2026-10-06T02:13:28.0012434Z adding 'basedagents-0.5.2.dist-info/top_level.txt'
+2026-10-06T02:13:28.0014808Z adding 'basedagents-0.5.2.dist-info/RECORD'
+2026-10-06T02:13:28.0016034Z removing build/bdist.linux-x86_64/wheel
+2026-10-06T02:13:28.0212879Z WARNING `project.license` as a TOML table is deprecated
+2026-10-06T02:13:28.0213600Z !!
+2026-10-06T02:13:28.0213828Z 
+2026-10-06T02:13:28.0214101Z         ********************************************************************************
+2026-10-06T02:13:28.0215280Z         Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+2026-10-06T02:13:28.0216123Z 
+2026-10-06T02:13:28.0216479Z         By 2027-Feb-18, you need to update your project and remove deprecated calls
+2026-10-06T02:13:28.0217089Z         or your builds will no longer be supported.
+2026-10-06T02:13:28.0217363Z 
+2026-10-06T02:13:28.0218064Z         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-10-06T02:13:28.0218705Z         ********************************************************************************
+2026-10-06T02:13:28.0218974Z 
+2026-10-06T02:13:28.0219060Z !!
+2026-10-06T02:13:28.0219357Z WARNING License classifiers are deprecated.
+2026-10-06T02:13:28.0219660Z !!
+2026-10-06T02:13:28.0219768Z 
+2026-10-06T02:13:28.0219963Z         ********************************************************************************
+2026-10-06T02:13:28.0220580Z         Please consider removing the following classifiers in favor of a SPDX license expression:
+2026-10-06T02:13:28.0220977Z 
+2026-10-06T02:13:28.0221163Z         License :: OSI Approved :: MIT License
+2026-10-06T02:13:28.0221383Z 
+2026-10-06T02:13:28.0221788Z         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-10-06T02:13:28.0222417Z         ********************************************************************************
+2026-10-06T02:13:28.0222681Z 
+2026-10-06T02:13:28.0222770Z !!
+2026-10-06T02:13:28.0223058Z WARNING License classifiers are deprecated.
+2026-10-06T02:13:28.0223357Z !!
+2026-10-06T02:13:28.0223460Z 
+2026-10-06T02:13:28.0223653Z         ********************************************************************************
+2026-10-06T02:13:28.0224249Z         Please consider removing the following classifiers in favor of a SPDX license expression:
+2026-10-06T02:13:28.0224641Z 
+2026-10-06T02:13:28.0224797Z         License :: OSI Approved :: MIT License
+2026-10-06T02:13:28.0225012Z 
+2026-10-06T02:13:28.0225389Z         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-10-06T02:13:28.0226004Z         ********************************************************************************
+2026-10-06T02:13:28.0226258Z 
+2026-10-06T02:13:28.0226340Z !!
+2026-10-06T02:13:28.0381562Z Successfully built basedagents-0.5.2.tar.gz and basedagents-0.5.2-py3-none-any.whl
+2026-10-06T02:13:28.0559209Z 167a114ffc54aed89d9b0dc282c1fcf02a915ba99aba70675f92cd96dd1d3353  basedagents-0.5.2-py3-none-any.whl
+2026-10-06T02:13:28.0560497Z a6ab15d9b0e38ca02dacba88746d82aacd6a2225da585dc397b1e54811908518  basedagents-0.5.2.tar.gz
+2026-10-06T02:13:28.0584832Z wheel: REPRODUCIBLE (byte-identical)
+2026-10-06T02:13:28.0601938Z 1c1
+2026-10-06T02:13:28.0602840Z < e08ef164852b5dcce4c11f208836c7ece12bf412d91ae90737cbdf1111912687  basedagents-0.5.2.tar.gz
+2026-10-06T02:13:28.0603369Z ---
+2026-10-06T02:13:28.0603874Z > a6ab15d9b0e38ca02dacba88746d82aacd6a2225da585dc397b1e54811908518  basedagents-0.5.2.tar.gz
+2026-10-06T02:13:28.0708756Z sdist: NOT byte-identical (gzip/tar mtimes only) — file contents identical
+2026-10-06T02:13:28.4026253Z Checking py-run1/basedagents-0.5.2-py3-none-any.whl: [32mPASSED[0m
+2026-10-06T02:13:28.4078172Z Checking py-run1/basedagents-0.5.2.tar.gz: [32mPASSED[0m
+2026-10-06T02:13:28.4389000Z ##[group]Run cd release-artifacts && sha256sum -- * | tee SHA256SUMS
+2026-10-06T02:13:28.4389541Z [36;1mcd release-artifacts && sha256sum -- * | tee SHA256SUMS[0m
+2026-10-06T02:13:28.4453945Z shell: /usr/bin/bash -e {0}
+2026-10-06T02:13:28.4454209Z env:
+2026-10-06T02:13:28.4454488Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:28.4454942Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-10-06T02:13:28.4455377Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:28.4455761Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:28.4456150Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:28.4456554Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-10-06T02:13:28.4456881Z ##[endgroup]
+2026-10-06T02:13:28.4556150Z c05c3688ad2d4c4afbdce211ffa671c87106c4e55c403a095d3f7260cbcc6537  basedagents-0.10.1.tgz
+2026-10-06T02:13:28.4558128Z 167a114ffc54aed89d9b0dc282c1fcf02a915ba99aba70675f92cd96dd1d3353  basedagents-0.5.2-py3-none-any.whl
+2026-10-06T02:13:28.4559697Z e08ef164852b5dcce4c11f208836c7ece12bf412d91ae90737cbdf1111912687  basedagents-0.5.2.tar.gz
+2026-10-06T02:13:28.4561184Z ba186feb883e72ee85229309aab27ea6a35962c07e93ca1070270eeee58bcef8  basedagents-mcp-0.7.2.tgz
+2026-10-06T02:13:28.4658271Z ##[group]Run actions/attest-build-provenance@e8998f949152b193b063cb0ec769d69d929409be
+2026-10-06T02:13:28.4658749Z with:
+2026-10-06T02:13:28.4659144Z   subject-path: release-artifacts/*.tgz
+release-artifacts/*.whl
+release-artifacts/*.tar.gz
+
+2026-10-06T02:13:28.4659614Z   push-to-registry: false
+2026-10-06T02:13:28.4659852Z   show-summary: true
+2026-10-06T02:13:28.4662128Z   github-token: ***
+2026-10-06T02:13:28.4662347Z env:
+2026-10-06T02:13:28.4662620Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:28.4663061Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-10-06T02:13:28.4663498Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:28.4663886Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:28.4664283Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:28.4664684Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-10-06T02:13:28.4665035Z ##[endgroup]
+2026-10-06T02:13:28.4721118Z ##[start-action display=Run actions/attest-build-provenance/predicate@1176ef556905f349f669722abf30bce1a6e16e01;id=__actions_attest-build-provenance.generate-build-provenance-predicate]
+2026-10-06T02:13:28.4770278Z ##[group]Run actions/attest-build-provenance/predicate@1176ef556905f349f669722abf30bce1a6e16e01
+2026-10-06T02:13:28.4770743Z env:
+2026-10-06T02:13:28.4771013Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:28.4771458Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-10-06T02:13:28.4771893Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:28.4772275Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:28.4772659Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:28.4773209Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-10-06T02:13:28.4773534Z ##[endgroup]
+2026-10-06T02:13:28.9901431Z ##[end-action id=__actions_attest-build-provenance.generate-build-provenance-predicate;outcome=success;conclusion=success;duration_ms=517]
+2026-10-06T02:13:28.9906209Z ##[start-action display=Run actions/attest@ce27ba3b4a9a139d9a20a4a07d69fabb52f1e5bc;id=__actions_attest-build-provenance.attest]
+2026-10-06T02:13:28.9943019Z ##[group]Run actions/attest@ce27ba3b4a9a139d9a20a4a07d69fabb52f1e5bc
+2026-10-06T02:13:28.9943408Z with:
+2026-10-06T02:13:28.9943786Z   subject-path: release-artifacts/*.tgz
+release-artifacts/*.whl
+release-artifacts/*.tar.gz
+
+2026-10-06T02:13:28.9944296Z   predicate-type: https://slsa.dev/provenance/v1
+2026-10-06T02:13:28.9947237Z   predicate: {"buildDefinition":{"buildType":"https://actions.github.io/buildtypes/workflow/v1","externalParameters":{"workflow":{"ref":"refs/tags/v0.0.0-test.1","repository":"https://github.com/tshyshko/basedagents","path":".github/workflows/release.yml"}},"internalParameters":{"github":{"event_name":"push","repository_id":"1406580180","repository_owner_id":"252507665","runner_environment":"github-hosted"}},"resolvedDependencies":[{"uri":"git+https://github.com/tshyshko/basedagents@refs/tags/v0.0.0-test.1","digest":{"gitCommit":"ef1cb5dabeaa85627dc0768828a04351b073415d"}}]},"runDetails":{"builder":{"id":"https://github.com/tshyshko/basedagents/.github/workflows/release.yml@refs/tags/v0.0.0-test.1"},"metadata":{"invocationId":"https://github.com/tshyshko/basedagents/actions/runs/37402878934/attempts/2"}}}
+2026-10-06T02:13:28.9950451Z   push-to-registry: false
+2026-10-06T02:13:28.9950697Z   show-summary: true
+2026-10-06T02:13:28.9953029Z   github-token: ***
+2026-10-06T02:13:28.9953244Z env:
+2026-10-06T02:13:28.9953510Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:28.9953972Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-10-06T02:13:28.9954419Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:28.9954831Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:28.9955421Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:28.9955835Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-10-06T02:13:28.9956170Z ##[endgroup]
+2026-10-06T02:13:30.2258439Z Attestation created for 4 subjects
+2026-10-06T02:13:30.2259997Z ##[group][36mAttestation signed using certificate from Public Good Sigstore instance[39m
+2026-10-06T02:13:30.2260883Z -----BEGIN CERTIFICATE-----
+2026-10-06T02:13:30.2261683Z MIIHHDCCBqKgAwIBAgIUDqvP31CZBNF9+lqhRTjJBo2MBQAwCgYIKoZIzj0EAwMw
+2026-10-06T02:13:30.2262746Z NzEVMBMGA1UEChMMc2lnc3RvcmUuZGV2MR4wHAYDVQQDExVzaWdzdG9yZS1pbnRl
+2026-10-06T02:13:30.2263799Z cm1lZGlhdGUwHhcNMjYxMDA2MDIxMzI5WhcNMjYxMDA2MDIyMzI5WjAAMFkwEwYH
+2026-10-06T02:13:30.2264842Z KoZIzj0CAQYIKoZIzj0DAQcDQgAEp8koRLFu/0wTPiSXgUTPljkRTEeRrgNZKIs6
+2026-10-06T02:13:30.2265888Z aMg5qo3uZRlnmakIs8bQ/tzBMcgvqQI9JbpB/Xl8+aMnQcmfxKOCBcEwggW9MA4G
+2026-10-06T02:13:30.2266953Z A1UdDwEB/wQEAwIHgDATBgNVHSUEDDAKBggrBgEFBQcDAzAfBgNVHSMEGDAWgBTf
+2026-10-06T02:13:30.2268521Z 0+nPViQRlvmo2OkoVaLGLhhkPzBrBgNVHREBAf8EYTBfhl1odHRwczovL2dpdGh1
+2026-10-06T02:13:30.2269698Z Yi5jb20vdHNoeXNoa28vYmFzZWRhZ2VudHMvLmdpdGh1Yi93b3JrZmxvd3MvcmVs
+2026-10-06T02:13:30.2270861Z ZWFzZS55bWxAcmVmcy90YWdzL3YwLjAuMC10ZXN0LjEwOQYKKwYBBAGDvzABAQQr
+2026-10-06T02:13:30.2271866Z aHR0cHM6Ly90b2tlbi5hY3Rpb25zLmdpdGh1YnVzZXJjb250ZW50LmNvbTASBgor
+2026-10-06T02:13:30.2272912Z BgEEAYO/MAECBARwdXNoMDYGCisGAQQBg78wAQMEKGVmMWNiNWRhYmVhYTg1NjI3
+2026-10-06T02:13:30.2273946Z ZGMwNzY4ODI4YTA0MzUxYjA3MzQxNWQwFQYKKwYBBAGDvzABBAQHUmVsZWFzZTAi
+2026-10-06T02:13:30.2274957Z BgorBgEEAYO/MAEFBBR0c2h5c2hrby9iYXNlZGFnZW50czAlBgorBgEEAYO/MAEG
+2026-10-06T02:13:30.2275953Z BBdyZWZzL3RhZ3MvdjAuMC4wLXRlc3QuMTA7BgorBgEEAYO/MAEIBC0MK2h0dHBz
+2026-10-06T02:13:30.2276963Z Oi8vdG9rZW4uYWN0aW9ucy5naXRodWJ1c2VyY29udGVudC5jb20wbQYKKwYBBAGD
+2026-10-06T02:13:30.2278228Z vzABCQRfDF1odHRwczovL2dpdGh1Yi5jb20vdHNoeXNoa28vYmFzZWRhZ2VudHMv
+2026-10-06T02:13:30.2279532Z LmdpdGh1Yi93b3JrZmxvd3MvcmVsZWFzZS55bWxAcmVmcy90YWdzL3YwLjAuMC10
+2026-10-06T02:13:30.2280650Z ZXN0LjEwOAYKKwYBBAGDvzABCgQqDChlZjFjYjVkYWJlYWE4NTYyN2RjMDc2ODgy
+2026-10-06T02:13:30.2281749Z OGEwNDM1MWIwNzM0MTVkMB0GCisGAQQBg78wAQsEDwwNZ2l0aHViLWhvc3RlZDA3
+2026-10-06T02:13:30.2282808Z BgorBgEEAYO/MAEMBCkMJ2h0dHBzOi8vZ2l0aHViLmNvbS90c2h5c2hrby9iYXNl
+2026-10-06T02:13:30.2283881Z ZGFnZW50czA4BgorBgEEAYO/MAENBCoMKGVmMWNiNWRhYmVhYTg1NjI3ZGMwNzY4
+2026-10-06T02:13:30.2285001Z ODI4YTA0MzUxYjA3MzQxNWQwJwYKKwYBBAGDvzABDgQZDBdyZWZzL3RhZ3MvdjAu
+2026-10-06T02:13:30.2286144Z MC4wLXRlc3QuMTAaBgorBgEEAYO/MAEPBAwMCjE0MDY1ODAxODAwKwYKKwYBBAGD
+2026-10-06T02:13:30.2287343Z vzABEAQdDBtodHRwczovL2dpdGh1Yi5jb20vdHNoeXNoa28wGQYKKwYBBAGDvzAB
+2026-10-06T02:13:30.2288779Z EQQLDAkyNTI1MDc2NjUwbQYKKwYBBAGDvzABEgRfDF1odHRwczovL2dpdGh1Yi5j
+2026-10-06T02:13:30.2289944Z b20vdHNoeXNoa28vYmFzZWRhZ2VudHMvLmdpdGh1Yi93b3JrZmxvd3MvcmVsZWFz
+2026-10-06T02:13:30.2291121Z ZS55bWxAcmVmcy90YWdzL3YwLjAuMC10ZXN0LjEwOAYKKwYBBAGDvzABEwQqDChl
+2026-10-06T02:13:30.2292231Z ZjFjYjVkYWJlYWE4NTYyN2RjMDc2ODgyOGEwNDM1MWIwNzM0MTVkMBQGCisGAQQB
+2026-10-06T02:13:30.2293410Z g78wARQEBgwEcHVzaDBbBgorBgEEAYO/MAEVBE0MS2h0dHBzOi8vZ2l0aHViLmNv
+2026-10-06T02:13:30.2294534Z bS90c2h5c2hrby9iYXNlZGFnZW50cy9hY3Rpb25zL3J1bnMvMzc0MDI4Nzg5MzQv
+2026-10-06T02:13:30.2295674Z YXR0ZW1wdHMvMjAWBgorBgEEAYO/MAEWBAgMBnB1YmxpYzBaBgorBgEEAYO/MAEY
+2026-10-06T02:13:30.2296813Z BEwMSnJlcG86dHNoeXNoa29AMjUyNTA3NjY1L2Jhc2VkYWdlbnRzQDE0MDY1ODAx
+2026-10-06T02:13:30.2298344Z ODA6cmVmOnJlZnMvdGFncy92MC4wLjAtdGVzdC4xMIGJBgorBgEEAdZ5AgQCBHsE
+2026-10-06T02:13:30.2299497Z eQB3AHUA3T0wasbHETJjGR4cmWc3AqJKXrjePK3/h4pygC8p7o4AAAGhDvzG3wAA
+2026-10-06T02:13:30.2300580Z BAMARjBEAiAvh4d/qoxv++xT7wlVoDeip2TyuErSeD3E+G2pNJAo0gIgOm1RsJJO
+2026-10-06T02:13:30.2301725Z pca7rLdHsmr8zF+XuyuqTgNbru7RXlaHurQwCgYIKoZIzj0EAwMDaAAwZQIxAOSt
+2026-10-06T02:13:30.2302862Z RRIhWw5U/MsepzoU4iHGIMqwG/5A56RIGwtUil8+iM0220Va6A6+bfcFTP21WAIw
+2026-10-06T02:13:30.2303950Z HrQIGO32HSTnsvcrRFHs2i6/AgMiwTvbM44Fol71h4yPgnq1m1bRf5bONE4K0mp+
+2026-10-06T02:13:30.2304745Z -----END CERTIFICATE-----
+2026-10-06T02:13:30.2305069Z 
+2026-10-06T02:13:30.2305815Z ##[endgroup]
+2026-10-06T02:13:30.2306817Z [36mAttestation signature uploaded to Rekor transparency log[39m
+2026-10-06T02:13:30.2308023Z https://search.sigstore.dev?logIndex=3099805662
+2026-10-06T02:13:30.2308880Z [36mAttestation uploaded to repository[39m
+2026-10-06T02:13:30.2309787Z https://github.com/tshyshko/basedagents/attestations/53026922
+2026-10-06T02:13:30.2575925Z ##[end-action id=__actions_attest-build-provenance.attest;outcome=success;conclusion=success;duration_ms=1266]
+2026-10-06T02:13:30.2644429Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-10-06T02:13:30.2644861Z with:
+2026-10-06T02:13:30.2645069Z   name: release-artifacts
+2026-10-06T02:13:30.2645322Z   path: release-artifacts/
+2026-10-06T02:13:30.2645570Z   if-no-files-found: error
+2026-10-06T02:13:30.2645814Z   retention-days: 30
+2026-10-06T02:13:30.2646053Z   compression-level: 6
+2026-10-06T02:13:30.2646275Z   overwrite: false
+2026-10-06T02:13:30.2646504Z   include-hidden-files: false
+2026-10-06T02:13:30.2646745Z env:
+2026-10-06T02:13:30.2647008Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:30.2647772Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-10-06T02:13:30.2648314Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:30.2648714Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:30.2649106Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-06T02:13:30.2649524Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-10-06T02:13:30.2649861Z ##[endgroup]
+2026-10-06T02:13:30.4267558Z (node:2892) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-06T02:13:30.4268419Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-06T02:13:30.4332934Z With the provided path, there will be 5 files uploaded
+2026-10-06T02:13:30.4340112Z Artifact name is valid!
+2026-10-06T02:13:30.4340978Z Root directory input is valid!
+2026-10-06T02:13:30.7244466Z Beginning upload of artifact content to blob storage
+2026-10-06T02:13:30.7604277Z (node:2892) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-06T02:13:31.0088654Z Uploaded bytes 283957
+2026-10-06T02:13:31.0535887Z Finished uploading artifact content to blob storage!
+2026-10-06T02:13:31.0537209Z SHA256 digest of uploaded artifact zip is 6989cc05657762754ab758aacf3b35007f691322bf7dbf8897b05bba1f6be3d8
+2026-10-06T02:13:31.0538884Z Finalizing artifact upload
+2026-10-06T02:13:31.3114520Z Artifact release-artifacts.zip successfully finalized. Artifact ID 11386246436
+2026-10-06T02:13:31.3115762Z Artifact release-artifacts has been successfully uploaded! Final size is 283957 bytes. Artifact ID is 11386246436
+2026-10-06T02:13:31.3121209Z Artifact download URL: https://github.com/tshyshko/basedagents/actions/runs/37402878934/artifacts/11386246436
+2026-10-06T02:13:31.3284479Z Post job cleanup.
+2026-10-06T02:13:31.4487971Z (node:2904) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-06T02:13:31.4488901Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-06T02:13:31.4650104Z Post job cleanup.
+2026-10-06T02:13:31.6107050Z (node:2912) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-06T02:13:31.6108472Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-06T02:13:31.6111162Z Cache hit occurred on the primary key node-cache-Linux-x64-npm-f0dfbeccf4cf03614a1c70e0a334c7d6dee17688428dbfb743ab1fccbde237df, not saving cache.
+2026-10-06T02:13:31.6236707Z Post job cleanup.
+2026-10-06T02:13:31.7108136Z [command]/usr/bin/git version
+2026-10-06T02:13:31.7142468Z git version 2.55.0
+2026-10-06T02:13:31.7181947Z Temporarily overriding HOME='/home/runner/work/_temp/44ac7888-1449-44c3-ae89-7349c1b8e58a' before making global git config changes
+2026-10-06T02:13:31.7183453Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-06T02:13:31.7187238Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/basedagents/basedagents
+2026-10-06T02:13:31.7228307Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-06T02:13:31.7264593Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-06T02:13:31.7517151Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-06T02:13:31.7556576Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-06T02:13:31.7813412Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-06T02:13:31.7848462Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-06T02:13:31.8241725Z Cleaning up orphan processes
+2026-10-06T02:13:31.8577416Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/attest-build-provenance/predicate@1176ef556905f349f669722abf30bce1a6e16e01, actions/attest@ce27ba3b4a9a139d9a20a4a07d69fabb52f1e5bc, actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
