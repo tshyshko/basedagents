@@ -1,0 +1,63 @@
+From 2350a3bd34dbb240857d8b2c0e9ce7bd7abc361c Mon Sep 17 00:00:00 2001
+From: tshyshko <tshyshko@users.noreply.github.com>
+Date: Sat, 10 Oct 2026 12:33:53 -0400
+Subject: [PATCH 2/2] ci(publish): dry-run a unique prerelease so npm 11.21.0's
+ dry-run doesn't fail on already-published versions
+
+---
+ .github/workflows/publish-dryrun-verify.yml |  9 ++++++++-
+ .github/workflows/publish.yml               | 14 ++++++++++++--
+ 2 files changed, 20 insertions(+), 3 deletions(-)
+
+diff --git a/.github/workflows/publish-dryrun-verify.yml b/.github/workflows/publish-dryrun-verify.yml
+index 04dfdcb..b4b0bdb 100644
+--- a/.github/workflows/publish-dryrun-verify.yml
++++ b/.github/workflows/publish-dryrun-verify.yml
+@@ -26,4 +26,11 @@ jobs:
+         run: test "$(npm --version)" = "11.21.0"
+       - run: npm ci
+       - name: Dry-run publish (no registry write)
+-        run: npm publish --dry-run --workspace=${{ matrix.pkg }}
++        # npm >= 11 refuses `publish --dry-run` over an already-published version, so the
++        # dry run publishes a unique prerelease of the checked-in version under a non-latest tag.
++        env:
++          PKG: ${{ matrix.pkg }}
++        run: |
++          v=$(jq -r .version "$PKG/package.json")-dryrun.${GITHUB_RUN_ID}.${GITHUB_RUN_ATTEMPT}
++          npm version --no-git-tag-version --workspace="$PKG" "$v"
++          npm publish --dry-run --tag dryrun --workspace="$PKG"
+diff --git a/.github/workflows/publish.yml b/.github/workflows/publish.yml
+index 6184a04..fa2e4ca 100644
+--- a/.github/workflows/publish.yml
++++ b/.github/workflows/publish.yml
+@@ -147,7 +147,12 @@ jobs:
+         run: scripts/publish-if-unpublished.sh packages/sdk
+       - name: Dry-run publish (no registry write)
+         if: needs.gate.outputs.dry_run == 'true'
+-        run: npm publish --dry-run --workspace=packages/sdk
++        # npm >= 11 refuses `publish --dry-run` over an already-published version (seen in the
++        # fork once the pin ran here), so dry-run a unique prerelease under a non-latest tag.
++        run: |
++          v=$(jq -r .version packages/sdk/package.json)-dryrun.${GITHUB_RUN_ID}.${GITHUB_RUN_ATTEMPT}
++          npm version --no-git-tag-version --workspace=packages/sdk "$v"
++          npm publish --dry-run --tag dryrun --workspace=packages/sdk
+ 
+   mcp:
+     name: npm @basedagents/mcp
+@@ -175,7 +180,12 @@ jobs:
+         run: scripts/publish-if-unpublished.sh packages/mcp
+       - name: Dry-run publish (no registry write)
+         if: needs.gate.outputs.dry_run == 'true'
+-        run: npm publish --dry-run --workspace=packages/mcp
++        # npm >= 11 refuses `publish --dry-run` over an already-published version (seen in the
++        # fork once the pin ran here), so dry-run a unique prerelease under a non-latest tag.
++        run: |
++          v=$(jq -r .version packages/mcp/package.json)-dryrun.${GITHUB_RUN_ID}.${GITHUB_RUN_ATTEMPT}
++          npm version --no-git-tag-version --workspace=packages/mcp "$v"
++          npm publish --dry-run --tag dryrun --workspace=packages/mcp
+ 
+   # The official MCP Registry (registry.modelcontextprotocol.io) lists what
+   # packages/mcp/server.json says — its description comes from positioning.
+-- 
+2.47.3
+

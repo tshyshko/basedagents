@@ -1,0 +1,3 @@
+947e4c03828ab4030cd98ca049e94b79461ca7cb66d26b3e32ef6d77d78e655e  0001-harden-release-publish-pipeline.patch
+0b87347fac3ebaf49beac89cee7a0e2fce118b8e91ac93cbb2e629894c063f89  0002-f4-run-npm-pin-on-dry-run-path.patch
+6fbc530f7db8a3382cc9194cd5a1600679e715e2e740ede04f43f778b60cf493  0003-f16-npm11-dry-run-unique-prerelease.patch

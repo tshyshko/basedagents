@@ -1,0 +1,478 @@
+From ef1cb5dabeaa85627dc0768828a04351b073415d Mon Sep 17 00:00:00 2001
+From: tshyshko <tshyshko@users.noreply.github.com>
+Date: Mon, 5 Oct 2026 22:08:54 -0400
+Subject: [PATCH] ci(release): harden release/publish pipeline (fork audit)
+
+- pin every third-party action to a full commit SHA (tag in comment)
+- least-privilege permissions: release.yml top-level {} with per-job grants;
+  ci/canary/prod-drift default to contents: read
+- release.yml: package job builds sdk/mcp/python from the lockfile, packs twice
+  from clean builds and fails on any hash diff, cleans tsconfig.tsbuildinfo
+  (stale composite cache packed a dist-less sdk), runs npm publish --dry-run
+  and twine check (no registry write), attests build provenance, attaches
+  artifacts + SHA256SUMS; '-' tags are pre-releases, never latest
+- publish.yml: dry-run forced outside maxfain/basedagents and default for
+  dispatch; npm pinned to 11.21.0 instead of npm@latest; pypi action pinned
+- ci.yml: production deploy only in maxfain/basedagents
+- canary/prod-drift: scheduled runs only in maxfain/basedagents
+---
+ .github/workflows/canary.yml     |   6 ++
+ .github/workflows/ci.yml         |  55 ++++++------
+ .github/workflows/prod-drift.yml |  10 ++-
+ .github/workflows/publish.yml    |  75 +++++++++++-----
+ .github/workflows/release.yml    | 142 +++++++++++++++++++++++++++++--
+ 5 files changed, 232 insertions(+), 56 deletions(-)
+
+diff --git a/.github/workflows/canary.yml b/.github/workflows/canary.yml
+index 0f7899b..0bd9d43 100644
+--- a/.github/workflows/canary.yml
++++ b/.github/workflows/canary.yml
+@@ -21,4 +21,10 @@ on:
+ 
++permissions:
++  contents: read
++
+ jobs:
+   canary:
++    # Probes production; scheduled runs belong to upstream only (forks would
++    # poll basedagents.ai on a cron). Manual dispatch still works anywhere.
++    if: github.repository == 'maxfain/basedagents' || github.event_name == 'workflow_dispatch'
+     runs-on: ubuntu-latest
+diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml
+index 77c0030..75d0da7 100644
+--- a/.github/workflows/ci.yml
++++ b/.github/workflows/ci.yml
+@@ -12,2 +12,6 @@ on:
+ 
++# Least privilege by default; jobs that need more ask for it (preview).
++permissions:
++  contents: read
++
+ concurrency:
+@@ -22,5 +26,4 @@ jobs:
+     steps:
+-      - uses: actions/checkout@v4
+-
+-      - uses: actions/setup-node@v4
++      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
++      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4.4.0
+         with:
+@@ -89,5 +92,4 @@ jobs:
+     steps:
+-      - uses: actions/checkout@v4
+-
+-      - uses: actions/setup-node@v4
++      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
++      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4.4.0
+         with:
+@@ -109,5 +111,4 @@ jobs:
+     steps:
+-      - uses: actions/checkout@v4
+-
+-      - uses: actions/setup-python@v5
++      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
++      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065  # v5.6.0
+         with:
+@@ -126,5 +127,4 @@ jobs:
+     steps:
+-      - uses: actions/checkout@v4
+-
+-      - uses: actions/setup-node@v4
++      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
++      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4.4.0
+         with:
+@@ -159,3 +159,3 @@ jobs:
+         if: failure()
+-        uses: actions/upload-artifact@v4
++        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # v4.6.2
+         with:
+@@ -181,5 +181,4 @@ jobs:
+     steps:
+-      - uses: actions/checkout@v4
+-
+-      - uses: actions/setup-node@v4
++      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
++      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4.4.0
+         with:
+@@ -200,3 +199,3 @@ jobs:
+         id: deploy
+-        uses: cloudflare/wrangler-action@v3
++        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd  # v3.15.0
+         with:
+@@ -210,3 +209,3 @@ jobs:
+         id: deploy-site
+-        uses: cloudflare/wrangler-action@v3
++        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd  # v3.15.0
+         with:
+@@ -225,3 +224,3 @@ jobs:
+         if: always()
+-        uses: actions/github-script@v7
++        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b  # v7.1.0
+         with:
+@@ -246,3 +245,4 @@ jobs:
+     name: Deploy production (API + console)
+-    if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
++    # Upstream only: a fork has no Cloudflare secrets and must never try to deploy.
++    if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main' && github.repository == 'maxfain/basedagents'
+     needs: [node, python, e2e]
+@@ -252,5 +252,4 @@ jobs:
+     steps:
+-      - uses: actions/checkout@v4
+-
+-      - uses: actions/setup-node@v4
++      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
++      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4.4.0
+         with:
+@@ -302,3 +301,3 @@ jobs:
+       - name: Apply D1 migrations
+-        uses: cloudflare/wrangler-action@v3
++        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd  # v3.15.0
+         with:
+@@ -311,3 +310,3 @@ jobs:
+       - name: Deploy API Worker
+-        uses: cloudflare/wrangler-action@v3
++        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd  # v3.15.0
+         with:
+@@ -325,3 +324,3 @@ jobs:
+       - name: Deploy MCP Worker
+-        uses: cloudflare/wrangler-action@v3
++        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd  # v3.15.0
+         with:
+@@ -336,3 +335,3 @@ jobs:
+       - name: Deploy console to Cloudflare Pages (production)
+-        uses: cloudflare/wrangler-action@v3
++        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd  # v3.15.0
+         with:
+@@ -351,3 +350,3 @@ jobs:
+       - name: Deploy marketing site to Cloudflare Pages (production)
+-        uses: cloudflare/wrangler-action@v3
++        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd  # v3.15.0
+         with:
+diff --git a/.github/workflows/prod-drift.yml b/.github/workflows/prod-drift.yml
+index a3e512b..487a1a7 100644
+--- a/.github/workflows/prod-drift.yml
++++ b/.github/workflows/prod-drift.yml
+@@ -11,4 +11,10 @@ on:
+ 
++permissions:
++  contents: read
++
+ jobs:
+   drift:
++    # Probes production; scheduled runs belong to upstream only (forks would
++    # poll basedagents.ai on a cron). Manual dispatch still works anywhere.
++    if: github.repository == 'maxfain/basedagents' || github.event_name == 'workflow_dispatch'
+     runs-on: ubuntu-latest
+@@ -16,4 +22,4 @@ jobs:
+     steps:
+-      - uses: actions/checkout@v4
+-      - uses: actions/setup-node@v4
++      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
++      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4.4.0
+         with:
+diff --git a/.github/workflows/publish.yml b/.github/workflows/publish.yml
+index 795fe4f..28909a0 100644
+--- a/.github/workflows/publish.yml
++++ b/.github/workflows/publish.yml
+@@ -30,2 +30,14 @@ on:
+   workflow_dispatch:
++    inputs:
++      dry_run:
++        description: 'Dry run: build and `npm publish --dry-run` / `twine check`, never write to a registry'
++        type: boolean
++        default: true
++
++# Hardening (supply-chain audit): actions pinned by commit SHA; npm pinned to an
++# exact version instead of npm@latest; and a DRY-RUN mode that is FORCED for any
++# repository other than maxfain/basedagents (forks can never write to a
++# registry, even if a trusted-publisher config were ever mis-scoped) and is the
++# default for manual dispatch. In dry-run every publish job runs end to end and
++# stops before the registry write.
+ 
+@@ -61,3 +73,13 @@ jobs:
+       python: ${{ steps.detect.outputs.python }}
++      dry_run: ${{ steps.mode.outputs.dry_run }}
+     steps:
++      - name: Publish mode
++        id: mode
++        env:
++          FORCED: ${{ github.repository != 'maxfain/basedagents' }}
++          ASKED: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
++        run: |
++          if [ "$FORCED" = "true" ] || [ "$ASKED" = "true" ]; then d=true; else d=false; fi
++          echo "dry_run=$d (forced for non-upstream repo: $FORCED, requested: $ASKED)"
++          echo "dry_run=$d" >> "$GITHUB_OUTPUT"
+       - name: Commit to publish
+@@ -76,3 +98,3 @@ jobs:
+           if [ "$n" = "0" ]; then echo "::error::CI has not passed on ${SHA}; not publishing"; exit 1; fi
+-      - uses: actions/checkout@v4
++      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
+         with:
+@@ -104,3 +126,3 @@ jobs:
+     needs: gate
+-    if: needs.gate.outputs.sdk == 'true' 
++    if: needs.gate.outputs.sdk == 'true' || needs.gate.outputs.dry_run == 'true' 
+     runs-on: ubuntu-latest
+@@ -112,6 +134,6 @@ jobs:
+     steps:
+-      - uses: actions/checkout@v4
++      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
+         with:
+           ref: ${{ needs.gate.outputs.sha }}
+-      - uses: actions/setup-node@v4
++      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4.4.0
+         with:
+@@ -119,6 +141,11 @@ jobs:
+           cache: npm
+-      - run: npm install -g npm@latest && npm --version
++      - if: needs.gate.outputs.dry_run != 'true'
++        run: npm install -g npm@11.21.0 && npm --version  # >= 11.5.1 for trusted publishing; exact pin, not @latest
+       - run: npm ci
+       - name: Publish if unpublished
++        if: needs.gate.outputs.dry_run != 'true'
+         run: scripts/publish-if-unpublished.sh packages/sdk
++      - name: Dry-run publish (no registry write)
++        if: needs.gate.outputs.dry_run == 'true'
++        run: npm publish --dry-run --workspace=packages/sdk
+ 
+@@ -127,3 +154,3 @@ jobs:
+     needs: gate
+-    if: needs.gate.outputs.mcp == 'true'
++    if: needs.gate.outputs.mcp == 'true' || needs.gate.outputs.dry_run == 'true'
+     runs-on: ubuntu-latest
+@@ -135,6 +162,6 @@ jobs:
+     steps:
+-      - uses: actions/checkout@v4
++      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
+         with:
+           ref: ${{ needs.gate.outputs.sha }}
+-      - uses: actions/setup-node@v4
++      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4.4.0
+         with:
+@@ -142,6 +169,11 @@ jobs:
+           cache: npm
+-      - run: npm install -g npm@latest && npm --version
++      - if: needs.gate.outputs.dry_run != 'true'
++        run: npm install -g npm@11.21.0 && npm --version  # >= 11.5.1 for trusted publishing; exact pin, not @latest
+       - run: npm ci
+       - name: Publish if unpublished
++        if: needs.gate.outputs.dry_run != 'true'
+         run: scripts/publish-if-unpublished.sh packages/mcp
++      - name: Dry-run publish (no registry write)
++        if: needs.gate.outputs.dry_run == 'true'
++        run: npm publish --dry-run --workspace=packages/mcp
+ 
+@@ -155,3 +187,4 @@ jobs:
+     if: >-
+-      always() && needs.gate.result == 'success' && needs.gate.outputs.registry == 'true' &&
++      always() && needs.gate.result == 'success' &&
++      (needs.gate.outputs.registry == 'true' || needs.gate.outputs.dry_run == 'true') &&
+       (needs.mcp.result == 'success' || needs.mcp.result == 'skipped')
+@@ -164,3 +197,3 @@ jobs:
+     steps:
+-      - uses: actions/checkout@v4
++      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
+         with:
+@@ -180,3 +213,7 @@ jobs:
+           fi
+-      - if: steps.check.outputs.publish == 'true'
++      - if: needs.gate.outputs.dry_run == 'true'
++        name: Dry run (no registry login, no publish)
++        run: |
++          jq -r '"would publish \(.name) \(.version) to the MCP Registry (dry run)"' packages/mcp/server.json
++      - if: steps.check.outputs.publish == 'true' && needs.gate.outputs.dry_run != 'true'
+         name: Publish server.json
+@@ -197,3 +234,3 @@ jobs:
+     needs: gate
+-    if: needs.gate.outputs.python == 'true'
++    if: needs.gate.outputs.python == 'true' || needs.gate.outputs.dry_run == 'true'
+     runs-on: ubuntu-latest
+@@ -205,6 +242,6 @@ jobs:
+     steps:
+-      - uses: actions/checkout@v4
++      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
+         with:
+           ref: ${{ needs.gate.outputs.sha }}
+-      - uses: actions/setup-python@v5
++      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065  # v5.6.0
+         with:
+@@ -222,6 +259,6 @@ jobs:
+           fi
+-      - if: steps.check.outputs.publish == 'true'
+-        run: python3 -m pip install --upgrade build && python3 -m build packages/python
+-      - if: steps.check.outputs.publish == 'true'
+-        uses: pypa/gh-action-pypi-publish@release/v1
++      - if: steps.check.outputs.publish == 'true' || needs.gate.outputs.dry_run == 'true'
++        run: python3 -m pip install build==1.2.2.post1 twine==6.1.0 && python3 -m build packages/python && python3 -m twine check packages/python/dist/*
++      - if: steps.check.outputs.publish == 'true' && needs.gate.outputs.dry_run != 'true'
++        uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33  # v1.14.2 (was branch release/v1)
+         with:
+diff --git a/.github/workflows/release.yml b/.github/workflows/release.yml
+index 49aca58..2d9162a 100644
+--- a/.github/workflows/release.yml
++++ b/.github/workflows/release.yml
+@@ -6,2 +6,15 @@
+ # workflow is safe to re-run.
++#
++# Hardening (supply-chain audit):
++#   - every action pinned to a full commit SHA (tag in the trailing comment);
++#   - least privilege: top-level permissions are empty, each job asks only for
++#     what it uses (package: read + OIDC/attestations; release: contents write);
++#   - a `package` job builds the npm + Python artifacts from the tagged commit
++#     with the lockfile (npm ci), packs them TWICE from clean builds and fails
++#     on any hash difference (reproducibility gate), runs `npm publish
++#     --dry-run` / `twine check` (never a real publish — real publishing stays
++#     in publish.yml behind trusted publishing), attests build provenance for
++#     the tarballs, and attaches them + SHA256SUMS to the GitHub Release;
++#   - pre-release tags (anything with a '-', e.g. v0.0.0-test.1) are published
++#     as GitHub pre-releases and never marked "latest".
+ name: Release
+@@ -22,10 +35,121 @@ on:
+ 
+-permissions:
+-  contents: write
++permissions: {}
++
++concurrency:
++  group: release-${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
++  cancel-in-progress: false
+ 
+ jobs:
++  package:
++    name: Build, reproducibility gate, dry-run publish, attest
++    runs-on: ubuntu-latest
++    timeout-minutes: 20
++    permissions:
++      contents: read
++      id-token: write      # OIDC for the Sigstore-backed provenance attestation
++      attestations: write  # store the attestation on this repository
++    steps:
++      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
++        with:
++          persist-credentials: false
++      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4.4.0
++        with:
++          node-version: 22
++          cache: npm
++      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065  # v5.6.0
++        with:
++          python-version: '3.12'
++      - name: Toolchain
++        run: node --version && npm --version && python3 --version
++      - name: Install (lockfile-exact)
++        run: npm ci
++      - name: Build + pack twice from clean builds (reproducibility gate)
++        run: |
++          set -euo pipefail
++          for run in 1 2; do
++            # Clean INCLUDING the composite build's tsbuildinfo: with a stale
++            # packages/sdk/tsconfig.tsbuildinfo, `tsc` treats the project as
++            # up to date, emits nothing, and npm packs a 4-file tarball with no
++            # dist/ (audit finding F1).
++            rm -rf packages/sdk/dist packages/mcp/dist packages/sdk/tsconfig.tsbuildinfo packages/mcp/tsconfig.tsbuildinfo
++            npm run build --workspace=packages/sdk
++            npm run build --workspace=packages/mcp
++            mkdir -p "dist-run$run"
++            npm pack --workspace=packages/sdk --workspace=packages/mcp --pack-destination "dist-run$run" --ignore-scripts >/dev/null
++            (cd "dist-run$run" && sha256sum -- *.tgz | sort -k2) > "run$run.sha256"
++            echo "run $run:"; cat "run$run.sha256"
++          done
++          # Content guard: the packed entry points must exist.
++          for f in dist-run1/basedagents-[0-9]*.tgz dist-run1/basedagents-mcp-[0-9]*.tgz; do
++            p=package/dist/index.js
++            [ -f "$f" ] || { echo "::error::expected tarball $f not found"; exit 1; }
++            listing=$(tar tzf "$f")  # whole listing first: `tar | grep -q` + pipefail = SIGPIPE false failure
++            grep -qx "$p" <<<"$listing" || { echo "::error::$f is missing $p"; exit 1; }
++            echo "$f contains $p ($(wc -l <<<"$listing") files)"
++          done
++          if diff -u run1.sha256 run2.sha256; then
++            echo "REPRODUCIBLE: run1 and run2 npm tarball hashes are identical"
++          else
++            echo "::error::npm tarballs differ between two clean builds"; exit 1
++          fi
++          mkdir -p release-artifacts && cp dist-run1/*.tgz release-artifacts/
++      - name: npm publish --dry-run (no registry write)
++        run: |
++          set -euo pipefail
++          for t in ./release-artifacts/*.tgz; do  # ./ prefix: a bare a/b.tgz is read as a GitHub shorthand
++            echo "::group::npm publish --dry-run $t"
++            npm publish "$t" --dry-run --ignore-scripts --access public
++            echo "::endgroup::"
++          done
++      - name: Python sdist/wheel twice + twine check (no upload)
++        env:
++          SOURCE_DATE_EPOCH: '315532800'
++        run: |
++          set -euo pipefail
++          python3 -m pip install --quiet build==1.2.2.post1 twine==6.1.0
++          for run in 1 2; do
++            rm -rf packages/python/build packages/python/*.egg-info
++            python3 -m build packages/python --outdir "py-run$run"
++            (cd "py-run$run" && sha256sum -- * | sort -k2) | tee "py-run$run.sha256"
++          done
++          if diff <(grep whl py-run1.sha256) <(grep whl py-run2.sha256); then echo "wheel: REPRODUCIBLE (byte-identical)"; else echo "::error::wheel differs between two clean builds"; exit 1; fi
++          if diff <(grep tar.gz py-run1.sha256) <(grep tar.gz py-run2.sha256); then
++            echo "sdist: byte-identical"
++          else
++            # setuptools' sdist ignores SOURCE_DATE_EPOCH for the gzip header and
++            # generated members (PKG-INFO, egg-info): compare CONTENT instead.
++            mkdir -p s1 s2 && tar xzf py-run1/*.tar.gz -C s1 && tar xzf py-run2/*.tar.gz -C s2
++            if diff -r s1 s2; then echo "sdist: NOT byte-identical (gzip/tar mtimes only) — file contents identical"; else echo "::error::sdist contents differ"; exit 1; fi
++          fi
++          python3 -m twine check py-run1/*
++          cp py-run1/* release-artifacts/
++      - name: SHA256SUMS
++        run: |
++          cd release-artifacts && sha256sum -- * | tee SHA256SUMS
++      - name: Attest build provenance
++        uses: actions/attest-build-provenance@e8998f949152b193b063cb0ec769d69d929409be  # v2.4.0
++        with:
++          subject-path: |
++            release-artifacts/*.tgz
++            release-artifacts/*.whl
++            release-artifacts/*.tar.gz
++      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # v4.6.2
++        with:
++          name: release-artifacts
++          path: release-artifacts/
++          if-no-files-found: error
++          retention-days: 30
++
+   release:
++    needs: package
+     runs-on: ubuntu-latest
++    timeout-minutes: 10
++    permissions:
++      contents: write  # create the tag (dispatch only) and the GitHub Release
+     steps:
+-      - uses: actions/checkout@v4
++      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
++      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093  # v4.3.0
++        with:
++          name: release-artifacts
++          path: release-artifacts
+       - name: Ensure the tag exists (dispatch only)
+@@ -53,12 +177,16 @@ jobs:
+           NOTES="docs/releases/${TAG}.md"
++          # A '-' in the tag (v1.2.3-rc.1, v0.0.0-test.1) means pre-release:
++          # published as such and never marked latest.
++          case "$TAG" in *-*) KIND=(--prerelease --latest=false);; *) KIND=(--latest);; esac
+           if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+             if [ -f "$NOTES" ]; then
+-              gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --title "$TITLE" --notes-file "$NOTES" --latest
++              gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --title "$TITLE" --notes-file "$NOTES" "${KIND[@]}"
+             else
+-              gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --title "$TITLE" --latest
++              gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --title "$TITLE" "${KIND[@]}"
+             fi
+           elif [ -f "$NOTES" ]; then
+-            gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --title "$TITLE" --notes-file "$NOTES" --latest --verify-tag
++            gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --title "$TITLE" --notes-file "$NOTES" "${KIND[@]}" --verify-tag
+           else
+-            gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --title "$TITLE" --generate-notes --latest --verify-tag
++            gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --title "$TITLE" --generate-notes "${KIND[@]}" --verify-tag
+           fi
++          gh release upload "$TAG" release-artifacts/* --repo "$GITHUB_REPOSITORY" --clobber
+-- 
+2.47.3
+
