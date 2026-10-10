@@ -139,7 +139,7 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - if: needs.gate.outputs.dry_run != 'true'
+      - name: Pin npm (runs on the dry-run path too, so the pin is exercised in forks)
         run: npm install -g npm@11.21.0 && npm --version  # >= 11.5.1 for trusted publishing; exact pin, not @latest
       - run: npm ci
       - name: Publish if unpublished
@@ -167,7 +167,7 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - if: needs.gate.outputs.dry_run != 'true'
+      - name: Pin npm (runs on the dry-run path too, so the pin is exercised in forks)
         run: npm install -g npm@11.21.0 && npm --version  # >= 11.5.1 for trusted publishing; exact pin, not @latest
       - run: npm ci
       - name: Publish if unpublished

@@ -1,0 +1,29 @@
+# Fork-only verification of audit fix F4: executes the publish.yml sdk/mcp dry-run
+# step sequence (pinned npm -> npm ci -> npm publish --dry-run). push trigger only,
+# contents: read, no id-token, no environment, no secrets. Never writes to a registry.
+name: Publish dry-run verify (F4)
+on:
+  push:
+    branches: [verify/f4-npm-pin]
+permissions:
+  contents: read
+jobs:
+  dryrun:
+    strategy:
+      matrix:
+        pkg: [packages/sdk, packages/mcp]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4.4.0
+        with:
+          node-version: 22
+          cache: npm
+      - name: Pin npm (same command as publish.yml)
+        run: npm install -g npm@11.21.0 && npm --version
+      - name: Assert npm is exactly 11.21.0
+        run: test "$(npm --version)" = "11.21.0"
+      - run: npm ci
+      - name: Dry-run publish (no registry write)
+        run: npm publish --dry-run --workspace=${{ matrix.pkg }}
