@@ -147,7 +147,12 @@ jobs:
         run: scripts/publish-if-unpublished.sh packages/sdk
       - name: Dry-run publish (no registry write)
         if: needs.gate.outputs.dry_run == 'true'
-        run: npm publish --dry-run --workspace=packages/sdk
+        # npm >= 11 refuses `publish --dry-run` over an already-published version (seen in the
+        # fork once the pin ran here), so dry-run a unique prerelease under a non-latest tag.
+        run: |
+          v=$(jq -r .version packages/sdk/package.json)-dryrun.${GITHUB_RUN_ID}.${GITHUB_RUN_ATTEMPT}
+          npm version --no-git-tag-version --workspace=packages/sdk "$v"
+          npm publish --dry-run --tag dryrun --workspace=packages/sdk
 
   mcp:
     name: npm @basedagents/mcp
@@ -175,7 +180,12 @@ jobs:
         run: scripts/publish-if-unpublished.sh packages/mcp
       - name: Dry-run publish (no registry write)
         if: needs.gate.outputs.dry_run == 'true'
-        run: npm publish --dry-run --workspace=packages/mcp
+        # npm >= 11 refuses `publish --dry-run` over an already-published version (seen in the
+        # fork once the pin ran here), so dry-run a unique prerelease under a non-latest tag.
+        run: |
+          v=$(jq -r .version packages/mcp/package.json)-dryrun.${GITHUB_RUN_ID}.${GITHUB_RUN_ATTEMPT}
+          npm version --no-git-tag-version --workspace=packages/mcp "$v"
+          npm publish --dry-run --tag dryrun --workspace=packages/mcp
 
   # The official MCP Registry (registry.modelcontextprotocol.io) lists what
   # packages/mcp/server.json says — its description comes from positioning.

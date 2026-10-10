@@ -26,4 +26,11 @@ jobs:
         run: test "$(npm --version)" = "11.21.0"
       - run: npm ci
       - name: Dry-run publish (no registry write)
-        run: npm publish --dry-run --workspace=${{ matrix.pkg }}
+        # npm >= 11 refuses `publish --dry-run` over an already-published version, so the
+        # dry run publishes a unique prerelease of the checked-in version under a non-latest tag.
+        env:
+          PKG: ${{ matrix.pkg }}
+        run: |
+          v=$(jq -r .version "$PKG/package.json")-dryrun.${GITHUB_RUN_ID}.${GITHUB_RUN_ATTEMPT}
+          npm version --no-git-tag-version --workspace="$PKG" "$v"
+          npm publish --dry-run --tag dryrun --workspace="$PKG"
